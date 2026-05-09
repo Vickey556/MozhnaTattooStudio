@@ -7,26 +7,18 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-[#73934A]/30 py-6">
-      <button
-        className="w-full flex justify-between items-center text-left focus:outline-none hover:text-[#6F892E] transition-colors group"
+    <div className="border-b border-[#EBEBDF]/30 py-4 md:py-6">
+      <button 
+        className="w-full flex justify-between items-center text-left focus:outline-none hover:text-[#EBEBDF]/70 transition-colors group"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-serif text-2xl uppercase tracking-wider">{question}</span>
-        <div className="w-8 h-8 flex items-center justify-center border border-[#73934A]/50 rounded-full group-hover:border-[#6F892E] transition-colors">
-          {isOpen ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          )}
+        <span className="font-serif text-lg md:text-xl uppercase tracking-widest text-[#EBEBDF]">{question}</span>
+        <div className="flex items-center justify-center text-[#EBEBDF] opacity-70 group-hover:opacity-100 transition-opacity">
+          <span className="text-4xl font-light leading-none -mt-1">{isOpen ? '−' : '+'}</span>
         </div>
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <p className="font-serif text-lg opacity-80 leading-relaxed whitespace-pre-line">{answer}</p>
+      <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <p className="font-serif text-base opacity-70 leading-relaxed whitespace-pre-line text-[#EBEBDF]">{answer}</p>
       </div>
     </div>
   );
@@ -61,7 +53,7 @@ export const TattooPage = () => {
         <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] relative">
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
             <image
-              href="/work (1).png"
+              href="/work.png"
               width="100"
               height="100"
               preserveAspectRatio="xMidYMid meet"
@@ -87,20 +79,30 @@ export const TattooPage = () => {
       </section>
 
       {/* Booking Block */}
-      <section className="py-24 px-4 bg-[#1A2E16] mb-32 border-y border-[#6F892E]/20">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl mb-6 uppercase tracking-widest text-[#EBEBDF]">ОНЛАЙН ЗАПИС ВІДКРИТО</h2>
-          <p className="text-xl md:text-2xl opacity-80 mb-12 uppercase tracking-wider text-[#6F892E]">ВСТИГНИ ЗАБРОНЮВАТИ СВІЙ СЕАНС</p>
-          <button onClick={openBooking} className="px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-lg rounded-full hover:bg-white hover:text-black transition-colors shadow-[0_0_30px_rgba(111,137,46,0.3)]">
+      <section className="pt-24 pb-0 px-4 mb-32 relative overflow-visible flex justify-center">
+        <div className="w-full max-w-[1000px] text-center flex flex-col items-center relative z-10">
+          <h2 className="text-3xl md:text-4xl mb-4 uppercase tracking-widest text-[#EBEBDF] font-serif">ОНЛАЙН ЗАПИС ВІДКРИТО</h2>
+          <p className="text-base md:text-lg opacity-90 mb-12 font-serif text-[#EBEBDF]">Встигни забронювати зручний для себе день та час!</p>
+          
+          {/* Arch image */}
+          <div className="relative w-[90%] md:w-[700px] aspect-[4/3] md:aspect-[3/2] mx-auto rounded-t-full overflow-hidden shadow-2xl bg-[#1A2E16]">
+            <img src="/booking.png" alt="Studio" className="w-full h-full object-cover" />
+          </div>
+
+          {/* Button overlapping the bottom */}
+          <button onClick={openBooking} className="relative z-20 -mt-8 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">
             ЗАПИСАТИСЯ ОНЛАЙН
           </button>
         </div>
       </section>
 
       {/* FAQ / How to Book */}
-      <section className="px-4 md:px-12 lg:px-24 max-w-5xl mx-auto mb-32">
-        <h2 className="text-4xl md:text-5xl mb-16 text-center uppercase tracking-wider">ЯК ЗАПИСАТИСЯ</h2>
-        <div className="flex flex-col">
+      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32 flex flex-col lg:flex-row gap-12 lg:gap-24">
+        <div className="lg:w-1/3 flex-shrink-0">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-left uppercase tracking-widest text-[#EBEBDF] font-serif">ЯК ЗАПИСАТИСЯ</h2>
+        </div>
+        
+        <div className="lg:w-2/3 flex flex-col border-t border-[#EBEBDF]/30">
           <FAQItem
             question="ГОЛОВНЕ"
             answer="Ми працюємо за попереднім записом. Консультація безкоштовна. Ми обговоримо ескіз, розмір та місце нанесення, після чого майстер зможе назвати точну вартість сеансу."
@@ -114,8 +116,16 @@ export const TattooPage = () => {
             answer="Мінімальна вартість сеансу — 1500 грн. Бронювання дати відбувається за передоплатою. Залишок суми оплачується після сеансу готівкою або переказом на карту."
           />
           <FAQItem
+            question="ПЕРЕНЕСЕННЯ ТА ВІДМІНА СЕАНСУ"
+            answer="Будь ласка, повідомляйте про зміну планів мінімум за 24 години. В такому випадку ми збережемо вашу передоплату для перенесення на наступний візит."
+          />
+          <FAQItem
             question="ПРОТИПОКАЗИ"
             answer="Татуювання не рекомендується робити при цукровому діабеті, епілепсії, захворюваннях крові, шкірних захворюваннях у стадії загострення, а також під час вагітності та лактації."
+          />
+          <FAQItem
+            question="ПІДГОТОВКА ДО СЕАНСУ"
+            answer="За 24 години до сеансу відмовтеся від алкоголю та енергетиків. Добре виспіться та щільно поїжте перед сеансом. Одягніть зручний одяг, що не перетискає та дає доступ до ділянки тіла, де буде тату."
           />
         </div>
       </section>
