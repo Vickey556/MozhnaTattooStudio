@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #122110;
+  --color-brand-green: #2B451A;
+  --color-brand-olive: #73934A;
+  --color-brand-light: #F0F4E8;
+  --color-brand-accent: #9FB870;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-dark);
+    color: var(--color-brand-light);
+    font-family: var(--font-serif);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Ваш основний колір, якщо картинка не провантажиться */
+    background-image: url('/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    /* Робить фон нерухомим при скролі */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+
+
+  .header-bg-complex {
+    background: linear-gradient(90deg, #d0debb 0%, #e4ecd0 30%, #e4ecd0 70%, #f2f7ca 100%);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .header-bg-complex::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-btn {
+    display: flex;
+    width: 370px;
+    max-width: 100%;
+    height: 60px;
+    padding: 7px 78px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 23px;
+    border: 1px solid #375B11;
+    background: var(--2, #6F892E);
+    box-shadow: 0 20px 50px -10px #000, 0 20px 35px 0 rgba(0, 0, 0, 0.15), 0 0 40px 0 rgba(255, 245, 85, 0.25) inset, 0 0 60px 0 #375B11 inset;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: overlay;
+  }
+
+  .hero-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  .about-heading {
+    color: #EBEBDF;
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 56px;
+  }
+
+  .about-text {
+    width: 100%;
+    max-width: 1080px;
+    color: #FFF;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .about-quote-right {
+    width: 100%;
+    max-width: 830px;
+    color: #FFF;
+    text-align: right;
+    font-family: "Playfair Display", serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39px;
+    margin-left: auto;
+  }
+
+  .about-signature {
+    color: #FFF;
+    text-align: right;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39px;
+  }
+
+  .about-snake-img {
+    width: 415px;
+    height: 815px;
+    max-width: 100%;
+    aspect-ratio: 103 / 183;
+    border-radius: 25px;
+    background: url('/snaketattoo.png') center / contain no-repeat;
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.master-plaque {
+  border-radius: 25px;
+  background: linear-gradient(180deg, #6F892E 18.63%, #041101 94.5%);
+  overflow: hidden;
+}
+
+.master-plaque::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  min-width: max-content;
+}
+
+.marquee-wrapper:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+
+.nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  opacity: 1;
+}
+
+.social-icons a {
+  color: white;
+  margin-left: 15px;
+  font-size: 25px;
+  opacity: 0.9;
+}
+
+/* 3D Flip Card Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.flip-card-container {
+  perspective: 1000px;
+}
+
+/* Star Clip Path */
+.star-clip-path {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Custom Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(3deg);
+  }
+
+  50% {
+    transform: rotate(-3deg);
+  }
+
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 4s ease-in-out infinite;
+  transform-origin: top center;
+}
