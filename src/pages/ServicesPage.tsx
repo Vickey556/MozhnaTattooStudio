@@ -131,7 +131,7 @@ export const ServicesPage = () => {
           ref={sliderRef}
           className="flex gap-6 overflow-x-auto pb-12 pt-4 hide-scrollbar snap-x snap-mandatory px-4 md:px-12 relative z-30"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.id}
               className="w-[280px] md:w-[320px] h-[450px] md:h-[480px] flex-shrink-0 snap-center cursor-pointer group perspective-1000"
