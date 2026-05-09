@@ -1,0 +1,56 @@
+name: Deploy to GitHub Pages
+
+# 1. ТРИГЕРИ (Коли запускається пайплайн)
+on:
+  push:
+    branches:
+      - main # Пайплайн запускається автоматично при кожному пуші в гілку main
+  workflow_dispatch: # Дозволяє запустити деплой вручну з інтерфейсу GitHub
+
+# 2. ДОЗВОЛИ (Налаштування прав доступу для вбудованого токена)
+permissions:
+  contents: read # Дозвіл на читання коду репозиторію
+  pages: write   # Дозвіл на запис у GitHub Pages
+  id-token: write # Дозвіл на безпечну автентифікацію (OIDC)
+
+# 3. ПАРАЛЕЛЬНІСТЬ (Запобігає конфліктам, якщо було кілька пушів поспіль)
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # 4. РОБОТА: ЗБІРКА (Build)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Клонує код з репозиторію на віртуальну машину
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4 # Встановлює Node.js середовище
+        with:
+          node-version: 20
+          cache: 'npm' # Кешує залежності для пришвидшення наступних збірок
+
+      - name: Install dependencies
+        run: npm ci # Встановлює залежності точно за файлом package-lock.json
+
+      - name: Build project
+        run: npm run build # Збирає Vite-додаток у папку /dist
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3 # Пакує зібраний код (папку dist) для передачі на наступний етап
+        with:
+          path: './dist'
+
+  # 5. РОБОТА: ДЕПЛОЙ (Deploy)
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Генерує фінальне посилання на ваш сайт
+    runs-on: ubuntu-latest
+    needs: build # Ця робота запуститься лише після успішного завершення 'build'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # Бере збережений артефакт і розгортає його на серверах GitHub Pages
