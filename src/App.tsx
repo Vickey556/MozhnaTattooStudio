@@ -32,11 +32,10 @@ const ScrollHandler = () => {
 function App() {
   return (
     <BookingProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ScrollHandler />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/Mozhna-Tattoo/" element={<HomePage />} />
             <Route index element={<HomePage />} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="tattoo" element={<TattooPage />} />
