@@ -26,7 +26,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
         <p className="font-serif text-xl md:text-2xl mb-4 opacity-90">Студія татуювання та пірсингу</p>
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 tracking-wider">
+        <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[150px] xl:text-[200px] mb-6 tracking-wider leading-none">
           «МОЖНА ТАТУ»
         </h1>
         <p className="font-serif italic text-xl md:text-2xl mb-16 opacity-80">

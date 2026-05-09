@@ -50,14 +50,14 @@ export const PiercingPage = () => {
     <div className="pt-32 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
       
       {/* Hero Section */}
-      <h1 className="text-5xl md:text-7xl lg:text-[100px] text-center uppercase tracking-wider mb-20 md:mb-32">ПІРСИНГ</h1>
+      <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] text-center uppercase tracking-wider mb-20 md:mb-32">ПІРСИНГ</h1>
 
       {/* Piercing Types Block */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32">
         <h2 className="text-4xl md:text-5xl mb-16 text-center uppercase tracking-wider">ВИДИ ПРОКОЛІВ</h2>
         <div className="relative w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-24">
            {/* Left Labels */}
-           <div className="flex flex-col gap-8 md:gap-16 w-full md:w-auto text-center md:text-right">
+           <div className="flex flex-row md:flex-col flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 w-full md:w-auto text-center md:text-right">
               <div className="group">
                  <p className="text-2xl text-[#6F892E] uppercase tracking-wider mb-1">HELIX</p>
                  <p className="text-xl opacity-80">500 грн</p>
@@ -73,12 +73,12 @@ export const PiercingPage = () => {
            </div>
 
            {/* Central 3D Model Image */}
-           <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] relative z-10 flex-shrink-0">
+           <div className="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] relative z-10 flex-shrink-0 my-4 md:my-0">
              <img src="/piercing.png" alt="3D Piercing Model" className="w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(111,137,46,0.3)]" />
            </div>
 
            {/* Right Labels */}
-           <div className="flex flex-col gap-8 md:gap-16 w-full md:w-auto text-center md:text-left">
+           <div className="flex flex-row md:flex-col flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 w-full md:w-auto text-center md:text-left">
               <div className="group">
                  <p className="text-2xl text-[#6F892E] uppercase tracking-wider mb-1">NOSTRIL</p>
                  <p className="text-xl opacity-80">450 грн</p>

@@ -167,7 +167,7 @@ export const ServicesPage = () => {
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-16 pl-0 md:pl-12">
 
               {/* Контейнер зірки */}
-              <div className="relative flex items-center justify-center w-[350px] h-[350px] md:w-[480px] md:h-[480px]">
+              <div className="relative flex items-center justify-center w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[480px] md:h-[480px]">
 
                 {/* НИТКА: Товстіша (w-[3px]), висока (h-[2000px]), відцентрована (left-1/2 -translate-x-1/2) і схована під картки (z-[-1]) */}
                 <div className="absolute bottom-1/2 left-1/2 -translate-x-1 w-[3px] h-[2000px] bg-[#375B11]/60 z-[-1]"></div>
@@ -204,7 +204,7 @@ export const ServicesPage = () => {
               </div>
 
               {/* Контейнер зірки */}
-              <div className="relative flex items-center justify-center w-[350px] h-[350px] md:w-[480px] md:h-[480px]">
+              <div className="relative flex items-center justify-center w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[480px] md:h-[480px]">
 
                 {/* НИТКА: Товстіша (w-[3px]), висока (h-[2000px]), відцентрована (left-1/2 -translate-x-1/2) і схована під картки (z-[-1]) */}
                 <div className="absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[3px] h-[2000px] bg-[#375B11]/60 z-[-1]"></div>

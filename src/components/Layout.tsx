@@ -19,28 +19,65 @@ const Logo = () => (
   <img src="mozhna%20logo.svg" alt="Можна Тату Логотип" className="h-12 w-auto" />
 );
 
-// Header Component
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1780px] h-[70px] px-8 rounded-[35px] flex items-center justify-between bg-white/5 backdrop-blur-md border border-white/10 shadow-xl">
-      <div className="flex items-center gap-4 text-white">
-        <Link to="/"><Logo /></Link>
+    <>
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1780px] h-[70px] px-6 lg:px-8 rounded-[35px] flex items-center justify-between bg-white/5 backdrop-blur-md border border-white/10 shadow-xl">
+        <div className="flex items-center gap-4 text-white">
+          <Link to="/" onClick={closeMenu}><Logo /></Link>
+        </div>
+        
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex nav-menu font-serif uppercase items-center gap-8 text-sm">
+          <Link to="/#about">Про нас</Link>
+          <Link to="/services">Послуги</Link>
+          <Link to="/tattoo">Татуювання</Link>
+          <Link to="/piercing">Пірсинг</Link>
+          <Link to="/artists">Майстри</Link>
+          <Link to="/#reviews">Відгуки</Link>
+          <a href="#contacts">Контакти</a>
+        </nav>
+        
+        <div className="hidden lg:flex items-center social-icons gap-4">
+          <a href="#"><TelegramIcon /></a>
+          <a href="#"><InstagramIcon /></a>
+          <a href="#"><PhoneIcon /></a>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <button 
+          className="lg:hidden flex flex-col gap-[6px] p-2 focus:outline-none z-[60]"
+          onClick={toggleMenu}
+        >
+          <span className={`block w-6 h-[2px] bg-white transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+          <span className={`block w-6 h-[2px] bg-white transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-6 h-[2px] bg-white transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
+        </button>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-[#0a1208]/95 backdrop-blur-xl z-[40] transition-opacity duration-300 lg:hidden flex flex-col items-center justify-center ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <nav className="flex flex-col items-center gap-8 font-serif uppercase tracking-widest text-2xl text-[#EBEBDF]">
+          <Link to="/#about" onClick={closeMenu}>Про нас</Link>
+          <Link to="/services" onClick={closeMenu}>Послуги</Link>
+          <Link to="/tattoo" onClick={closeMenu}>Татуювання</Link>
+          <Link to="/piercing" onClick={closeMenu}>Пірсинг</Link>
+          <Link to="/artists" onClick={closeMenu}>Майстри</Link>
+          <Link to="/#reviews" onClick={closeMenu}>Відгуки</Link>
+          <a href="#contacts" onClick={closeMenu}>Контакти</a>
+        </nav>
+        <div className="flex items-center gap-8 mt-12">
+          <a href="#" className="scale-125"><TelegramIcon /></a>
+          <a href="#" className="scale-125"><InstagramIcon /></a>
+          <a href="#" className="scale-125"><PhoneIcon /></a>
+        </div>
       </div>
-      <nav className="hidden lg:flex nav-menu font-serif uppercase">
-        <Link to="/#about">Про нас</Link>
-        <Link to="/services">Послуги</Link>
-        <Link to="/tattoo">Татуювання</Link>
-        <Link to="/piercing">Пірсинг</Link>
-        <Link to="/artists">Майстри</Link>
-        <Link to="/#reviews">Відгуки</Link>
-        <a href="#contacts">Контакти</a>
-      </nav>
-      <div className="flex items-center social-icons">
-        <a href="#"><TelegramIcon /></a>
-        <a href="#"><InstagramIcon /></a>
-        <a href="#"><PhoneIcon /></a>
-      </div>
-    </header>
+    </>
   );
 };
 
@@ -51,7 +88,7 @@ const ContactsFooter = () => {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 justify-between relative z-10">
 
         {/* Contact Info */}
-        <div className="flex flex-col gap-12 lg:w-1/3 pt-8">
+        <div className="flex flex-col gap-10 lg:w-1/3 pt-8 items-center lg:items-start text-center lg:text-left">
           <div className="flex flex-col gap-2">
             <h4 className="text-sm tracking-widest uppercase mb-2">Адреса</h4>
             <p className="text-sm opacity-90">м. Черкаси, вул. Байди Вишневецького,</p>
@@ -63,7 +100,7 @@ const ContactsFooter = () => {
             <p className="text-sm opacity-90">З 10:00 до 19:00 кожного дня</p>
           </div>
 
-          <div className="flex items-center gap-4 mt-8">
+          <div className="flex items-center gap-4 mt-4">
             <a href="#" className="p-3 bg-white text-black rounded-full hover:bg-[#6F892E] hover:text-white transition-colors">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/>

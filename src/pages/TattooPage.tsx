@@ -58,7 +58,7 @@ export const TattooPage = () => {
 
         {/* Ліва частина - Зображення (прибрано md:justify-start) */}
         {/* Irregular Star Mask */}
-        <div className="w-[350px] h-[350px] md:w-[500px] md:h-[500px] relative">
+        <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] relative">
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
             <image
               href="/work (1).png"
