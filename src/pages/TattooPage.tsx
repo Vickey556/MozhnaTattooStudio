@@ -1,5 +1,4 @@
 import { useBooking } from '../context/BookingContext';
-import { Link } from 'react-router-dom';
 import { ReviewsSection } from './HomePage';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
