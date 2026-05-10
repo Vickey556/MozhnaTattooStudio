@@ -1,5 +1,5 @@
 import { useBooking } from '../context/BookingContext';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReviewsSection } from './HomePage';
 import { FAQItem } from '../components/FAQItem';
