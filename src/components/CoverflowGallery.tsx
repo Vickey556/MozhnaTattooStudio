@@ -25,8 +25,8 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
   const [activeCategory, setActiveCategory] = useState('Всі стилі');
   const { openBooking } = useBooking();
 
-  const filteredItems = activeCategory === 'Всі стилі' 
-    ? items 
+  const filteredItems = activeCategory === 'Всі стилі'
+    ? items
     : items.filter(item => item.category === activeCategory);
 
   const handleCategoryChange = (cat: string) => {
@@ -54,24 +54,21 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
 
   return (
     <div className="w-full max-w-[1400px] mx-auto py-12 flex flex-col items-center">
-      
+
       {/* Header & Filter */}
       <div className="w-full relative flex justify-center mb-16">
         {/* Title positioned behind/above filters */}
-        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl md:text-5xl uppercase tracking-widest text-[#EBEBDF] font-serif hidden lg:block opacity-30 z-0">
-          ПОРТФОЛІО
-        </h2>
-        
-        <div className="bg-[#5B6D36]/80 backdrop-blur-md rounded-full p-2 flex flex-wrap justify-center gap-2 md:gap-4 shadow-xl border border-white/20 relative z-10 w-full max-w-[95%] md:max-w-[80%] lg:max-w-none">
+
+
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl rounded-full p-2 flex flex-wrap justify-center gap-2 md:gap-4 shadow-xl border border-white/20 relative z-10 w-full max-w-[95%] md:max-w-[80%] lg:max-w-none">
           {categories.map((cat) => (
-            <button 
+            <button
               key={cat}
               onClick={() => handleCategoryChange(cat)}
-              className={`px-4 md:px-8 py-2 md:py-3 rounded-full font-serif text-xs md:text-sm tracking-widest uppercase transition-all border ${
-                activeCategory === cat 
-                ? 'border-white/60 bg-white/10 text-white' 
+              className={`px-4 md:px-8 py-2 md:py-3 rounded-full font-serif text-xs md:text-sm tracking-widest uppercase transition-all border ${activeCategory === cat
+                ? 'border-white/60 bg-white/10 text-white'
                 : 'border-transparent text-[#EBEBDF]/70 hover:text-white hover:border-white/30'
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -80,7 +77,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
       </div>
 
       {/* 3D Carousel */}
-      <div 
+      <div
         className="relative w-full h-[350px] md:h-[550px] flex justify-center items-center mb-16"
         style={{ perspective: '1200px' }}
       >
@@ -91,7 +88,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
         {filteredItems.map((item, index) => {
           const offset = index - activeIndex;
           const absOffset = Math.abs(offset);
-          
+
           if (absOffset > 2) return null; // Render only nearby items
 
           // Adjust translateX and rotation for mobile
@@ -103,7 +100,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
           const zIndex = 10 - absOffset;
 
           return (
-            <div 
+            <div
               key={item.id}
               className="absolute top-0 w-[260px] md:w-[450px] h-full rounded-[30px] overflow-hidden transition-all duration-700 ease-out shadow-2xl cursor-pointer border border-[#EBEBDF]/10"
               style={{
@@ -120,7 +117,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
                   <span className="text-[#EBEBDF]/30 font-serif text-sm">Фото відсутнє</span>
                 </div>
               )}
-              
+
               {/* Only show text on active item */}
               <div className={`absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-[#0a1208] via-[#0a1208]/80 to-transparent transition-opacity duration-500 ${offset === 0 ? 'opacity-100' : 'opacity-0'}`}>
                 <h3 className="text-[#EBEBDF] font-serif text-lg md:text-xl uppercase tracking-widest mb-1">{item.title}</h3>
@@ -134,19 +131,19 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
         {/* Navigation Arrows */}
         {activeIndex > 0 && (
           <button onClick={prev} className="absolute left-2 md:left-24 lg:left-32 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md bg-black/20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
         )}
         {activeIndex < filteredItems.length - 1 && (
           <button onClick={next} className="absolute right-2 md:right-24 lg:right-32 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md bg-black/20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 18l6-6-6-6"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 18l6-6-6-6" /></svg>
           </button>
         )}
       </div>
 
       {/* Artist Info Block */}
       {currentItem && currentItem.artist && (
-        <div className="bg-[#5B6D36]/80 backdrop-blur-md rounded-[40px] py-4 px-6 md:px-8 flex items-center gap-4 md:gap-6 shadow-2xl border border-white/20 w-[95%] max-w-[700px]">
+        <div className="bg-white/5 backdrop-blur-md rounded-[40px] py-4 px-6 md:px-8 flex items-center gap-4 md:gap-6 shadow-2xl border border-white/20 w-[95%] max-w-[700px]">
           <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden flex-shrink-0 relative border border-white/30">
             {currentItem.artist.image ? (
               <img src={currentItem.artist.image} alt={currentItem.artist.name} className="w-full h-full object-cover" />

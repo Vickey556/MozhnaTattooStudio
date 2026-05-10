@@ -5,7 +5,7 @@ export const masters = [
     id: 'nadiya-mozhaieva',
     name: "НАДІЯ МОЖАЄВА",
     specs: "Татуювання, пірсинг, навчання, арт сеанс",
-    image: "/Можаєва Надія.png",
+    image: "/Mozhaeva.jpg",
     experience: "7 років",
     price: "від 2000 грн",
     inst: "@mozhaieva_tattoo"
@@ -14,7 +14,7 @@ export const masters = [
     id: 'viktoria-teliatnyk',
     name: "ТЕЛЯТНИК ВІКТОРІЯ",
     specs: "Татуювання",
-    image: "/Телятник Вікторія.png",
+    image: "/Teliatnyk.jpg",
     experience: "4 роки",
     price: "від 1500 грн",
     inst: "@teliatnyk.tattoo"
@@ -23,7 +23,7 @@ export const masters = [
     id: 'anna-vovna',
     name: "ВОВНА АННА",
     specs: "Татуювання, навчання, арт-сеанс",
-    image: "/Вовна Анна.png",
+    image: "/Vovna.jpg",
     experience: "5 років",
     price: "від 1500 грн",
     inst: "@vovna.tattoo"
@@ -32,7 +32,7 @@ export const masters = [
     id: 'anastasia-starynets',
     name: "АНАСТАСІЯ СТАРИНЕЦЬ",
     specs: "Пірсинг, навчання",
-    image: "/tattoo_artist_1_1777048808245.png",
+    image: "Starinets.jpg",
     experience: "3 роки",
     price: "від 500 грн",
     inst: "@starynets_piercing"
@@ -61,11 +61,11 @@ export const ArtistsPage = () => {
   return (
     <div className="pt-32 pb-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto min-h-screen">
       <h1 className="font-serif text-5xl md:text-7xl mb-16 text-center uppercase">Наші Майстри</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {masters.map((master) => (
-          <Link 
-            key={master.id} 
+          <Link
+            key={master.id}
             to={`/artists/${master.id}`}
             className="flex flex-col items-center group cursor-pointer w-full relative outline-none"
           >
