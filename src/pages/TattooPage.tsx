@@ -4,6 +4,7 @@ import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 import type { GalleryItem } from '../components/CoverflowGallery';
 
+
 const tattooWorks: GalleryItem[] = [
   {
     id: '1',
@@ -13,9 +14,9 @@ const tattooWorks: GalleryItem[] = [
     date: 'Травень 2024',
     category: 'Графіка',
     artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер графіки та мінімалізму',
-      image: 'Можаєва Надія.png'
+      name: 'Вікторія Телятник',
+      description: 'Майстер татуювання',
+      image: '/Teliatnyk.jpg'
     }
   },
   {
@@ -24,11 +25,11 @@ const tattooWorks: GalleryItem[] = [
     title: 'КВІТУЧА САКУРА',
     description: 'Ніжне татуювання з гілочкою сакури в стилі мінімалізм.',
     date: 'Квітень 2024',
-    category: 'Мінімалізм',
+    category: 'Графіка',
     artist: {
       name: 'Анна Вовна',
-      description: 'Спеціаліст з кольорових робіт',
-      image: 'Вовна Анна.png'
+      description: 'Майстер татуювання',
+      image: '/Vovna.jpg'
     }
   },
   {
@@ -37,11 +38,11 @@ const tattooWorks: GalleryItem[] = [
     title: 'СТРАХ І ХАОС',
     description: 'Емоційна робота в темному стилі, що поєднує графіку та реалізм.',
     date: 'Березень 2024',
-    category: 'Реалізм',
+    category: 'Графіка',
     artist: {
-      name: 'Вікторія Телятник',
-      description: 'Майстер чорно-білого реалізму',
-      image: 'Телятник Вікторія.png'
+      name: 'Анна Вовна',
+      description: 'Майстер татуювання',
+      image: '/Vovna.jpg'
     }
   },
   {
@@ -52,9 +53,9 @@ const tattooWorks: GalleryItem[] = [
     date: 'Січень 2024',
     category: 'Графіка',
     artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер графіки та мінімалізму',
-      image: 'Можаєва Надія.png'
+      name: 'Анна Вовна',
+      description: 'Майстер татуювання',
+      image: '/Vovna.jpg'
     }
   },
   {
@@ -65,9 +66,9 @@ const tattooWorks: GalleryItem[] = [
     date: 'Лютий 2024',
     category: 'Олдскул',
     artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер графіки та мінімалізму',
-      image: 'Можаєва Надія.png'
+      name: 'Віталіна Шум',
+      description: 'Майстер татуювання',
+      image: 'Shum.jpg'
     }
   }
 ];

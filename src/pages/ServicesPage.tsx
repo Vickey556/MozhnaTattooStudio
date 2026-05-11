@@ -9,7 +9,7 @@ const services = [
     image: 'https://lh3.googleusercontent.com/p/AF1QipPCZJaIoFIifoLuuIa-dkMM-N95dPZGAbROlnEF=s1360-w1360-h1020-rw',
     prices: [
       { label: "Консультація", value: "0 грн" },
-      { label: "Татуювання", value: "від 1500 грн" },
+      { label: "Мінімалістичні татуювання до 10 см", value: "від 1500 грн" },
       { label: "Сеанс", value: "6000 грн" }
     ],
     desc: 'Художнє татуювання в будь-якому стилі. Розробка індивідуального ескізу або робота за вашою ідеєю.',
@@ -20,8 +20,8 @@ const services = [
     title: 'ПІРСИНГ',
     image: 'https://lh3.googleusercontent.com/p/AF1QipN3EmXKR8S4v_k0Ng9QNpr1cc20GGEbyBt9DEjc=s1360-w1360-h1020-rw',
     prices: [
-      { label: "Мочка вуха", value: "від 500 грн" },
-      { label: "Хрящ", value: "від 700 грн" },
+      { label: "Консультація з пірсингу, лікування проколу, заміна прикраси", value: "200 грн" },
+      { label: "Пірсинг", value: "від 300 грн" },
       { label: "Складний пірсинг", value: "від 1000 грн" }
     ],
     desc: 'Професійний прокол з використанням стерильних титанових прикрас. Безпечно та естетично.',
@@ -32,9 +32,10 @@ const services = [
     title: 'КУРСИ ТАТУ МАЙСТРА',
     image: 'https://lh3.googleusercontent.com/p/AF1QipOBTGNXgPkzhLM8tSalF_iEeW6mhiAQORNfo4N8=s1360-w1360-h1020-rw',
     prices: [
-      { label: "Базовий курс", value: "від 10000 грн" }
+      { label: "Базовий курс", value: "15000 грн" },
+      { label: "Стандартний курс", value: "30000 грн" }
     ],
-    desc: 'Базовий курс татуювання та пірсингу. Теорія та багато практики на моделях.',
+    desc: 'Навчання на тату майстра. Теорія та багато практики на моделях.',
     link: null
   },
   {
@@ -42,9 +43,9 @@ const services = [
     title: 'АРТ-СЕАНС',
     image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHqKxMS5_LMmQmQe4fLWWmArd1zXxhu2dyf2W_xE6DS4PBgRLbGcKWgEQ9b7c7LrbUotvr0w2SKaLKPgsZnkXR2q1Mm5rO3jB2JWa12G8YVhcJ4RAeQvUgam0vUPJ-zEocT6g0oR--HXVIP=s1360-w1360-h1020-rw',
     prices: [
-      { label: "Фріхенд сеанс", value: "від 2000 грн" }
+      { label: "Арт-сеанс", value: "3000 грн" }
     ],
-    desc: 'Сеанс татуювання в режимі фріхенд, коли майстер малює прямо на шкірі, довіряючись потоку.',
+    desc: 'Арт сеанс — це одне практичне заняття, яке допоможе тобі зрозуміти, чи підходить тобі професія тату майстра.',
     link: null
   },
   {
@@ -52,7 +53,9 @@ const services = [
     title: 'ПЕРМАНЕНТНИЙ МАКІЯЖ',
     image: 'https://lh3.googleusercontent.com/p/AF1QipPUPM3hpfhds9ACgHyYn8Yu4-xzaoCqesdbAN9w=s1360-w1360-h1020-rw',
     prices: [
-      { label: "Брови/Губи", value: "від 1500 грн" }
+      { label: "Міжвійка", value: "1500 грн" },
+      { label: "Брови", value: "2000 грн" },
+      { label: "Губи", value: "2000 грн" }
     ],
     desc: 'Брови, губи, міжвійка. Природній вигляд та стійкий результат на роки.',
     link: null

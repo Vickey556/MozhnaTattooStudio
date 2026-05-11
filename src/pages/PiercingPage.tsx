@@ -1,6 +1,5 @@
 import { useBooking } from '../context/BookingContext';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ReviewsSection } from './HomePage';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
@@ -54,10 +53,24 @@ export const PiercingPage = () => {
   const { openBooking } = useBooking(); const [selectedType, setSelectedType] = useState(0);
 
   const piercingTypes = [
-    { name: "Helix", price: "500", top: "22%", left: "65%", desc: "Прокол верхньої частини хряща вушної раковини." },
-    { name: "Septum", price: "450", top: "48%", left: "50%", desc: "Прокол центральної перегородки носа." },
-    { name: "Nostril", price: "450", top: "45%", left: "55%", desc: "Класичний прокол крила носа." },
-    // ... інші проколи
+    { name: "Мочка вуха", price: "300", top: "82%", left: "70%", desc: "Найпопулярніший і класичний вид пірсингу, який заживає найшвидше." },
+    { name: "Крило носа", price: "450", top: "45%", left: "58%", desc: "Класичний прокол ніздрі (Nostril), виглядає дуже ніжно з маленьким камінчиком." },
+    { name: "Септум", price: "450", top: "48%", left: "50%", desc: "Прокол центральної перегородки носа, який за потреби можна сховати." },
+    { name: "Хелікс", price: "500", top: "25%", left: "72%", desc: "Прокол верхньої частини хряща вушної раковини." },
+    { name: "Флет", price: "500", top: "30%", left: "62%", desc: "Плаский прокол внутрішнього хряща вуха, ідеально для красивих прикрас-кластерів." },
+    { name: "Трагус", price: "500", top: "52%", left: "63%", desc: "Прокол козелка вуха — невеликого виступу перед вушним каналом." },
+    { name: "Конч", price: "500", top: "55%", left: "67%", desc: "Прокол центральної частини вушної раковини (чаші)." },
+    { name: "Руук", price: "550", top: "38%", left: "62%", desc: "Вертикальний прокол внутрішнього хряща вуха над козелком." },
+    { name: "Дейз", price: "550", top: "48%", left: "61%", desc: "Прокол самого внутрішнього хряща, який знаходиться над слуховим каналом." },
+    { name: "Брова", price: "550", top: "18%", left: "40%", desc: "Вертикальний або горизонтальний прокол бровної дуги." },
+    { name: "Губа", price: "550", top: "65%", left: "44%", desc: "Будь-який вид проколу навколо рота (Лабрет, Монро, Медуза)." },
+    { name: "Смайл", price: "550", top: "60%", left: "50%", desc: "Прокол вуздечки під верхньою губою, який видно лише при посмішці." },
+    { name: "Язик", price: "600", top: "62%", left: "50%", desc: "Класичний вертикальний прокол язика — швидко заживає та не заважає." },
+    { name: "Пуп", price: "600", top: "90%", left: "50%", desc: "Класичний пірсинг живота, що підкреслює фігуру." },
+    { name: "Брідж", price: "600", top: "32%", left: "50%", desc: "Горизонтальний прокол перенісся на рівні очей." },
+    { name: "Індастріал", price: "700", top: "22%", left: "68%", desc: "Подвійний прокол хряща вуха, з'єднаний однією довгою штангою." },
+    { name: "Сосок", price: "700", top: "85%", left: "40%", desc: "Горизонтальний або вертикальний прокол, виконується максимально безпечно." },
+    { name: "Мікродермал", price: "1200", top: "55%", left: "30%", desc: "Внутрішньошкірна імплантація прикраси на будь-якій частині тіла." }
   ];
 
   // У рендері:
@@ -185,33 +198,6 @@ export const PiercingPage = () => {
         </div>
       </section>
 
-      {/* Masters Section */}
-      <section className="py-24 px-4 bg-[#1A2E16] border-y border-[#6F892E]/20 mb-32">
-        <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2 flex justify-center">
-            <div className="w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full overflow-hidden border-2 border-[#6F892E]/50 relative p-4">
-              <div className="w-full h-full rounded-full overflow-hidden">
-                <img src="/tattoo_artist_1_1777048808245.png" alt="Анастасія Старинець" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-          <div className="lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
-            <h2 className="text-4xl md:text-5xl mb-4 uppercase tracking-wider text-[#6F892E]">АНАСТАСІЯ СТАРИНЕЦЬ</h2>
-            <p className="text-xl uppercase tracking-widest opacity-80 mb-8">Майстер пірсингу</p>
-            <p className="text-lg opacity-80 mb-12 leading-relaxed max-w-xl">
-              Безпечний та професійний пірсинг. Використовує лише високоякісний титан. Допоможе обрати ідеальну прикрасу та забезпечить комфортне загоєння проколу.
-            </p>
-            <div className="flex gap-6">
-              <button onClick={openBooking} className="px-8 py-4 bg-[#6F892E] text-[#122110] uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-colors">
-                Записатися
-              </button>
-              <Link to="/artists" className="px-8 py-4 border border-[#6F892E] text-[#6F892E] uppercase tracking-widest rounded-full hover:bg-[#6F892E] hover:text-[#122110] transition-colors">
-                Портфоліо
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Reviews */}
       <ReviewsSection />

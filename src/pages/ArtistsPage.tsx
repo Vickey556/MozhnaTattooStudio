@@ -32,7 +32,7 @@ export const masters = [
     id: 'anastasia-starynets',
     name: "АНАСТАСІЯ СТАРИНЕЦЬ",
     specs: "Пірсинг, навчання",
-    image: "Starinets.jpg",
+    image: "/Starinets.jpg",
     experience: "3 роки",
     price: "від 500 грн",
     inst: "@starynets_piercing"
