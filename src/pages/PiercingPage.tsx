@@ -51,7 +51,7 @@ const piercingWorks: GalleryItem[] = [
 const filters = ['Всі стилі', 'Вуха', 'Ніс', 'Губи', 'Мікродермали', 'Брови'];
 
 export const PiercingPage = () => {
-  const { openBooking } = useBooking(); const [selectedType, setSelectedType] = useState(0);
+  const { openBooking } = useBooking(); const [] = useState(0);
   <div>
     {/* 3D Piercing Viewer Block */}
     <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32 pt-12">
