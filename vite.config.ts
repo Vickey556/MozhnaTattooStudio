@@ -5,5 +5,5 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   // Вкажіть точну назву вашого репозиторію на GitHub (наприклад, /MozhnaTattoo/)
-  base: '/MozhnaTattoo/',
+  base: '/MozhnaTattooStudio/',
 })

@@ -20,7 +20,7 @@
     padding: 0;
     overflow-x: hidden;
     /* Ваш основний колір, якщо картинка не провантажиться */
-    background-image: url('/MozhnaTattoo/background.jpg');
+    background-image: url('/MozhnaTattooStudio/background.jpg');
     background-size: cover;
     background-attachment: fixed;
     /* Робить фон нерухомим при скролі */
@@ -142,7 +142,7 @@
     max-width: 100%;
     aspect-ratio: 103 / 183;
     border-radius: 25px;
-    background: url('/MozhnaTattoo/snaketattoo.png') center / contain no-repeat;
+    background: url('/MozhnaTattooStudio/snaketattoo.png') center / contain no-repeat;
   }
 }
 

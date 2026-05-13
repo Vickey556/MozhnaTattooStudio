@@ -2,7 +2,7 @@
   "name": "tattoo-mozhna",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Vickey556.github.io/MozhnaTattoo",
+  "homepage": "https://Vickey556.github.io/MozhnaTattooStudio",
   "type": "module",
   "scripts": {
     "dev": "vite",
