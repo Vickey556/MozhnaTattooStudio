@@ -6,4 +6,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   // Вкажіть точну назву вашого репозиторію на GitHub (наприклад, /MozhnaTattoo/)
   base: '/MozhnaTattooStudio/',
+  build: {
+    chunkSizeWarningLimit: 2000,
+  }
 })
