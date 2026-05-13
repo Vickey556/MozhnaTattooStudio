@@ -1,63 +1,183 @@
 import React, { useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useFBX, Environment, ContactShadows, Html } from '@react-three/drei';
+import { useFBX, Environment, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Define the piercing types data
 export const piercingTypesData = [
+  // ВУШНІ ПРОКОЛИ (ПРАВЕ ВУХО ДЛЯ ПРИКЛАДУ, X ~ 9..10)
   {
-    id: "earlobe",
-    name: "Мочка вуха",
-    price: "300",
+    id: "lobe",
+    name: "Мочка (Lobe)",
+    price: "від 300",
     duration: "15 хв",
-    desc: "Найпопулярніший і класичний вид пірсингу, який заживає найшвидше.",
-    cameraPosition: [15, 0, 15],
-    dotPosition: [9.5, -4, 2] // Approximate right earlobe
-  },
-  {
-    id: "nostril",
-    name: "Крило носа",
-    price: "450",
-    duration: "20 хв",
-    desc: "Класичний прокол ніздрі (Nostril), виглядає дуже ніжно з маленьким камінчиком.",
-    cameraPosition: [5, 2, 20],
-    dotPosition: [1.5, -2, 10.5] // Approximate right nostril
-  },
-  {
-    id: "septum",
-    name: "Септум",
-    price: "450",
-    duration: "20 хв",
-    desc: "Прокол центральної перегородки носа, який за потреби можна сховати.",
-    cameraPosition: [0, 0, 20],
-    dotPosition: [0, -3, 11] // Approximate septum
+    desc: "Класичний прокол м'якої нижньої частини вуха.",
+    cameraPosition: [12, -2, 12],
+    dotPosition: [9.5, -4, 2]
   },
   {
     id: "helix",
-    name: "Хелікс",
-    price: "500",
+    name: "Хелікс (Helix)",
+    price: "від 500",
     duration: "20 хв",
-    desc: "Прокол верхньої частини хряща вушної раковини.",
-    cameraPosition: [15, 5, 10],
-    dotPosition: [9, 3, 0] // Approximate upper ear cartilage
+    desc: "Прокол завитка вушної раковини (верхня частина хряща).",
+    cameraPosition: [12, 3, 12],
+    dotPosition: [9, 3, 0]
   },
+  {
+    id: "forward_helix",
+    name: "Форвард Хелікс (Forward Helix)",
+    price: "від 500",
+    duration: "20 хв",
+    desc: "Розташований на протилежному боці від звичайного хелікса, ближче до обличчя, над козелком.",
+    cameraPosition: [12, 2, 14],
+    dotPosition: [8.5, 1.5, 3]
+  },
+  {
+    id: "industrial",
+    name: "Індастріал (Industrial)",
+    price: "від 700",
+    duration: "30 хв",
+    desc: "Подвійний прокол хряща, з’єднаний однією прямою штангою (зазвичай у верхній частині вуха).",
+    cameraPosition: [14, 4, 10],
+    dotPosition: [9, 4, 1]
+  },
+  {
+    id: "tragus",
+    name: "Трагус / Козелок (Tragus)",
+    price: "від 500",
+    duration: "20 хв",
+    desc: "Прокол маленького виступу хряща, що знаходиться перед входом у вушний канал.",
+    cameraPosition: [12, -1, 14],
+    dotPosition: [9.2, -1, 3.5]
+  },
+  {
+    id: "antitragus",
+    name: "Антитрагус (Antitragus)",
+    price: "від 550",
+    duration: "20 хв",
+    desc: "Прокол хрящового виступу навпроти козелка, трохи вище мочки.",
+    cameraPosition: [12, -2, 12],
+    dotPosition: [9.6, -2, 2.5]
+  },
+  {
+    id: "daith",
+    name: "Дейс (Daith)",
+    price: "від 550",
+    duration: "25 хв",
+    desc: "Прокол внутрішнього хряща, що знаходиться безпосередньо над вушним каналом.",
+    cameraPosition: [14, 0, 12],
+    dotPosition: [8.8, 0, 3]
+  },
+  {
+    id: "rook",
+    name: "Рук (Rook)",
+    price: "від 550",
+    duration: "25 хв",
+    desc: "Прокол верхньої внутрішньої складки хряща.",
+    cameraPosition: [14, 1.5, 12],
+    dotPosition: [8.5, 1.5, 2]
+  },
+  {
+    id: "conch",
+    name: "Конч (Conch)",
+    price: "від 500",
+    duration: "20 хв",
+    desc: "Прокол центральної частини вушної раковини («чаші»). Буває внутрішній та зовнішній.",
+    cameraPosition: [14, 0, 10],
+    dotPosition: [9.3, -0.5, 1.5]
+  },
+
+  // ПРОКОЛИ ОБЛИЧЧЯ
   {
     id: "eyebrow",
-    name: "Брова",
-    price: "550",
+    name: "Вертикальний (Брова)",
+    price: "від 550",
     duration: "20 хв",
-    desc: "Вертикальний або горизонтальний прокол бровної дуги.",
-    cameraPosition: [10, 8, 15],
-    dotPosition: [4, 6, 8.5] // Approximate right eyebrow
+    desc: "Класичний прокол, що проходить вертикально через край брови.",
+    cameraPosition: [5, 8, 18],
+    dotPosition: [4, 6, 8.5]
   },
   {
-    id: "lip",
-    name: "Губа (Лабрет)",
-    price: "550",
+    id: "bridge",
+    name: "Бридж (Bridge)",
+    price: "від 600",
+    duration: "20 хв",
+    desc: "Горизонтальний прокол перенісся на рівні очей.",
+    cameraPosition: [0, 6, 20],
+    dotPosition: [0, 4.5, 9]
+  },
+  {
+    id: "nostril",
+    name: "Ніздря (Nostril)",
+    price: "від 450",
+    duration: "20 хв",
+    desc: "Прокол одного або обох крил носа.",
+    cameraPosition: [5, 2, 20],
+    dotPosition: [2, -1.5, 10.5]
+  },
+  {
+    id: "septum",
+    name: "Септум (Septum)",
+    price: "від 450",
+    duration: "20 хв",
+    desc: "Прокол центральної носової перегородки між ніздрями.",
+    cameraPosition: [0, 0, 20],
+    dotPosition: [0, -2.5, 11]
+  },
+  {
+    id: "labret",
+    name: "Лабрет (Labret)",
+    price: "від 550",
+    duration: "20 хв",
+    desc: "Прокол нижньої губи по центру.",
+    cameraPosition: [0, -6, 20],
+    dotPosition: [0, -7, 10]
+  },
+  {
+    id: "vertical_labret",
+    name: "Вертикальний лабрет",
+    price: "від 600",
     duration: "25 хв",
-    desc: "Будь-який вид проколу навколо рота.",
+    desc: "Проходить вертикально крізь губу (одна кулька зверху на губі, інша — під нею).",
     cameraPosition: [0, -5, 20],
-    dotPosition: [0, -7, 10] // Approximate lower lip
+    dotPosition: [0, -6.2, 10.5]
+  },
+  {
+    id: "snake_bites",
+    name: "Зміїний укус (Snake Bites)",
+    price: "від 900",
+    duration: "40 хв",
+    desc: "Два симетричні проколи по боках нижньої губи.",
+    cameraPosition: [0, -6, 20],
+    dotPosition: [2, -6.8, 9.8] // Showing one side for visual simplicity, or we could add multiple dots if the component supported it. We'll show one right side dot.
+  },
+  {
+    id: "angel_bites",
+    name: "Ангельський укус (Angel Bites)",
+    price: "від 900",
+    duration: "40 хв",
+    desc: "Два симетричні проколи по боках верхньої губи.",
+    cameraPosition: [0, -4, 20],
+    dotPosition: [2, -4.5, 10.2]
+  },
+  {
+    id: "spider_bites",
+    name: "Укус павука (Spider Bites)",
+    price: "від 900",
+    duration: "40 хв",
+    desc: "Два проколи поруч з одного боку нижньої губи.",
+    cameraPosition: [4, -6, 20],
+    dotPosition: [2.5, -6.8, 9.5]
+  },
+  {
+    id: "smile",
+    name: "Смайл (Smile)",
+    price: "від 550",
+    duration: "20 хв",
+    desc: "Прокол вуздечки верхньої губи (видно тільки при посмішці).",
+    cameraPosition: [0, -4, 18],
+    dotPosition: [0, -5.2, 9.5] // Roughly upper teeth area behind lip
   }
 ];
 
@@ -84,18 +204,24 @@ function Model({ activeDot }: { activeDot: number[] }) {
 
   // Adjust model scale and position based on FBX specifics
   return (
-    <group position={[0, -10, 0]} scale={0.25}>
+    <group position={[0, -11, 0]} scale={0.30}>
       <primitive object={clonedScene} />
 
-      {/* Hotspot Dot */}
+      {/* Hotspot Dot - Much brighter and larger */}
       <mesh position={new THREE.Vector3(...activeDot)}>
-        <sphereGeometry args={[0.5, 32, 32]} />
+        <sphereGeometry args={[0.6, 32, 32]} />
         <meshBasicMaterial color="#b6ff40" />
 
-        {/* Glow effect */}
+        {/* Inner intense glow */}
         <mesh>
-          <sphereGeometry args={[0.8, 32, 32]} />
-          <meshBasicMaterial color="#b6ff40" transparent opacity={0.3} />
+          <sphereGeometry args={[1.0, 32, 32]} />
+          <meshBasicMaterial color="#b6ff40" transparent opacity={0.6} />
+        </mesh>
+        
+        {/* Outer soft glow */}
+        <mesh>
+          <sphereGeometry args={[2.0, 32, 32]} />
+          <meshBasicMaterial color="#b6ff40" transparent opacity={0.2} />
         </mesh>
       </mesh>
     </group>
@@ -139,8 +265,8 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
 
-          <div className="w-full aspect-[3/4] md:aspect-square lg:aspect-[4/3] rounded-[40px] overflow-hidden bg-gradient-to-b from-[#122110] to-[#040902] shadow-2xl border border-[#73934A]/30 relative cursor-grab active:cursor-grabbing">
-            <Canvas shadows camera={{ position: [0, 0, 25], fov: 45 }}>
+          <div className="w-full aspect-[3/4] md:aspect-square lg:aspect-[4/3] rounded-[40px] overflow-hidden bg-transparent relative cursor-grab active:cursor-grabbing">
+            <Canvas shadows camera={{ position: [0, 0, 25], fov: 45 }} gl={{ alpha: true }}>
               <Environment preset="studio" environmentIntensity={0.5} />
               <directionalLight position={[10, 10, 10]} intensity={2} color="#73934A" />
               <directionalLight position={[-10, 10, -10]} intensity={1} color="#ffffff" />
@@ -149,7 +275,6 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
                 <Model activeDot={activeType.dotPosition} />
                 <CameraRig activeCam={activeType.cameraPosition} />
               </React.Suspense>
-              <ContactShadows position={[0, -10, 0]} opacity={0.5} scale={40} blur={2} far={10} />
             </Canvas>
           </div>
 

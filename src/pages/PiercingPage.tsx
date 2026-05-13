@@ -62,6 +62,14 @@ export const PiercingPage = () => {
         <PiercingViewer onBook={openBooking} />
       </section>
 
+      {/* Portfolio Section */}
+      <section className="py-24 w-full bg-cover bg-fixed bg-center mb-16 relative before:absolute before:inset-0 before:bg-black/60 overflow-hidden" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }}>
+        <div className="relative z-10 max-w-[100%] mx-auto">
+          <h2 className="text-3xl md:text-4xl mb-16 text-center uppercase tracking-wider text-[#EBEBDF]">Наші роботи</h2>
+          <CoverflowGallery items={piercingWorks} categories={filters} />
+        </div>
+      </section>
+
       {/* Jewelry Section */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32">
         <h2 className="text-3xl md:text-4xl mt-5 mb-16 text-center uppercase tracking-wider">Прикраси в наявності</h2>
@@ -89,11 +97,6 @@ export const PiercingPage = () => {
             * У студії представлений великий вибір титанових прикрас для будь-якого виду проколу. Ми використовуємо тільки біосумісний гіпоалергенний титан (ASTM F136), який ідеально підходить для первинного проколу та постійного носіння.
           </p>
         </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section className="py-24 max-w-[100%] mx-auto mb-16 overflow-hidden">
-        <CoverflowGallery items={piercingWorks} categories={filters} />
       </section>
 
       {/* FAQ / How to Book */}
