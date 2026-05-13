@@ -51,7 +51,7 @@ const filters = ['Всі стилі', 'Вуха', 'Ніс', 'Губи', 'Мік�
 
 export const PiercingPage = () => {
   const { openBooking } = useBooking();
-  
+
   return (
     <div className="pt-14 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
       {/* Hero Section */}
@@ -65,7 +65,7 @@ export const PiercingPage = () => {
       {/* Portfolio Section */}
       <section className="py-24 w-full bg-cover bg-fixed bg-center mb-16 relative before:absolute before:inset-0 before:bg-black/60 overflow-hidden" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }}>
         <div className="relative z-10 max-w-[100%] mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-16 text-center uppercase tracking-wider text-[#EBEBDF]">Наші роботи</h2>
+          <h2 className="text-3xl md:text-4xl mb-16 text-center uppercase tracking-wider text-[#EBEBDF]">ПОРТФОЛІО</h2>
           <CoverflowGallery items={piercingWorks} categories={filters} />
         </div>
       </section>

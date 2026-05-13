@@ -13,7 +13,7 @@ export const piercingTypesData = [
     duration: "15 хв",
     desc: "Класичний прокол м'якої нижньої частини вуха.",
     cameraPosition: [12, -2, 12],
-    dotPosition: [9.5, -4, 2]
+    dotPosition: [9, 24, 2]
   },
   {
     id: "helix",
@@ -22,7 +22,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол завитка вушної раковини (верхня частина хряща).",
     cameraPosition: [12, 3, 12],
-    dotPosition: [9, 3, 0]
+    dotPosition: [11, 28, 0]
   },
   {
     id: "forward_helix",
@@ -31,7 +31,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Розташований на протилежному боці від звичайного хелікса, ближче до обличчя, над козелком.",
     cameraPosition: [12, 2, 14],
-    dotPosition: [8.5, 1.5, 3]
+    dotPosition: [8, 28, 0]
   },
   {
     id: "industrial",
@@ -204,24 +204,25 @@ function Model({ activeDot }: { activeDot: number[] }) {
 
   // Adjust model scale and position based on FBX specifics
   return (
-    <group position={[0, -11, 0]} scale={0.30}>
+    <group position={[0, -8, 0]} scale={0.30}>
       <primitive object={clonedScene} />
 
       {/* Hotspot Dot - Much brighter and larger */}
-      <mesh position={new THREE.Vector3(...activeDot)}>
+      <mesh position={new THREE.Vector3(...activeDot)}
+        renderOrder={999}>
         <sphereGeometry args={[0.6, 32, 32]} />
-        <meshBasicMaterial color="#b6ff40" />
+        <meshBasicMaterial color="#b6ff40" depthTest={false} />
 
         {/* Inner intense glow */}
         <mesh>
           <sphereGeometry args={[1.0, 32, 32]} />
-          <meshBasicMaterial color="#b6ff40" transparent opacity={0.6} />
+          <meshBasicMaterial color="#b6ff40" depthTest={false} transparent opacity={0.6} />
         </mesh>
-        
+
         {/* Outer soft glow */}
         <mesh>
           <sphereGeometry args={[2.0, 32, 32]} />
-          <meshBasicMaterial color="#b6ff40" transparent opacity={0.2} />
+          <meshBasicMaterial color="#b6ff40" depthTest={false} transparent opacity={0.2} />
         </mesh>
       </mesh>
     </group>
@@ -255,7 +256,7 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
 
   return (
     <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
-      <h2 className="text-3xl font-bold uppercase mb-12 tracking-widest text-center text-[#EBEBDF]">Види пірсингу</h2>
+      <h2 className="text-3xl font-bold uppercase mb-12 tracking-widest text-center text-[#EBEBDF]"></h2>
 
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 w-full">
 
