@@ -105,7 +105,7 @@ export const TattooPage = () => {
             </div>
           </div>
           <div className="md:w-1/2 relative flex justify-center">
-            <img src="work.png" className="w-[80%] opacity-80 mix-blend-lighten" alt="Tattoo process" />
+            <img src={`${import.meta.env.BASE_URL}work.png`} className="w-[80%] opacity-80 mix-blend-lighten" alt="Tattoo process" />
           </div>
         </div>
       </section>
@@ -114,7 +114,7 @@ export const TattooPage = () => {
       {/* --- СПІЛЬНИЙ КОНТЕЙНЕР ДЛЯ ГАЛЕРЕЇ ТА МАЙСТРА З ФОНОМ --- */}
       <div
         className="relative w-full bg-cover bg-center bg-fixed mb-32"
-        style={{ backgroundImage: "url('/gallery-bg.jpg')" }} // Вставте сюди шлях до вашого фонового зображення
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}gallery-bg.jpg')` }} // Вставте сюди шлях до вашого фонового зображення
       >
 
         <div className="relative z-10">
@@ -171,7 +171,7 @@ export const TattooPage = () => {
           <p className="text-base md:text-lg opacity-90 mb-12 font-serif text-[#EBEBDF]">Встигни забронювати зручний для себе день та час!</p>
 
           <div className="relative w-[90%] md:w-[700px] aspect-[4/3] md:aspect-[3/2] mx-auto rounded-t-full overflow-hidden shadow-2xl bg-[#1A2E16]">
-            <img src="booking.png" alt="Studio" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}booking.png`} alt="Studio" className="w-full h-full object-cover" />
           </div>
 
           <button onClick={openBooking} className="relative z-10 mt-10 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">

@@ -111,7 +111,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
               onClick={() => setActiveIndex(index)}
             >
               {item.image ? (
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                <img src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`} alt={item.title} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full bg-[#1A2E16] flex items-center justify-center">
                   <span className="text-[#EBEBDF]/30 font-serif text-sm">Фото відсутнє</span>
@@ -146,7 +146,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
         <div className="bg-white/5 backdrop-blur-md rounded-[40px] py-4 px-6 md:px-8 flex items-center gap-4 md:gap-6 shadow-2xl border border-white/20 w-[95%] max-w-[700px]">
           <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden flex-shrink-0 relative border border-white/30">
             {currentItem.artist.image ? (
-              <img src={currentItem.artist.image} alt={currentItem.artist.name} className="w-full h-full object-cover" />
+              <img src={`${import.meta.env.BASE_URL}${currentItem.artist.image.replace(/^\//, '')}`} alt={currentItem.artist.name} className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full bg-[#1A2E16]" />
             )}

@@ -18,7 +18,7 @@ const HeroSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
       >
-        <source src="IMG_1830.MP4" type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}IMG_1830.MP4`} type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}
@@ -135,7 +135,7 @@ const ExpertiseSection = () => {
           {statsData.map((stat, index) => (
             <img
               key={`set1-img-${index}`}
-              src={stat.img}
+              src={`${import.meta.env.BASE_URL}${stat.img}`}
               alt={`Статистика ${index + 1}`}
               className="h-64 md:h-80 lg:h-96 w-auto max-w-none flex-none rounded-[32px] object-cover shadow-2xl"
             />
@@ -145,7 +145,7 @@ const ExpertiseSection = () => {
           {statsData.map((stat, index) => (
             <img
               key={`set2-img-${index}`}
-              src={stat.img}
+              src={`${import.meta.env.BASE_URL}${stat.img}`}
               alt={`Статистика ${index + 1}`}
               className="h-64 md:h-80 lg:h-96 w-auto max-w-none flex-none rounded-[32px] object-cover shadow-2xl"
             />
@@ -294,7 +294,7 @@ const MastersSection = () => {
 
             <div className={`w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 ${index === activeIndex ? '-translate-y-2' : ''} ${master.color}`}>
               <img
-                src={master.image}
+                src={`${import.meta.env.BASE_URL}${master.image}`}
                 alt={master.name}
                 className="w-full h-full object-cover"
               />
@@ -388,7 +388,7 @@ export const AtmosphereSection = () => {
               {studioPhotos.map((photoSrc, index) => (
                 <img
                   key={index}
-                  src={photoSrc}
+                  src={`${import.meta.env.BASE_URL}${photoSrc}`}
                   alt={`Фото атмосфери ${index + 1}`}
                   className="w-full h-full object-cover flex-shrink-0"
                 />
@@ -445,7 +445,7 @@ export const ReviewsSection = () => {
 
 export const HomePage = () => {
   return (
-    <div className="bg-[url('/background.jpg')] bg-cover bg-fixed bg-center">
+    <div className="bg-cover bg-fixed bg-center" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.jpg')` }}>
       <HeroSection />
       <AboutSection />
       <ExpertiseSection />

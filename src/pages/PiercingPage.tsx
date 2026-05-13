@@ -74,13 +74,13 @@ export const PiercingPage = () => {
   ];
 
   // У рендері:
-  <section className="px-4 py-20 bg-cover bg-fixed" style={{ backgroundImage: "url('/gallery-bg.jpg')" }}>
+  <section className="px-4 py-20 bg-cover bg-fixed" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}gallery-bg.jpg')` }}>
     <h2 className="text-center text-3xl uppercase mb-16 tracking-[0.2em]">Види проколів</h2>
     <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
       {/* Модель з точкою */}
       <div className="relative w-[300px] h-[400px] bg-white/5 rounded-full p-8 backdrop-blur-md">
-        <img src="/piercing.png" className="w-full h-full object-contain" alt="Model" />
+        <img src={`${import.meta.env.BASE_URL}piercing.png`} className="w-full h-full object-contain" alt="Model" />
         {/* Анімована точка */}
         <div
           className="absolute w-4 h-4 bg-[#6F892E] rounded-full shadow-[0_0_15px_#6F892E] transition-all duration-500 ease-in-out"
@@ -138,7 +138,7 @@ export const PiercingPage = () => {
 
           {/* Central 3D Model Image */}
           <div className="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] relative z-10 flex-shrink-0 my-4 md:my-0">
-            <img src="/piercing.png" alt="3D Piercing Model" className="w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(111,137,46,0.3)]" />
+            <img src={`${import.meta.env.BASE_URL}piercing.png`} alt="3D Piercing Model" className="w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(111,137,46,0.3)]" />
           </div>
 
           {/* Right Labels */}
@@ -210,7 +210,7 @@ export const PiercingPage = () => {
 
           {/* Arch image */}
           <div className="relative w-[90%] md:w-[700px] aspect-[4/3] md:aspect-[3/2] mx-auto rounded-t-full overflow-hidden shadow-2xl bg-[#1A2E16]">
-            <img src="booking.png" alt="Studio" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}booking.png`} alt="Studio" className="w-full h-full object-cover" />
           </div>
 
           {/* Button overlapping the bottom */}

@@ -177,7 +177,7 @@ export const ServicesPage = () => {
 
                 {/* ВСТАВКА ЗОБРАЖЕННЯ ЗІРОК */}
                 <img
-                  src="/star.png"
+                  src={`${import.meta.env.BASE_URL}star.png`}
                   alt="Декоративні зірки"
                   className="absolute inset-0 w-full h-full object-contain rotate-[-10deg] opacity-90 mix-blend-screen"
                 />
@@ -214,7 +214,7 @@ export const ServicesPage = () => {
 
                 {/* ВСТАВКА ЗОБРАЖЕННЯ */}
                 <img
-                  src="/star-r.png"
+                  src={`${import.meta.env.BASE_URL}star-r.png`}
                   alt="Декоративні зірки"
                   className="absolute inset-0 w-full h-full object-contain rotate-[160deg] opacity-90 mix-blend-screen"
                 />

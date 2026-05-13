@@ -4,19 +4,19 @@ import { BookingModal } from "./BookingModal";
 
 // Icons as simple SVGs
 const TelegramIcon = () => (
-  <img src="telegram.svg" alt="Telegram" className="w-6 h-6" />
+  <img src={`${import.meta.env.BASE_URL}telegram.svg`} alt="Telegram" className="w-6 h-6" />
 );
 
 const InstagramIcon = () => (
-  <img src="instagram.svg" alt="Instagram" className="w-6 h-6" />
+  <img src={`${import.meta.env.BASE_URL}instagram.svg`} alt="Instagram" className="w-6 h-6" />
 );
 
 const PhoneIcon = () => (
-  <img src="phone.svg" alt="Phone" className="w-6 h-6" />
+  <img src={`${import.meta.env.BASE_URL}phone.svg`} alt="Phone" className="w-6 h-6" />
 );
 
 const Logo = () => (
-  <img src="mozhna%20logo.svg" alt="Можна Тату Логотип" className="h-12 w-auto" />
+  <img src={`${import.meta.env.BASE_URL}mozhna%20logo.svg`} alt="Можна Тату Логотип" className="h-12 w-auto" />
 );
 
 const Header = () => {
