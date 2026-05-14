@@ -20,26 +20,42 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingData, setBookingData] = useState<BookingData>({});
 
+  // НОВЕ: Стан, що фіксує, чи була форма відкрита користувачем
+  const [wasFormOpened, setWasFormOpened] = useState(false);
+
   const openBooking = (data?: BookingData) => {
     if (data) setBookingData(data);
     else setBookingData({});
-    // Trigger the Helper CRM widget
+
+    // Фіксуємо, що користувач ініціював запис
+    setWasFormOpened(true);
+
     window.postMessage({ widgetOpened: true }, '*');
     window.postMessage('open-main-form', '*');
   };
 
-  const closeBooking = () => setIsBookingOpen(false);
+  const closeBooking = () => {
+    setIsBookingOpen(false);
+    // Скидаємо прапорець після закриття Fortune modal, 
+    // щоб при переході по сторінках воно не з'явилося знову
+    setWasFormOpened(false);
+  };
 
   useEffect(() => {
     const handleMessage = (e: MessageEvent) => {
-      // Listen for the widget close event
-      if (e.data?.widgetOpened === false) {
-        setIsBookingOpen(true); // Open our Fortune modal
+      // Перевіряємо ДВІ умови:
+      // 1. Віджет надіслав сигнал про закриття (widgetOpened === false)
+      // 2. Користувач до цього сам відкривав форму (wasFormOpened === true)
+      if (e.data?.widgetOpened === false && wasFormOpened) {
+        setIsBookingOpen(true);
+        // Скидаємо прапорець, щоб Fortune modal відкрився лише один раз
+        setWasFormOpened(false);
       }
     };
+
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, []);
+  }, [wasFormOpened]); // Додаємо залежність, щоб useEffect бачив актуальний стан
 
   return (
     <BookingContext.Provider value={{ isBookingOpen, bookingData, openBooking, closeBooking }}>
