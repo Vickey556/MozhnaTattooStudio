@@ -33,7 +33,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex nav-menu font-serif uppercase items-center gap-8 text-sm">
+        <nav className="hidden lg:flex nav-menu font-serif uppercase items-center gap-3 text-sm">
           <Link to="/#about">Про нас</Link>
           <Link to="/services">Послуги</Link>
           <Link to="/tattoo">Татуювання</Link>

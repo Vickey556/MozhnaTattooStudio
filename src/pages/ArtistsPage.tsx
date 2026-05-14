@@ -45,22 +45,13 @@ export const masters = [
     experience: "2 роки",
     price: "від 1500 грн",
     inst: "@shum_tattoo"
-  },
-  {
-    id: 'iryna-miller',
-    name: "ІРИНА МІЛЛЕР",
-    specs: "Перманентний макіяж, ламінування",
-    image: "/tattoo_artist_3_1777048833890.png",
-    experience: "6 років",
-    price: "від 1500 грн",
-    inst: "@miller_pm"
   }
 ];
 
 export const ArtistsPage = () => {
   return (
-    <div className="pt-32 pb-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto min-h-screen">
-      <h1 className="font-serif text-5xl md:text-7xl mb-16 text-center uppercase">Наші Майстри</h1>
+    <div className="pt-14 pb-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto min-h-screen">
+      <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider mb-8">Наші Майстри</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {masters.map((master) => (

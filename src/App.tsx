@@ -7,6 +7,7 @@ import { PiercingPage } from "./pages/PiercingPage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { ArtistsPage } from "./pages/ArtistsPage";
 import { ArtistDetailsPage } from "./pages/ArtistDetailsPage";
+import { PortfolioPage } from "./pages/PortfolioPage";
 import { BookingProvider } from "./context/BookingContext";
 
 // ScrollToTop component to handle scrolling when route changes or hash links are clicked
@@ -40,6 +41,7 @@ function App() {
             <Route path="services" element={<ServicesPage />} />
             <Route path="tattoo" element={<TattooPage />} />
             <Route path="piercing" element={<PiercingPage />} />
+            <Route path="portfolio" element={<PortfolioPage />} />
             <Route path="artists" element={<ArtistsPage />} />
             <Route path="artists/:id" element={<ArtistDetailsPage />} />
           </Route>

@@ -50,18 +50,6 @@ const services = [
   },
   {
     id: 5,
-    title: 'ПЕРМАНЕНТНИЙ МАКІЯЖ',
-    image: 'https://lh3.googleusercontent.com/p/AF1QipPUPM3hpfhds9ACgHyYn8Yu4-xzaoCqesdbAN9w=s1360-w1360-h1020-rw',
-    prices: [
-      { label: "Міжвійка", value: "1500 грн" },
-      { label: "Брови", value: "2000 грн" },
-      { label: "Губи", value: "2000 грн" }
-    ],
-    desc: 'Брови, губи, міжвійка. Природній вигляд та стійкий результат на роки.',
-    link: null
-  },
-  {
-    id: 6,
     title: 'ПОДАРУНКОВИЙ СЕРТИФІКАТ',
     image: 'https://lh3.googleusercontent.com/p/AF1QipM-evGc62nJtuo0mnoe3qlMJPfpxgRrB16Ds1D3=s1360-w1360-h1020-rw',
     prices: [
@@ -108,7 +96,7 @@ export const ServicesPage = () => {
   }, [activeIndex]);
 
   return (
-    <div className="pt-[50px] pb-32 px-4 min-h-[calc(100vh-100px)] relative overflow-hidden">
+    <div className="pt-14 pb-32 px-4 min-h-[calc(100vh-100px)] relative overflow-hidden">
 
       <div className="relative z-10 max-w-[1400px] mx-auto">
 
@@ -264,7 +252,7 @@ export const ServicesPage = () => {
                   <button
                     onClick={() => {
                       setSelectedCard(null);
-                      setTimeout(openBooking, 300);
+                      setTimeout(() => openBooking({ service: selectedCard.title }), 300);
                     }}
                     className="w-full py-4 bg-[#6F892E] text-[#122110] rounded-full font-serif uppercase tracking-widest hover:bg-white transition-colors text-center"
                   >

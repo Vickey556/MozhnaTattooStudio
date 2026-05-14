@@ -5,49 +5,154 @@ import { CoverflowGallery } from '../components/CoverflowGallery';
 import type { GalleryItem } from '../components/CoverflowGallery';
 import { PiercingViewer } from '../components/PiercingViewer';
 
-const piercingWorks: GalleryItem[] = [
+export const piercingWorks: GalleryItem[] = [
   {
     id: '1',
-    image: '',
-    title: 'ПІРСИНГ HELIX',
+    image: '/helixwhite.jpg',
+    title: 'Прокол хелікс',
     description: 'Акуратний прокол хряща з титановою прикрасою.',
     date: 'Квітень 2024',
-    category: 'Вуха',
+    category: 'Вухо',
     artist: {
       name: 'Анастасія Старинець',
       description: 'Майстер пірсингу',
-      image: ''
+      image: '/Starinets.jpg'
     }
   },
   {
     id: '2',
-    image: '',
-    title: 'ПІРСИНГ NOSTRIL',
+    image: '/nostril.jpg',
+    title: 'Прокол крила носа',
     description: 'Класичний прокол крила носа з кільцем.',
     date: 'Березень 2024',
     category: 'Ніс',
     artist: {
       name: 'Анастасія Старинець',
       description: 'Майстер пірсингу',
-      image: ''
+      image: '/Starinets.jpg'
     }
   },
   {
     id: '3',
-    image: '',
-    title: 'ПІРСИНГ SEPTUM',
-    description: 'Прокол перегородки носа з циркуляром.',
+    image: '/lobesimple.jpg',
+    title: 'Прокол мочки вуха',
+    description: 'Прокол мочки',
     date: 'Травень 2024',
-    category: 'Ніс',
+    category: 'Вухо',
     artist: {
       name: 'Анастасія Старинець',
       description: 'Майстер пірсингу',
-      image: ''
+      image: '/Starinets.jpg'
     }
-  }
+  },
+  {
+    id: '4',
+    image: '/lobe1.jpg',
+    title: 'Прокол мочки вуха',
+    description: 'Прокол мочки',
+    date: 'Травень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '5',
+    image: '/vertycallabret.jpg',
+    title: 'Прокол вертикальний лабрет',
+    description: 'Прокол губи',
+    date: 'Травень 2024',
+    category: 'Губа',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '6',
+    image: '/vertycallabret2.jpg',
+    title: 'Прокол вертикальний лабрет',
+    description: 'Прокол губи',
+    date: 'Травень 2024',
+    category: 'Губа',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '7',
+    image: '/tongue.jpg',
+    title: 'Прокол язка',
+    description: 'Прокол язика',
+    date: 'Травень 2024',
+    category: 'Язик',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '8',
+    image: '/rook.jpg',
+    title: 'Прокол руук',
+    description: 'Прокол верхньої внутрішньої складки хряща.',
+    date: 'Травень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '9',
+    image: '/eyebrow.jpg',
+    title: 'Прокол брови',
+    description: 'Прокол брови',
+    date: 'Травень 2024',
+    category: 'Брова',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '10',
+    image: '/upperlobe.jpg',
+    title: 'Додатковий прокол мочки',
+    description: 'Прокол мочки вуха',
+    date: 'Травень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '11',
+    image: '/helix.jpg',
+    title: 'Прокол хелікс',
+    description: 'Акуратний прокол хряща з титановою прикрасою.',
+    date: 'Квітень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
+
 ];
 
-const filters = ['Всі стилі', 'Вуха', 'Ніс', 'Губи', 'Мікродермали', 'Брови'];
+const filters = ['Всі проколи', 'Вухо', 'Ніс', 'Губа', 'Мікродермали', 'Брова', 'Язик'];
 
 export const PiercingPage = () => {
   const { openBooking } = useBooking();
@@ -59,14 +164,24 @@ export const PiercingPage = () => {
 
       {/* 3D Piercing Viewer Block */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32 pt-12">
-        <PiercingViewer onBook={openBooking} />
+        <PiercingViewer onBook={(data) => openBooking(data ? { ...data, service: 'Пірсинг' } : { service: 'Пірсинг' })} />
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-24 w-full bg-cover bg-fixed bg-center mb-16 relative before:absolute before:inset-0 before:bg-black/60 overflow-hidden" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }}>
+      <section
+        className="relative w-full pt-12 pb-24 bg-cover bg-center bg-fixed mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }} // або piercingbg.png
+      >
         <div className="relative z-10 max-w-[100%] mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-16 text-center uppercase tracking-wider text-[#EBEBDF]">ПОРТФОЛІО</h2>
+
+          {/* 1. Заголовок (зменшили mb-16 на mb-8, щоб фільтри підтягнулися вище) */}
+          <h2 className="text-3xl md:text-4xl mb-0 text-center uppercase tracking-wider text-[#EBEBDF]">
+            ПОРТФОЛІО
+          </h2>
+
+          {/* 2. Галерея (фільтри та слайдер знаходяться всередині CoverflowGallery) */}
           <CoverflowGallery items={piercingWorks} categories={filters} />
+
         </div>
       </section>
 
@@ -76,7 +191,7 @@ export const PiercingPage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: 'Титановий лабрет', price: 'від 300 грн', img: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=600&auto=format&fit=crop' },
+            { name: 'Титановий лабрет', price: 'від 300 грн', img: 'https://www.instagram.com/p/DX1gn_WDYR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
             { name: 'Кільце з фіанітами', price: 'від 650 грн', img: 'https://images.unsplash.com/photo-1599643478524-fb66f70d00f0?q=80&w=600&auto=format&fit=crop' },
             { name: 'Кластер для хряща', price: 'від 800 грн', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop' },
             { name: 'Банан для пупка', price: 'від 500 грн', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop' }
@@ -149,7 +264,7 @@ export const PiercingPage = () => {
           </div>
 
           {/* Button overlapping the bottom */}
-          <button onClick={openBooking} className="relative z-10 mt-10 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">
+          <button onClick={() => openBooking({ service: 'Пірсинг' })} className="relative z-10 mt-10 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">
             ЗАПИСАТИСЯ ОНЛАЙН
           </button>
         </div>

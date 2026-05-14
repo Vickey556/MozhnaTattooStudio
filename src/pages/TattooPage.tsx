@@ -5,7 +5,7 @@ import { CoverflowGallery } from '../components/CoverflowGallery';
 import type { GalleryItem } from '../components/CoverflowGallery';
 
 
-const tattooWorks: GalleryItem[] = [
+export const tattooWorks: GalleryItem[] = [
   {
     id: '1',
     image: 'balance.jpg',
@@ -70,10 +70,49 @@ const tattooWorks: GalleryItem[] = [
       description: 'Майстер татуювання',
       image: 'Shum.jpg'
     }
-  }
+  },
+  {
+    id: '6',
+    image: 'justice.jpg',
+    title: 'КОВТОК СМЕРТІ',
+    description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
+    date: 'Лютий 2024',
+    category: 'Гравюра',
+    artist: {
+      name: 'Вікторія Телятник',
+      description: 'Майстер татуювання',
+      image: '/Teliatnyk.jpg'
+    }
+  },
+  {
+    id: '7',
+    image: 'spiders.jpg',
+    title: 'КОВТОК СМЕРТІ',
+    description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
+    date: 'Лютий 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Вікторія Телятник',
+      description: 'Майстер татуювання',
+      image: '/Teliatnyk.jpg'
+    }
+  },
+  {
+    id: '8',
+    image: 'sighnature.jpg',
+    title: 'КОВТОК СМЕРТІ',
+    description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
+    date: 'Лютий 2024',
+    category: 'Написи',
+    artist: {
+      name: 'Вікторія Телятник',
+      description: 'Майстер татуювання',
+      image: '/Teliatnyk.jpg'
+    }
+  },
 ];
 
-const filters = ['Всі стилі', 'Графіка', 'Олдскул', 'Мінімалізм', 'Кольорові', 'Реалізм'];
+const filters = ['Всі стилі', 'Графіка', 'Олдскул', 'Мінімалізм', 'Кольорові', 'Реалізм', 'Скандинавія', 'Геометрія', 'Гравюра', 'Абстракція', 'Написи'];
 
 export const TattooPage = () => {
   const { openBooking } = useBooking();
@@ -105,27 +144,29 @@ export const TattooPage = () => {
             </div>
           </div>
           <div className="md:w-1/2 relative flex justify-center">
-            <img src={`${import.meta.env.BASE_URL}work.png`} className="w-[80%] opacity-80 mix-blend-lighten" alt="Tattoo process" />
+            <img src={`${import.meta.env.BASE_URL}dragontattoo.jpg`} className="w-[80%] opacity-80 mix-blend-lighten" alt="Tattoo process" />
           </div>
         </div>
       </section>
 
-      <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider">ПОРТФОЛІО</h1>
+
       {/* --- СПІЛЬНИЙ КОНТЕЙНЕР ДЛЯ ГАЛЕРЕЇ ТА МАЙСТРА З ФОНОМ --- */}
-      <div
-        className="relative w-full bg-cover bg-center bg-fixed mb-32"
-        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}gallery-bg.jpg')` }} // Вставте сюди шлях до вашого фонового зображення
+      <section
+        className="relative w-full pt-12 pb-24 bg-cover bg-center bg-fixed mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}gallery-bg.jpg')` }} // або piercingbg.png
       >
+        <div className="relative z-10 max-w-[100%] mx-auto">
 
-        <div className="relative z-10">
+          {/* 1. Заголовок (зменшили mb-16 на mb-8, щоб фільтри підтягнулися вище) */}
+          <h2 className="text-3xl md:text-4xl mb-0 text-center uppercase tracking-wider text-[#EBEBDF]">
+            ПОРТФОЛІО
+          </h2>
 
-          {/* Portfolio Section */}
-          <section className="pt-0 pb-12 max-w-[100%] mx-auto overflow-hidden">
-            <CoverflowGallery items={tattooWorks} categories={filters} />
-          </section>
+          {/* 2. Галерея (фільтри та слайдер знаходяться всередині CoverflowGallery) */}
+          <CoverflowGallery items={tattooWorks} categories={filters} />
 
         </div>
-      </div>
+      </section>
 
       {/* FAQ / How to Book */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32 flex flex-col lg:flex-row gap-12 lg:gap-24">
@@ -174,7 +215,7 @@ export const TattooPage = () => {
             <img src={`${import.meta.env.BASE_URL}booking.png`} alt="Studio" className="w-full h-full object-cover" />
           </div>
 
-          <button onClick={openBooking} className="relative z-10 mt-10 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">
+          <button onClick={() => openBooking({ service: 'Татуювання' })} className="relative z-10 mt-10 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">
             ЗАПИСАТИСЯ ОНЛАЙН
           </button>
         </div>

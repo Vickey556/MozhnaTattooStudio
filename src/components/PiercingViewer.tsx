@@ -40,7 +40,7 @@ export const piercingTypesData = [
     duration: "30 хв",
     desc: "Подвійний прокол хряща, з’єднаний однією прямою штангою (зазвичай у верхній частині вуха).",
     cameraPosition: [14, 4, 10],
-    dotPosition: [9, 4, 1]
+    dotPositions: [[8, 28, 0], [11, 28, 0]]
   },
   {
     id: "tragus",
@@ -49,7 +49,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол маленького виступу хряща, що знаходиться перед входом у вушний канал.",
     cameraPosition: [12, -1, 14],
-    dotPosition: [9.2, -1, 3.5]
+    dotPosition: [7, 26, 0]
   },
   {
     id: "antitragus",
@@ -58,7 +58,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол хрящового виступу навпроти козелка, трохи вище мочки.",
     cameraPosition: [12, -2, 12],
-    dotPosition: [9.6, -2, 2.5]
+    dotPosition: [8, 25, 0]
   },
   {
     id: "daith",
@@ -67,7 +67,7 @@ export const piercingTypesData = [
     duration: "25 хв",
     desc: "Прокол внутрішнього хряща, що знаходиться безпосередньо над вушним каналом.",
     cameraPosition: [14, 0, 12],
-    dotPosition: [8.8, 0, 3]
+    dotPosition: [8, 27, 0]
   },
   {
     id: "rook",
@@ -76,7 +76,7 @@ export const piercingTypesData = [
     duration: "25 хв",
     desc: "Прокол верхньої внутрішньої складки хряща.",
     cameraPosition: [14, 1.5, 12],
-    dotPosition: [8.5, 1.5, 2]
+    dotPosition: [8.5, 27.5, 0]
   },
   {
     id: "conch",
@@ -85,7 +85,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол центральної частини вушної раковини («чаші»). Буває внутрішній та зовнішній.",
     cameraPosition: [14, 0, 10],
-    dotPosition: [9.3, -0.5, 1.5]
+    dotPosition: [9.5, 26, 0]
   },
 
   // ПРОКОЛИ ОБЛИЧЧЯ
@@ -96,7 +96,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Класичний прокол, що проходить вертикально через край брови.",
     cameraPosition: [5, 8, 18],
-    dotPosition: [4, 6, 8.5]
+    dotPositions: [[3, 26, 0], [3, 28, 0]]
   },
   {
     id: "bridge",
@@ -105,7 +105,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Горизонтальний прокол перенісся на рівні очей.",
     cameraPosition: [0, 6, 20],
-    dotPosition: [0, 4.5, 9]
+    dotPositions: [[1.5, 26, 0], [-1.5, 26, 0]]
   },
   {
     id: "nostril",
@@ -114,7 +114,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол одного або обох крил носа.",
     cameraPosition: [5, 2, 20],
-    dotPosition: [2, -1.5, 10.5]
+    dotPosition: [-1.5, 24, 0]
   },
   {
     id: "septum",
@@ -123,7 +123,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол центральної носової перегородки між ніздрями.",
     cameraPosition: [0, 0, 20],
-    dotPosition: [0, -2.5, 11]
+    dotPosition: [0, 24, 0]
   },
   {
     id: "labret",
@@ -132,7 +132,7 @@ export const piercingTypesData = [
     duration: "20 хв",
     desc: "Прокол нижньої губи по центру.",
     cameraPosition: [0, -6, 20],
-    dotPosition: [0, -7, 10]
+    dotPosition: [0, 24, 0]
   },
   {
     id: "vertical_labret",
@@ -141,7 +141,7 @@ export const piercingTypesData = [
     duration: "25 хв",
     desc: "Проходить вертикально крізь губу (одна кулька зверху на губі, інша — під нею).",
     cameraPosition: [0, -5, 20],
-    dotPosition: [0, -6.2, 10.5]
+    dotPositions: [[0, 23, 0], [0, 24, 0]]
   },
   {
     id: "snake_bites",
@@ -150,7 +150,7 @@ export const piercingTypesData = [
     duration: "40 хв",
     desc: "Два симетричні проколи по боках нижньої губи.",
     cameraPosition: [0, -6, 20],
-    dotPosition: [2, -6.8, 9.8] // Showing one side for visual simplicity, or we could add multiple dots if the component supported it. We'll show one right side dot.
+    dotPositions: [[-1.5, 23, 0], [1.5, 23, 0]] // Showing one side for visual simplicity, or we could add multiple dots if the component supported it. We'll show one right side dot.
   },
   {
     id: "angel_bites",
@@ -159,7 +159,7 @@ export const piercingTypesData = [
     duration: "40 хв",
     desc: "Два симетричні проколи по боках верхньої губи.",
     cameraPosition: [0, -4, 20],
-    dotPosition: [2, -4.5, 10.2]
+    dotPositions: [[-1.5, 24, 0], [1.5, 24, 0]]
   },
   {
     id: "spider_bites",
@@ -168,7 +168,7 @@ export const piercingTypesData = [
     duration: "40 хв",
     desc: "Два проколи поруч з одного боку нижньої губи.",
     cameraPosition: [4, -6, 20],
-    dotPosition: [2.5, -6.8, 9.5]
+    dotPositions: [[-1.5, 23, 0], [-1, 23, 0]]
   },
   {
     id: "smile",
@@ -181,20 +181,16 @@ export const piercingTypesData = [
   }
 ];
 
-function Model({ activeDot }: { activeDot: number[] }) {
-  // Load the FBX model
+function Model({ dotPositions }: { dotPositions: number[][] }) {
   const fbx = useFBX(import.meta.env.BASE_URL + 'woman-head/source/Woman head.fbx');
-
-  // Clone to avoid mutating cached model
   const clonedScene = React.useMemo(() => fbx.clone(true), [fbx]);
 
-  // Apply a stylized dark matte material to all meshes
   useEffect(() => {
     clonedScene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
         mesh.material = new THREE.MeshStandardMaterial({
-          color: '#1a2214', // Dark green-ish tint matching the brand
+          color: '#1a2214',
           roughness: 0.7,
           metalness: 0.1,
         });
@@ -202,29 +198,34 @@ function Model({ activeDot }: { activeDot: number[] }) {
     });
   }, [clonedScene]);
 
-  // Adjust model scale and position based on FBX specifics
   return (
     <group position={[0, -8, 0]} scale={0.30}>
       <primitive object={clonedScene} />
 
-      {/* Hotspot Dot - Much brighter and larger */}
-      <mesh position={new THREE.Vector3(...activeDot)}
-        renderOrder={999}>
-        <sphereGeometry args={[0.6, 32, 32]} />
-        <meshBasicMaterial color="#b6ff40" depthTest={false} />
-
-        {/* Inner intense glow */}
-        <mesh>
-          <sphereGeometry args={[1.0, 32, 32]} />
-          <meshBasicMaterial color="#b6ff40" depthTest={false} transparent opacity={0.6} />
-        </mesh>
-
-        {/* Outer soft glow */}
-        <mesh>
-          <sphereGeometry args={[2.0, 32, 32]} />
-          <meshBasicMaterial color="#b6ff40" depthTest={false} transparent opacity={0.2} />
-        </mesh>
-      </mesh>
+      {/* 2. Рендеримо всі точки через .map() */}
+      {dotPositions.map((pos, index) => (
+        <group key={index} position={new THREE.Vector3(...pos)}>
+          <mesh renderOrder={999}>
+            <sphereGeometry args={[0.6, 32, 32]} />
+            <meshBasicMaterial
+              color="#b6ff40"
+              depthTest={false}
+              depthWrite={false}
+              transparent
+            />
+          </mesh>
+          <mesh renderOrder={998}>
+            <sphereGeometry args={[1.2, 32, 32]} />
+            <meshBasicMaterial
+              color="#b6ff40"
+              transparent
+              opacity={0.3}
+              depthTest={false}
+              depthWrite={false}
+            />
+          </mesh>
+        </group>
+      ))}
     </group>
   );
 }
@@ -239,7 +240,7 @@ function CameraRig({ activeCam }: { activeCam: number[] }) {
 }
 
 interface PiercingViewerProps {
-  onBook: () => void;
+  onBook: (data?: { subService?: string }) => void;
 }
 
 export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
@@ -273,7 +274,7 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
               <directionalLight position={[-10, 10, -10]} intensity={1} color="#ffffff" />
               <ambientLight intensity={0.5} />
               <React.Suspense fallback={<Html center><span className="text-[#6F892E] font-serif text-xl tracking-widest uppercase">Завантаження 3D...</span></Html>}>
-                <Model activeDot={activeType.dotPosition} />
+                <Model dotPositions={activeType.dotPositions || [activeType.dotPosition]} />
                 <CameraRig activeCam={activeType.cameraPosition} />
               </React.Suspense>
             </Canvas>
@@ -304,7 +305,7 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
           </p>
 
           <button
-            onClick={onBook}
+            onClick={() => onBook({ subService: activeType.name })}
             className="w-full py-4 bg-[#6F892E] text-[#122110] font-serif uppercase tracking-widest rounded-full hover:bg-white transition-colors text-center font-bold"
           >
             Записатися на прокол

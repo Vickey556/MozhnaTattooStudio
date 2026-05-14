@@ -34,10 +34,10 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 mb-24 items-center justify-center">
-          <button onClick={openBooking} className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
+          <button onClick={() => openBooking()} className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
             Записатися онлайн
           </button>
-          <Link to="/artists" className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
+          <Link to="/portfolio" className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
             Переглянути портфоліо
           </Link>
         </div>
@@ -211,12 +211,6 @@ const MastersSection = () => {
       specs: "Татуювання",
       image: "tattoo_artist_2_1777048821101.png",
       color: "bg-transparent"
-    },
-    {
-      name: "ІРИНА МІЛЛЕР",
-      specs: "Перманентний макіяж, ламінування",
-      image: "tattoo_artist_3_1777048833890.png",
-      color: "bg-transparent"
     }
   ];
 
@@ -284,25 +278,39 @@ const MastersSection = () => {
         className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 hide-scrollbar"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {masters.map((master, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center group cursor-pointer flex-shrink-0 w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center relative outline-none"
-            onMouseEnter={() => setActiveIndex(index)}
-          >
-            <div className={`absolute top-0 w-full max-w-sm aspect-[3/4] master-plaque -z-0 transition-all duration-500 translate-x-4 translate-y-4 scale-95 ${index === activeIndex ? 'opacity-100 scale-100' : 'opacity-0'}`}></div>
+        {masters.map((master, index) => {
+          const getId = (name: string) => {
+            switch (name) {
+              case "НАДІЯ МОЖАЄВА": return "nadiya-mozhaieva";
+              case "ТЕЛЯТНИК ВІКТОРІЯ": return "viktoria-teliatnyk";
+              case "ВОВНА АННА": return "anna-vovna";
+              case "АНАСТАСІЯ СТАРИНЕЦЬ": return "anastasia-starynets";
+              case "ВІТАЛІНА ШУМ": return "vitalina-shum";
+              default: return "";
+            }
+          };
 
-            <div className={`w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 ${index === activeIndex ? '-translate-y-2' : ''} ${master.color}`}>
-              <img
-                src={`${import.meta.env.BASE_URL}${master.image}`}
-                alt={master.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className={`font-serif text-xl md:text-2xl mb-2 transition-colors duration-300 z-10 ${index === activeIndex ? 'text-[#6F892E]' : ''}`}>{master.name}</h3>
-            <p className="font-serif text-sm opacity-70 text-center z-10">{master.specs}</p>
-          </div>
-        ))}
+          return (
+            <Link
+              key={index}
+              to={`/artists/${getId(master.name)}`}
+              className="flex flex-col items-center group cursor-pointer flex-shrink-0 w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center relative outline-none"
+              onMouseEnter={() => setActiveIndex(index)}
+            >
+              <div className={`absolute top-0 w-full max-w-sm aspect-[3/4] master-plaque -z-0 transition-all duration-500 translate-x-4 translate-y-4 scale-95 ${index === activeIndex ? 'opacity-100 scale-100' : 'opacity-0'}`}></div>
+
+              <div className={`w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 ${index === activeIndex ? '-translate-y-2' : ''} ${master.color}`}>
+                <img
+                  src={`${import.meta.env.BASE_URL}${master.image}`}
+                  alt={master.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className={`font-serif text-xl md:text-2xl mb-2 transition-colors duration-300 z-10 ${index === activeIndex ? 'text-[#6F892E]' : ''}`}>{master.name}</h3>
+              <p className="font-serif text-sm opacity-70 text-center z-10">{master.specs}</p>
+            </Link>
+          );
+        })}
       </div>
 
       <div className="flex justify-center gap-4 mt-8">
@@ -324,7 +332,7 @@ export const AtmosphereSection = () => {
   // Ваші фотографії
   const studioPhotos = [
     "vibe1.jpg", "team.jpg", "vibe2.jpg", "team2.jpg",
-    "vibe3.jpg", "study.jpg", "study2.jpg", "piercing.jpg", "team3.jpg"
+    "vibe3.jpg", "study.jpg", "study2.jpg", "piercing.jpg", "team3.jpg", "study3.jpg", "consultation.jpg", "worknadia.jpg"
   ];
 
   useEffect(() => {
@@ -335,7 +343,7 @@ export const AtmosphereSection = () => {
   }, [studioPhotos.length]);
 
   return (
-    <section className="py-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto noise-bg relative">
+    <section className="py-0 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto noise-bg relative">
 
       <div className="flex flex-col lg:flex-row gap-16 items-stretch">
 
