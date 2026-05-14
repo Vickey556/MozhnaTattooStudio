@@ -78,8 +78,32 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
 
       {/* 3D Carousel */}
       <div
-        className="relative w-full h-[350px] md:h-[550px] flex justify-center items-center mb-16"
-        style={{ perspective: '1200px' }}
+        className="relative w-full h-[350px] md:h-[550px] flex justify-center items-center mb-16 overflow-hidden"
+        style={{ perspective: '1200px', touchAction: 'pan-y' }}
+        onTouchStart={(e) => {
+          const touch = e.touches[0];
+          // Store starting X
+          e.currentTarget.setAttribute('data-touch-start', touch.clientX.toString());
+        }}
+        onTouchMove={() => {
+          // prevent default scrolling if we want to handle swipe exclusively, but 'pan-y' allows vertical scroll
+        }}
+        onTouchEnd={(e) => {
+          const touchStartX = e.currentTarget.getAttribute('data-touch-start');
+          if (!touchStartX) return;
+          const startX = parseFloat(touchStartX);
+          const endX = e.changedTouches[0].clientX;
+          const diffX = startX - endX;
+
+          if (Math.abs(diffX) > 50) { // minimum swipe distance
+            if (diffX > 0 && activeIndex < filteredItems.length - 1) {
+              setActiveIndex(activeIndex + 1); // swiped left
+            } else if (diffX < 0 && activeIndex > 0) {
+              setActiveIndex(activeIndex - 1); // swiped right
+            }
+          }
+          e.currentTarget.removeAttribute('data-touch-start');
+        }}
       >
         {filteredItems.length === 0 && (
           <p className="text-[#EBEBDF]/50 font-serif text-xl">Немає робіт у цій категорії.</p>
@@ -92,7 +116,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
           if (absOffset > 2) return null; // Render only nearby items
 
           // Adjust translateX and rotation for mobile
-          const xFactor = isMobile ? 65 : 45;
+          const xFactor = isMobile ? 70 : 45;
           const translateX = offset * xFactor; // percentage
           const translateZ = absOffset * (isMobile ? -150 : -250); // px
           const rotateY = offset * -30; // deg
@@ -102,7 +126,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
           return (
             <div
               key={item.id}
-              className="absolute top-0 w-[260px] md:w-[450px] h-full rounded-[30px] overflow-hidden transition-all duration-700 ease-out shadow-2xl cursor-pointer border border-[#EBEBDF]/10"
+              className="absolute top-0 w-[75vw] sm:w-[260px] md:w-[450px] h-full rounded-[30px] overflow-hidden transition-all duration-700 ease-out shadow-2xl cursor-pointer border border-[#EBEBDF]/10"
               style={{
                 transform: `translateX(${translateX}%) translateZ(${translateZ}px) rotateY(${rotateY}deg)`,
                 zIndex,
@@ -119,7 +143,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
               )}
 
               {/* Only show text on active item */}
-              <div className={`absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-[#0a1208] via-[#0a1208]/80 to-transparent transition-opacity duration-500 ${offset === 0 ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-[#0a1208] via-[#0a1208]/80 to-transparent transition-opacity duration-500 ${offset === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <h3 className="text-[#EBEBDF] font-serif text-lg md:text-xl uppercase tracking-widest mb-1">{item.title}</h3>
                 <p className="text-[#EBEBDF]/80 font-serif text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
                 <p className="text-[#EBEBDF]/50 text-xs font-serif tracking-wider">{item.date}</p>
@@ -130,12 +154,12 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
 
         {/* Navigation Arrows */}
         {activeIndex > 0 && (
-          <button onClick={prev} className="absolute left-2 md:left-24 lg:left-32 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md bg-black/20">
+          <button onClick={prev} className="absolute left-2 md:left-24 lg:left-32 z-20 w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md bg-black/20">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
         )}
         {activeIndex < filteredItems.length - 1 && (
-          <button onClick={next} className="absolute right-2 md:right-24 lg:right-32 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md bg-black/20">
+          <button onClick={next} className="absolute right-2 md:right-24 lg:right-32 z-20 w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md bg-black/20">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 18l6-6-6-6" /></svg>
           </button>
         )}

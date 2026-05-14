@@ -262,12 +262,12 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 w-full">
 
         {/* Navigation & 3D Container */}
-        <div className="flex items-center justify-center gap-4 w-full lg:w-2/3">
-          <button onClick={handlePrev} className="w-12 h-12 flex-shrink-0 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 hover:border-[#6F892E] transition-colors z-10 backdrop-blur-md bg-black/20">
+        <div className="relative flex items-center justify-center w-full lg:w-2/3 max-w-[500px] lg:max-w-none mx-auto">
+          <button onClick={handlePrev} className="absolute left-2 md:-left-4 lg:-left-6 w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 hover:border-[#6F892E] transition-colors z-20 backdrop-blur-md bg-black/40">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
 
-          <div className="w-full aspect-[3/4] md:aspect-square lg:aspect-[4/3] rounded-[40px] overflow-hidden bg-transparent relative cursor-grab active:cursor-grabbing">
+          <div className="w-full aspect-[3/4] md:aspect-square lg:aspect-[4/3] rounded-[40px] overflow-hidden bg-transparent relative cursor-grab active:cursor-grabbing z-10">
             <Canvas shadows camera={{ position: [0, 0, 25], fov: 45 }} gl={{ alpha: true }}>
               <Environment preset="studio" environmentIntensity={0.5} />
               <directionalLight position={[10, 10, 10]} intensity={2} color="#73934A" />
@@ -280,7 +280,7 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
             </Canvas>
           </div>
 
-          <button onClick={handleNext} className="w-12 h-12 flex-shrink-0 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 hover:border-[#6F892E] transition-colors z-10 backdrop-blur-md bg-black/20">
+          <button onClick={handleNext} className="absolute right-2 md:-right-4 lg:-right-6 w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 hover:border-[#6F892E] transition-colors z-20 backdrop-blur-md bg-black/40">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
           </button>
         </div>

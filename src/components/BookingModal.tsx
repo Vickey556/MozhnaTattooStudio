@@ -68,7 +68,7 @@ export const BookingModal = () => {
       <div className="absolute inset-0" onClick={closeBooking}></div>
 
       {/* Компактне віконце */}
-      <div className="w-full max-w-xl bg-[#1a2214] border border-[#73934A]/30 rounded-[40px] p-8 md:p-10 shadow-2xl relative z-10 overflow-y-auto max-h-[90vh] hide-scrollbar">
+      <div className="w-full max-w-xl bg-[#1a2214] border border-[#73934A]/30 rounded-[40px] p-6 md:p-10 shadow-2xl relative z-10 overflow-y-auto max-h-[90vh] hide-scrollbar">
 
         <button
           onClick={closeBooking}
@@ -103,7 +103,7 @@ export const BookingModal = () => {
                 required
                 value={formData.service}
                 onChange={(e) => setFormData({ ...formData, service: e.target.value, subService: '' })}
-                className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] focus:ring-2 focus:ring-[#6F892E] outline-none appearance-none cursor-pointer"
+                className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] text-base focus:ring-2 focus:ring-[#6F892E] outline-none appearance-none cursor-pointer"
               >
                 <option value="" disabled>Оберіть послугу</option>
                 <option value="Татуювання">Татуювання</option>
@@ -117,7 +117,7 @@ export const BookingModal = () => {
                   required
                   value={formData.subService}
                   onChange={(e) => setFormData({ ...formData, subService: e.target.value })}
-                  className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] focus:ring-2 focus:ring-[#6F892E] outline-none appearance-none cursor-pointer animate-in fade-in slide-in-from-top-2"
+                  className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] text-base focus:ring-2 focus:ring-[#6F892E] outline-none appearance-none cursor-pointer animate-in fade-in slide-in-from-top-2"
                 >
                   <option value="">Оберіть прокол</option>
                   {piercingTypesData.map(p => (
@@ -131,7 +131,7 @@ export const BookingModal = () => {
                 required
                 value={formData.artist}
                 onChange={(e) => setFormData({ ...formData, artist: e.target.value })}
-                className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] focus:ring-2 focus:ring-[#6F892E] outline-none appearance-none cursor-pointer"
+                className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] text-base focus:ring-2 focus:ring-[#6F892E] outline-none appearance-none cursor-pointer"
               >
                 <option value="" disabled>Обрати майстра</option>
                 {masters.map(m => (
@@ -145,7 +145,7 @@ export const BookingModal = () => {
                 type="datetime-local"
                 value={formData.datetime}
                 onChange={(e) => setFormData({ ...formData, datetime: e.target.value })}
-                className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] focus:ring-2 focus:ring-[#6F892E] outline-none cursor-pointer"
+                className="w-full bg-[#f4f3ea] border-none rounded-full px-6 py-4 text-[#122110] text-base focus:ring-2 focus:ring-[#6F892E] outline-none cursor-pointer"
                 style={{ colorScheme: 'light' }}
               />
             </div>
@@ -155,19 +155,19 @@ export const BookingModal = () => {
                 type="text" required placeholder="Ваш ПІБ"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:ring-2 focus:ring-[#6F892E] outline-none"
+                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-base focus:ring-2 focus:ring-[#6F892E] outline-none"
               />
               <input
                 type="tel" required placeholder="Номер телефону"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:ring-2 focus:ring-[#6F892E] outline-none"
+                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-base focus:ring-2 focus:ring-[#6F892E] outline-none"
               />
               <input
                 type="email" required placeholder="Електронна адреса"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:ring-2 focus:ring-[#6F892E] outline-none"
+                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-base focus:ring-2 focus:ring-[#6F892E] outline-none"
               />
               <input
                 type="text" required
@@ -176,7 +176,7 @@ export const BookingModal = () => {
                 placeholder="Дата народження"
                 value={formData.dob}
                 onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:ring-2 focus:ring-[#6F892E] outline-none"
+                className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-base focus:ring-2 focus:ring-[#6F892E] outline-none"
                 style={{ colorScheme: 'dark' }}
               />
               
