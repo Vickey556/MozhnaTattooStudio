@@ -19,7 +19,7 @@ export const BookingModal = () => {
     if (isBookingOpen) {
       // Pick a random fortune when the modal opens
       setFortune(fortunes[Math.floor(Math.random() * fortunes.length)]);
-      
+
       // Auto-close after 7 seconds
       const timer = setTimeout(() => {
         closeBooking();
@@ -49,8 +49,6 @@ export const BookingModal = () => {
         </button>
 
         <div className="py-10 text-center animate-in zoom-in-95 duration-300">
-          <h3 className="font-serif text-3xl text-[#6F892E] mb-4 uppercase tracking-widest">Дякуємо!</h3>
-          <p className="text-[#EBEBDF] opacity-90 mb-8 font-serif text-lg">Ваш запис успішно розпочато.</p>
           <div className="bg-[#122110] p-8 rounded-3xl border border-[#73934A]/30 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-[#6F892E] blur-[50px] opacity-20 pointer-events-none"></div>
             <p className="text-[#6F892E] text-sm tracking-widest uppercase mb-4">Твоє передбачення</p>
