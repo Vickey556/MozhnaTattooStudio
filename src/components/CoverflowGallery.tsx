@@ -155,7 +155,7 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
             <h4 className="text-[#EBEBDF] text-base md:text-xl tracking-widest uppercase mb-1">{currentItem.artist.name}</h4>
             <p className="text-[#EBEBDF]/70 text-[10px] md:text-xs tracking-wider uppercase">{currentItem.artist.description}</p>
           </div>
-          <button onClick={openBooking} className="px-6 py-2 md:px-8 md:py-3 border border-white/50 text-[#EBEBDF] rounded-full uppercase tracking-widest text-[10px] md:text-sm hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors whitespace-nowrap">
+          <button onClick={() => openBooking()} className="px-6 py-2 md:px-8 md:py-3 border border-white/50 text-[#EBEBDF] rounded-full uppercase tracking-widest text-[10px] md:text-sm hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors whitespace-nowrap">
             Записатись
           </button>
         </div>

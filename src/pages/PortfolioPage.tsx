@@ -18,7 +18,7 @@ export const PortfolioPage = () => {
     if (activeMaster === 'Всі майстри') {
       setFilteredWorks(allWorks);
     } else {
-      setFilteredWorks(allWorks.filter(work => work.artist.name.toUpperCase() === activeMaster.toUpperCase()));
+      setFilteredWorks(allWorks.filter(work => work.artist && work.artist.name.toUpperCase() === activeMaster.toUpperCase()));
     }
   }, [activeMaster]);
 

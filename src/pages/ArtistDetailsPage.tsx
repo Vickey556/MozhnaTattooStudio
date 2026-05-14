@@ -23,7 +23,7 @@ export const ArtistDetailsPage = () => {
   const normalizeName = (name: string) => name.toLowerCase().split(' ').sort().join(' ');
 
   const artistWorks = [...tattooWorks, ...piercingWorks].filter(
-    work => normalizeName(work.artist.name) === normalizeName(master.name)
+    work => work.artist && normalizeName(work.artist.name) === normalizeName(master.name)
   );
 
   const filters = ['Всі роботи', ...Array.from(new Set(artistWorks.map(w => w.category)))];
