@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
 export interface BookingData {
@@ -23,10 +23,23 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
   const openBooking = (data?: BookingData) => {
     if (data) setBookingData(data);
     else setBookingData({});
-    setIsBookingOpen(true);
+    // Trigger the Helper CRM widget
+    window.postMessage({ widgetOpened: true }, '*');
+    window.postMessage('open-main-form', '*');
   };
 
   const closeBooking = () => setIsBookingOpen(false);
+
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      // Listen for the widget close event
+      if (e.data?.widgetOpened === false) {
+        setIsBookingOpen(true); // Open our Fortune modal
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   return (
     <BookingContext.Provider value={{ isBookingOpen, bookingData, openBooking, closeBooking }}>
