@@ -73,7 +73,7 @@ export const BookingModal = () => {
               <span className="text-[#EBEBDF]/50 font-serif tracking-widest uppercase">Завантаження форми...</span>
             </div>
             <iframe 
-              src="https://crm.helpercrm.com/widgetJS?id=EDa7d4Qk&current-lang=uk-UA"
+              src="https://crm.helpercrm.com/online-form-preview?id=Je8ya8b3"
               className="w-full h-full border-none bg-transparent"
               title="Online Booking Form"
               allow="geolocation; otp-credentials"
