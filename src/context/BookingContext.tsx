@@ -68,13 +68,12 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
   return (
     <BookingContext.Provider value={{ isBookingOpen, bookingData, openBooking, closeBooking }}>
       {children}
-      
+
       {/* Кнопка закриття для віджета CRM */}
       {isCrmOpen && (
-        <button 
+        <button
           onClick={closeCrmWidget}
-          className="fixed top-6 right-6 z-[999999] w-12 h-12 bg-[#1a2214] border border-[#73934A]/50 rounded-full flex items-center justify-center text-[#EBEBDF] hover:bg-[#6F892E] transition-colors shadow-2xl cursor-pointer"
-        >
+          className="fixed top-6 right-6 z-[2147483647] w-12 h-12 bg-[#1a2214] border border-[#73934A]/50 rounded-full flex items-center justify-center text-[#EBEBDF] hover:bg-[#6F892E] transition-colors shadow-2xl cursor-pointer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
