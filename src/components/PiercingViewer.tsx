@@ -9,7 +9,7 @@ export const piercingTypesData = [
   {
     id: "lobe",
     name: "Мочка (Lobe)",
-    price: "від 300",
+    price: "300",
     duration: "15 хв",
     desc: "Класичний прокол м'якої нижньої частини вуха.",
     cameraPosition: [12, -2, 12],
@@ -18,7 +18,7 @@ export const piercingTypesData = [
   {
     id: "helix",
     name: "Хелікс (Helix)",
-    price: "від 500",
+    price: "500",
     duration: "20 хв",
     desc: "Прокол завитка вушної раковини (верхня частина хряща).",
     cameraPosition: [12, 3, 12],
@@ -27,7 +27,7 @@ export const piercingTypesData = [
   {
     id: "forward_helix",
     name: "Форвард Хелікс (Forward Helix)",
-    price: "від 500",
+    price: "500",
     duration: "20 хв",
     desc: "Розташований на протилежному боці від звичайного хелікса, ближче до обличчя, над козелком.",
     cameraPosition: [12, 2, 14],
@@ -36,7 +36,7 @@ export const piercingTypesData = [
   {
     id: "industrial",
     name: "Індастріал (Industrial)",
-    price: "від 700",
+    price: "700",
     duration: "30 хв",
     desc: "Подвійний прокол хряща, з’єднаний однією прямою штангою (зазвичай у верхній частині вуха).",
     cameraPosition: [14, 4, 10],
@@ -44,8 +44,8 @@ export const piercingTypesData = [
   },
   {
     id: "tragus",
-    name: "Трагус / Козелок (Tragus)",
-    price: "від 500",
+    name: "Трагус (Tragus)",
+    price: "500",
     duration: "20 хв",
     desc: "Прокол маленького виступу хряща, що знаходиться перед входом у вушний канал.",
     cameraPosition: [12, -1, 14],
@@ -54,7 +54,7 @@ export const piercingTypesData = [
   {
     id: "antitragus",
     name: "Антитрагус (Antitragus)",
-    price: "від 550",
+    price: "500",
     duration: "20 хв",
     desc: "Прокол хрящового виступу навпроти козелка, трохи вище мочки.",
     cameraPosition: [12, -2, 12],
@@ -63,7 +63,7 @@ export const piercingTypesData = [
   {
     id: "daith",
     name: "Дейс (Daith)",
-    price: "від 550",
+    price: "550",
     duration: "25 хв",
     desc: "Прокол внутрішнього хряща, що знаходиться безпосередньо над вушним каналом.",
     cameraPosition: [14, 0, 12],
@@ -72,7 +72,7 @@ export const piercingTypesData = [
   {
     id: "rook",
     name: "Рук (Rook)",
-    price: "від 550",
+    price: "550",
     duration: "25 хв",
     desc: "Прокол верхньої внутрішньої складки хряща.",
     cameraPosition: [14, 1.5, 12],
@@ -81,7 +81,7 @@ export const piercingTypesData = [
   {
     id: "conch",
     name: "Конч (Conch)",
-    price: "від 500",
+    price: "500",
     duration: "20 хв",
     desc: "Прокол центральної частини вушної раковини («чаші»). Буває внутрішній та зовнішній.",
     cameraPosition: [14, 0, 10],
@@ -92,7 +92,7 @@ export const piercingTypesData = [
   {
     id: "eyebrow",
     name: "Вертикальний (Брова)",
-    price: "від 550",
+    price: "550",
     duration: "20 хв",
     desc: "Класичний прокол, що проходить вертикально через край брови.",
     cameraPosition: [5, 8, 18],
@@ -101,7 +101,7 @@ export const piercingTypesData = [
   {
     id: "bridge",
     name: "Бридж (Bridge)",
-    price: "від 600",
+    price: "600",
     duration: "20 хв",
     desc: "Горизонтальний прокол перенісся на рівні очей.",
     cameraPosition: [0, 6, 20],
@@ -109,8 +109,8 @@ export const piercingTypesData = [
   },
   {
     id: "nostril",
-    name: "Ніздря (Nostril)",
-    price: "від 450",
+    name: "Ностріл/Крило носа (Nostril)",
+    price: "450",
     duration: "20 хв",
     desc: "Прокол одного або обох крил носа.",
     cameraPosition: [5, 2, 20],
@@ -119,7 +119,7 @@ export const piercingTypesData = [
   {
     id: "septum",
     name: "Септум (Septum)",
-    price: "від 450",
+    price: "450",
     duration: "20 хв",
     desc: "Прокол центральної носової перегородки між ніздрями.",
     cameraPosition: [0, 0, 20],
@@ -128,7 +128,7 @@ export const piercingTypesData = [
   {
     id: "labret",
     name: "Лабрет (Labret)",
-    price: "від 550",
+    price: "550",
     duration: "20 хв",
     desc: "Прокол нижньої губи по центру.",
     cameraPosition: [0, -6, 20],
@@ -137,7 +137,7 @@ export const piercingTypesData = [
   {
     id: "vertical_labret",
     name: "Вертикальний лабрет",
-    price: "від 600",
+    price: "550",
     duration: "25 хв",
     desc: "Проходить вертикально крізь губу (одна кулька зверху на губі, інша — під нею).",
     cameraPosition: [0, -5, 20],
@@ -146,7 +146,7 @@ export const piercingTypesData = [
   {
     id: "snake_bites",
     name: "Зміїний укус (Snake Bites)",
-    price: "від 900",
+    price: "900",
     duration: "40 хв",
     desc: "Два симетричні проколи по боках нижньої губи.",
     cameraPosition: [0, -6, 20],
@@ -155,7 +155,7 @@ export const piercingTypesData = [
   {
     id: "angel_bites",
     name: "Ангельський укус (Angel Bites)",
-    price: "від 900",
+    price: "900",
     duration: "40 хв",
     desc: "Два симетричні проколи по боках верхньої губи.",
     cameraPosition: [0, -4, 20],
@@ -164,7 +164,7 @@ export const piercingTypesData = [
   {
     id: "spider_bites",
     name: "Укус павука (Spider Bites)",
-    price: "від 900",
+    price: "900",
     duration: "40 хв",
     desc: "Два проколи поруч з одного боку нижньої губи.",
     cameraPosition: [4, -6, 20],
@@ -173,11 +173,11 @@ export const piercingTypesData = [
   {
     id: "smile",
     name: "Смайл (Smile)",
-    price: "від 550",
+    price: "550",
     duration: "20 хв",
     desc: "Прокол вуздечки верхньої губи (видно тільки при посмішці).",
     cameraPosition: [0, -4, 18],
-    dotPosition: [0, -5.2, 9.5] // Roughly upper teeth area behind lip
+    dotPosition: [0, -5.2, 9.5] 
   }
 ];
 

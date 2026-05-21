@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export const masters = [
   {
@@ -8,7 +9,8 @@ export const masters = [
     image: "/Mozhaeva.jpg",
     experience: "7 років",
     price: "від 2000 грн",
-    inst: "@mozhaieva_tattoo"
+    inst: "@nadiia.mo.tattoo",
+    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
   },
   {
     id: 'viktoria-teliatnyk',
@@ -17,7 +19,8 @@ export const masters = [
     image: "/Teliatnyk.jpg",
     experience: "4 роки",
     price: "від 1500 грн",
-    inst: "@teliatnyk.tattoo"
+    inst: "@teliatnyk.tattoo",
+    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
   },
   {
     id: 'anna-vovna',
@@ -26,7 +29,8 @@ export const masters = [
     image: "/Vovna.jpg",
     experience: "5 років",
     price: "від 1500 грн",
-    inst: "@vovna.tattoo"
+    inst: "@vovna.tattoo",
+    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
   },
   {
     id: 'anastasia-starynets',
@@ -35,7 +39,8 @@ export const masters = [
     image: "/Starinets.jpg",
     experience: "3 роки",
     price: "від 500 грн",
-    inst: "@starynets_piercing"
+    inst: "@starynets_piercing",
+    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
   },
   {
     id: 'vitalina-shum',
@@ -44,17 +49,33 @@ export const masters = [
     image: "/tattoo_artist_2_1777048821101.png",
     experience: "2 роки",
     price: "від 1500 грн",
-    inst: "@shum_tattoo"
+    inst: "@shum_tattoo",
+    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
   }
 ];
 
 export const ArtistsPage = () => {
+  const { artists: dbArtists } = useSupabaseData();
+
+  const displayArtists = dbArtists.length > 0 
+    ? dbArtists.map(a => ({
+        id: a.id,
+        name: a.name,
+        specs: a.role || a.description || "Майстер",
+        image: a.image_url || "/Mozhaeva.jpg",
+        experience: "Деталі на сторінці",
+        price: "Уточнюйте",
+        inst: "",
+        instLink: ""
+      }))
+    : masters;
+
   return (
     <div className="pt-14 pb-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto min-h-screen">
       <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider mb-8">Наші Майстри</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {masters.map((master) => (
+        {displayArtists.map((master) => (
           <Link
             key={master.id}
             to={`/artists/${master.id}`}
@@ -64,7 +85,7 @@ export const ArtistsPage = () => {
 
             <div className="w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 group-hover:-translate-y-2 bg-transparent">
               <img
-                src={`${import.meta.env.BASE_URL}${master.image.replace(/^\//, '')}`}
+                src={master.image.startsWith('http') ? master.image : `${import.meta.env.BASE_URL}${master.image.replace(/^\//, '')}`}
                 alt={master.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {

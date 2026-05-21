@@ -3,6 +3,7 @@ import { ReviewsSection } from './HomePage';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 import type { GalleryItem } from '../components/CoverflowGallery';
+import { useSupabaseData } from '../hooks/useSupabaseData';
 
 
 export const tattooWorks: GalleryItem[] = [
@@ -74,8 +75,8 @@ export const tattooWorks: GalleryItem[] = [
   {
     id: '6',
     image: 'justice.jpg',
-    title: 'КОВТОК СМЕРТІ',
-    description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
+    title: 'КАРТА ПРАВОСУТТЯ',
+    description: 'Татуювання в стилі гравюра, що зображує символіку правосуддя.',
     date: 'Лютий 2024',
     category: 'Гравюра',
     artist: {
@@ -87,8 +88,8 @@ export const tattooWorks: GalleryItem[] = [
   {
     id: '7',
     image: 'spiders.jpg',
-    title: 'КОВТОК СМЕРТІ',
-    description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
+    title: 'Павуки коханці',
+    description: 'Татуювання двох павуків, що поєднуються в символ кохання.',
     date: 'Лютий 2024',
     category: 'Графіка',
     artist: {
@@ -100,8 +101,8 @@ export const tattooWorks: GalleryItem[] = [
   {
     id: '8',
     image: 'sighnature.jpg',
-    title: 'КОВТОК СМЕРТІ',
-    description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
+    title: 'СИМВОЛІЧИНИЙ НАПИС',
+    description: 'Фраза написана рукою близької людини.',
     date: 'Лютий 2024',
     category: 'Написи',
     artist: {
@@ -116,6 +117,28 @@ const filters = ['Всі стилі', 'Графіка', 'Олдскул', 'Мі�
 
 export const TattooPage = () => {
   const { openBooking } = useBooking();
+  const { portfolio: dbPortfolio, artists: dbArtists } = useSupabaseData();
+
+  const dbTattoos = dbPortfolio.filter(p => p.type === 'tattoo');
+  
+  const displayWorks = dbTattoos.length > 0 
+    ? dbTattoos.map(p => {
+        const artist = dbArtists.find(a => a.id === p.artist_id);
+        return {
+          id: p.id,
+          image: p.image_url,
+          title: p.title || 'ТАТУЮВАННЯ',
+          description: p.description || '',
+          date: '',
+          category: p.category || 'Графіка',
+          artist: artist ? {
+            name: artist.name,
+            description: artist.role,
+            image: artist.image_url
+          } : undefined
+        };
+      })
+    : tattooWorks;
 
   return (
     <div className="pt-14 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
@@ -163,7 +186,7 @@ export const TattooPage = () => {
           </h2>
 
           {/* 2. Галерея (фільтри та слайдер знаходяться всередині CoverflowGallery) */}
-          <CoverflowGallery items={tattooWorks} categories={filters} />
+          <CoverflowGallery items={displayWorks} categories={filters} />
 
         </div>
       </section>

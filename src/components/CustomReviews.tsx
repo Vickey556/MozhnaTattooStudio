@@ -1,4 +1,4 @@
-
+import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export interface Review {
   id: string;
@@ -12,48 +12,62 @@ export interface Review {
 const allReviews: Review[] = [
   {
     id: '1',
-    author: 'Анна К.',
-    date: '2 тижні тому',
+    author: 'Тетяна Сальницька',
+    date: 'тиждень тому',
     rating: 5,
-    text: 'Робила перше татуювання у майстра Надії. Дуже хвилювалася, але дарма! Все пройшло чудово, швидко і майже не боляче. Ескіз вийшов навіть краще, ніж я уявляла.',
+    text: 'Задоволена роботою майстра Вікторії. Було проведено перекриття шраму за допомогою тату. Вікторія допомогла визначитися з дизайном, розповіла як доглядати. Загоєння минуло без жодних проблем. Рекомендую салон та майстра Вікторію! ✅✅✅',
     type: 'tattoo'
   },
   {
     id: '2',
-    author: 'Максим В.',
+    author: 'Андрій Тищенко',
     date: 'Місяць тому',
     rating: 5,
-    text: 'Крута студія! Робив масштабний проєкт на спині у Вікторії. Атмосфера супер, завжди запропонують каву, можна розслабитись під музику. Роботою повністю задоволений.',
+    text: 'Чудове місце для втілення ваших ідей та мрій',
     type: 'tattoo'
   },
   {
     id: '3',
-    author: 'Олена С.',
+    author: 'Єва',
     date: '3 тижні тому',
     rating: 5,
-    text: 'Проколювала хрящ (Хелікс). Майстер Анастасія все детально пояснила, допомогла вибрати ідеальну прикрасу. Прокол заживає чудово, ніяких проблем.',
+    text: 'Дуже задоволена візитом до студії. Робила пірсинг септум у майстрині Анастасії - все пройшло ідеально. Атмосфера в студії дуже комфортна, приємна і спокійна. Анастасія - надзвичайно привітна, мила та уважна майстриня. Все зробила дуже акуратно і рівно, результат просто чудовий. Я залишилась у повному захваті',
     type: 'piercing'
   },
   {
     id: '4',
-    author: 'Дмитро П.',
-    date: '2 місяці тому',
+    author: 'Стеблівець Каріна',
+    date: '3 місяці тому',
     rating: 5,
-    text: 'Робив мінімалістичне тату у Анни. Дуже тонка і акуратна робота, лінії рівненькі. Обов\'язково повернуся ще!',
+    text: 'Чудова студія. Шикарні всі майстрині, які тут працюють 🥰 . Чілова атмосфера, можна з усіма знайти спільну мову. І взагалі тут всіх обожнюю ❤️. Довіряю їм , і ні разу не пошкодувала про це 💓',
     type: 'tattoo'
   },
   {
     id: '5',
-    author: 'Катерина М.',
-    date: '1 тиждень тому',
+    author: 'Владлен',
+    date: '3 місяці тому',
     rating: 5,
-    text: 'Робила пірсинг крила носа. Стерильно, швидко і безпечно. Дуже сподобався підхід майстра, відчувається професіоналізм.',
-    type: 'piercing'
+    text: 'Нещодавно вийшов із салону. Був на сеансі у майстра Надії. Тату зробили дуже швидко, та й під час запису вчора відповіли майже відразу. Працюють професіонали, тому всім раджу',
+    type: 'tattoo'
   }
 ];
 
 export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
-  const filteredReviews = type ? allReviews.filter(r => r.type === type) : allReviews;
+  const { reviews: dbReviews, loading } = useSupabaseData();
+
+  // Використовуємо відгуки з БД. Якщо їх немає, використовуємо заглушки (allReviews)
+  const displayReviews = dbReviews.length > 0 
+    ? dbReviews.map(r => ({
+        id: r.id,
+        author: r.author_name,
+        date: r.date,
+        rating: r.rating,
+        text: r.text,
+        type: r.type || 'tattoo' // Fallback for type if missing in older schema
+      }))
+    : allReviews;
+
+  const filteredReviews = type ? displayReviews.filter(r => r.type === type) : displayReviews;
 
   const Star = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="#6F892E" stroke="#6F892E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -76,6 +90,11 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {loading && displayReviews === allReviews && dbReviews.length === 0 ? (
+           // While loading, we can show placeholders or nothing. It will show placeholders automatically.
+           null
+        ) : null}
+        
         {filteredReviews.map((review) => (
           <div key={review.id} className="bg-[#122110] p-8 rounded-3xl border border-[#73934A]/30 shadow-lg flex flex-col justify-between">
             <div>

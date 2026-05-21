@@ -44,9 +44,15 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center social-icons gap-4">
-          <a href="#"><TelegramIcon /></a>
-          <a href="#"><InstagramIcon /></a>
-          <a href="#"><PhoneIcon /></a>
+          <a href="https://t.me/mozhna_tattoo" target="_blank" rel="noopener noreferrer">
+            <TelegramIcon />
+          </a>
+          <a href="https://www.instagram.com/mozhna_tattoo/" target="_blank" rel="noopener noreferrer">
+            <InstagramIcon />
+          </a>
+          <a href="tel:+380633747698">
+            <PhoneIcon />
+          </a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -72,9 +78,15 @@ const Header = () => {
           <a href="#contacts" onClick={closeMenu}>Контакти</a>
         </nav>
         <div className="flex items-center gap-8 mt-12">
-          <a href="#" className="scale-125"><TelegramIcon /></a>
-          <a href="#" className="scale-125"><InstagramIcon /></a>
-          <a href="#" className="scale-125"><PhoneIcon /></a>
+          <a href="https://t.me/mozhna_tattoo" target="_blank" rel="noopener noreferrer" className="scale-125">
+            <TelegramIcon />
+          </a>
+          <a href="https://www.instagram.com/mozhna_tattoo/" target="_blank" rel="noopener noreferrer" className="scale-125">
+            <InstagramIcon />
+          </a>
+          <a href="tel:+380633747698" className="scale-125">
+            <PhoneIcon />
+          </a>
         </div>
       </div>
     </>
@@ -97,6 +109,7 @@ const ContactsFooter = () => {
 
           <div className="flex flex-col gap-2">
             <h4 className="text-sm tracking-widest uppercase mb-2">Графік роботи</h4>
+             <p className="text-sm opacity-90">Працюємо за попереднім записом</p>
             <p className="text-sm opacity-90">З 10:00 до 19:00 кожного дня</p>
           </div>
 

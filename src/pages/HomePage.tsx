@@ -18,7 +18,7 @@ const HeroSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
       >
-        <source src={`${import.meta.env.BASE_URL}IMG_1830.MP4`} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}bgvideo.MP4`} type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}
@@ -185,12 +185,12 @@ const MastersSection = () => {
     {
       name: "НАДІЯ МОЖАЄВА",
       specs: "Татуювання, пірсинг, навчання, арт сеанс",
-      image: "Можаєва Надія.png",
+      image: "Можаєва Надія (2).png",
       color: "bg-transparent"
     },
     {
       name: "ТЕЛЯТНИК ВІКТОРІЯ",
-      specs: "Татуювання",
+      specs: "Татуювання, арт-сеанс",
       image: "Телятник Вікторія.png",
       color: "bg-transparent"
     },
@@ -203,13 +203,13 @@ const MastersSection = () => {
     {
       name: "АНАСТАСІЯ СТАРИНЕЦЬ",
       specs: "Пірсинг, навчання",
-      image: "tattoo_artist_1_1777048808245.png",
+      image: "Анастасія Старинець.png",
       color: "bg-transparent"
     },
     {
       name: "ВІТАЛІНА ШУМ",
-      specs: "Татуювання",
-      image: "tattoo_artist_2_1777048821101.png",
+      specs: "Татуювання, арт-сеанс",
+      image: "Віталіна Шум.png",
       color: "bg-transparent"
     }
   ];
