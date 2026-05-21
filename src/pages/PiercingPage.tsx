@@ -226,14 +226,14 @@ export const PiercingPage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon.png' },
-            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon2.png' },
-            { name: 'Лабрет з опалом (титан)', price: '300 грн', img: '/labretopal.png' },
-            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon3.png'},
-            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon4.png' },
-            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon5.png' },
-            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon6.png' },
-            { name: 'Клікер титановий', price: '300 грн', img: '/dropclicer.png'},
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon.jpg' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon2.jpg' },
+            { name: 'Лабрет з опалом (титан)', price: '300 грн', img: '/labretopal.jpg' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon3.jpg'},
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon4.jpg' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon5.jpg' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon6.jpg' },
+            { name: 'Клікер титановий', price: '300 грн', img: '/dropclicer.jpg'},
           
           ].map((item, idx) => (
             <div key={idx} className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-[#6F892E]/50 transition-colors group cursor-pointer">
