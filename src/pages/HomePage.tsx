@@ -18,7 +18,7 @@ const HeroSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
       >
-        <source src={`${import.meta.env.BASE_URL}bgvideo.MP4`} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL} bgvideo.mp4`} type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}
