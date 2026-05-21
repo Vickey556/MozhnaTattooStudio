@@ -17,10 +17,10 @@ export const masters = [
     name: "ТЕЛЯТНИК ВІКТОРІЯ",
     specs: "Татуювання",
     image: "/Teliatnyk.jpg",
-    experience: "4 роки",
+    experience: "2 роки",
     price: "від 1500 грн",
-    inst: "@teliatnyk.tattoo",
-    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
+    inst: "@toska.tatt",
+    instLink: "https://www.instagram.com/toska.tatt"
   },
   {
     id: 'anna-vovna',
@@ -29,8 +29,8 @@ export const masters = [
     image: "/Vovna.jpg",
     experience: "5 років",
     price: "від 1500 грн",
-    inst: "@vovna.tattoo",
-    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
+    inst: "@psycho.art.tattoo",
+    instLink: "https://www.instagram.com/psycho.art.tattoo"
   },
   {
     id: 'anastasia-starynets',
@@ -38,19 +38,19 @@ export const masters = [
     specs: "Пірсинг, навчання",
     image: "/Starinets.jpg",
     experience: "3 роки",
-    price: "від 500 грн",
-    inst: "@starynets_piercing",
-    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
+    price: "від 300 грн",
+    inst: "@piercing_che",
+    instLink: "https://www.instagram.com/piercing_che"
   },
   {
     id: 'vitalina-shum',
     name: "ВІТАЛІНА ШУМ",
     specs: "Татуювання",
-    image: "/tattoo_artist_2_1777048821101.png",
+    image: "/Shum.jpg",
     experience: "2 роки",
     price: "від 1500 грн",
-    inst: "@shum_tattoo",
-    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
+    inst: "@rmviqs",
+    instLink: "https://www.instagram.com/rmviqs"
   }
 ];
 
