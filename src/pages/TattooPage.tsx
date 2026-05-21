@@ -1,5 +1,5 @@
 import { useBooking } from '../context/BookingContext';
-import { ReviewsSection } from './HomePage';
+import { CustomReviews } from '../components/CustomReviews';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 import type { GalleryItem } from '../components/CoverflowGallery';
@@ -226,7 +226,7 @@ export const TattooPage = () => {
       </section>
 
       {/* Reviews */}
-      <ReviewsSection />
+      <CustomReviews type="tattoo" />
 
       {/* Booking Block */}
       <section className="pt-10 pb-40 px-4 mb-32 relative overflow-visible flex justify-center">

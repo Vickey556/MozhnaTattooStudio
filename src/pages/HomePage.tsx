@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useBooking } from '../context/BookingContext';
+import { CustomReviews } from '../components/CustomReviews';
 
 
 // Note: Reused components from original App.tsx
@@ -179,6 +180,7 @@ const ExpertiseSection = () => {
 const MastersSection = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isHovered, setIsHovered] = React.useState(false);
+
   const sliderRef = React.useRef<HTMLDivElement>(null);
 
   const masters = [
@@ -415,41 +417,7 @@ export const AtmosphereSection = () => {
 };
 
 
-export const ReviewsSection = () => {
-  const widgetRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Перевіряємо, чи ми на клієнті і чи блок існує
-    if (widgetRef.current && !widgetRef.current.querySelector('script')) {
-      const script = document.createElement("script");
-      script.src = "https://cdn.trustindex.io/loader.js?041df50700898942d406974caa0";
-      script.async = true;
-      script.defer = true;
-      widgetRef.current.appendChild(script);
-    }
-  }, []);
-
-  return (
-    <section id="reviews" className="py-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto noise-bg relative">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-        <h2 className="font-serif text-3xl md:text-4xl uppercase">Ваші Відгуки</h2>
-        <a
-          href="https://www.google.com/search?sca_esv=8c24cb2666462953&sxsrf=ANbL-n6TNIJFLiU1Chbiaq5zymmw3tOxBg:1777925328984&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOezGQDdIV1B1SIBisroYPXzMyvCKls5zkqwXWs0MdTCVqNrC8G2AF_-buI2J7FLC8FCWn0WUquWPva-wE3IOV4TwC065pClJADnOqTdx6bFVKFvhpg%3D%3D&q=%D0%9C%D0%9E%D0%96%D0%9D%D0%90+%D0%A2%D0%90%D0%A2%D0%A3+%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA%D0%B8&sa=X&ved=2ahUKEwjRi6_9t6CUAxXwEBAIHfelD_AQ0bkNegQIIxAH&biw=1536&bih=730&dpr=1.25"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-[#6F892E] text-[#122110] px-8 py-4 rounded-full hover:bg-white transition-colors font-serif uppercase tracking-wider font-semibold shadow-[0_0_20px_rgba(182,255,64,0.3)]"
-        >
-          Написати в Google
-        </a>
-      </div>
-
-      <div className="rounded-3xl border border-[#6F892E]/30 p-4 md:p-8 min-h-[400px] shadow-2xl relative overflow-hidden">
-        {/* Сюди ефект useEffect вставить скрипт */}
-        <div ref={widgetRef} className="w-full h-full"></div>
-      </div>
-    </section>
-  );
-};
 
 export const HomePage = () => {
   return (
@@ -459,7 +427,7 @@ export const HomePage = () => {
       <ExpertiseSection />
       <MastersSection />
       <AtmosphereSection />
-      <ReviewsSection />
+      <CustomReviews />
     </div>
   );
 };
