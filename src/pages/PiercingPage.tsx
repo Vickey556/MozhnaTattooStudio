@@ -24,7 +24,7 @@ export const piercingWorks: GalleryItem[] = [
     id: '2',
     image: '/nostril.jpg',
     title: 'Прокол крила носа',
-    description: 'Класичний прокол крила носа з кільцем.',
+    description: 'Класичний прокол крила носа з камінчиком.',
     date: 'Березень 2024',
     category: 'Ніс',
     artist: {
@@ -150,6 +150,19 @@ export const piercingWorks: GalleryItem[] = [
       image: '/Starinets.jpg'
     }
   },
+  {
+    id: '11',
+    image: '/bridge.jpg',
+    title: 'Прокол брідж',
+    description: 'Прокол перенісся',
+    date: 'Квітень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Анастасія Старинець',
+      description: 'Майстер пірсингу',
+      image: '/Starinets.jpg'
+    }
+  },
 ];
 
 const filters = ['Всі проколи', 'Вухо', 'Ніс', 'Губа', 'Мікродермали', 'Брова', 'Язик'];
@@ -213,10 +226,15 @@ export const PiercingPage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: 'Титановий лабрет', price: 'від 300 грн', img: 'https://www.instagram.com/p/DX1gn_WDYR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
-            { name: 'Кільце з фіанітами', price: 'від 650 грн', img: 'https://images.unsplash.com/photo-1599643478524-fb66f70d00f0?q=80&w=600&auto=format&fit=crop' },
-            { name: 'Кластер для хряща', price: 'від 800 грн', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop' },
-            { name: 'Банан для пупка', price: 'від 500 грн', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop' }
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon.png' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon2.png' },
+            { name: 'Лабрет з опалом (титан)', price: '300 грн', img: '/labretopal.png' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon3.png'},
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon4.png' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon5.png' },
+            { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon6.png' },
+            { name: 'Клікер титановий', price: '300 грн', img: '/dropclicer.png'},
+          
           ].map((item, idx) => (
             <div key={idx} className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-[#6F892E]/50 transition-colors group cursor-pointer">
               <div className="aspect-square overflow-hidden bg-black/50">
