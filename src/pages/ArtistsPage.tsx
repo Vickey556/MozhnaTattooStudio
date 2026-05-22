@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export const masters = [
   {
@@ -55,27 +54,12 @@ export const masters = [
 ];
 
 export const ArtistsPage = () => {
-  const { artists: dbArtists } = useSupabaseData();
-
-  const displayArtists = dbArtists.length > 0 
-    ? dbArtists.map(a => ({
-        id: a.id,
-        name: a.name,
-        specs: a.role || a.description || "Майстер",
-        image: a.image_url || "",
-        experience: "Деталі на сторінці",
-        price: "Уточнюйте",
-        inst: "",
-        instLink: ""
-      }))
-    : masters;
-
   return (
     <div className="pt-14 pb-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto min-h-screen">
       <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider mb-8">Наші Майстри</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {displayArtists.map((master) => (
+        {masters.map((master) => (
           <Link
             key={master.id}
             to={`/artists/${master.id}`}

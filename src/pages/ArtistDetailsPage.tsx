@@ -4,26 +4,12 @@ import { masters } from './ArtistsPage';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 import { tattooWorks } from './TattooPage';
 import { piercingWorks } from './PiercingPage';
-import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export const ArtistDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const { openBooking } = useBooking();
-  const { artists: dbArtists } = useSupabaseData();
 
-  const displayArtists = dbArtists.length > 0 
-    ? dbArtists.map(a => ({
-        id: a.id,
-        name: a.name,
-        specs: a.role || a.description || "Майстер",
-        image: a.image_url || "",
-        experience: "Деталі на сторінці",
-        price: "Уточнюйте",
-        inst: ""
-      }))
-    : masters;
-
-  const master = displayArtists.find(m => m.id === id);
+  const master = masters.find(m => m.id === id);
 
   if (!master) {
     return (

@@ -4,7 +4,6 @@ import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 import type { GalleryItem } from '../components/CoverflowGallery';
 import { PiercingViewer } from '../components/PiercingViewer';
-import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export const piercingWorks: GalleryItem[] = [
   {
@@ -169,28 +168,6 @@ const filters = ['Всі проколи', 'Вухо', 'Ніс', 'Губа', 'М�
 
 export const PiercingPage = () => {
   const { openBooking } = useBooking();
-  const { portfolio: dbPortfolio, artists: dbArtists } = useSupabaseData();
-
-  const dbPiercings = dbPortfolio.filter(p => p.type === 'piercing');
-  
-  const displayWorks = dbPiercings.length > 0 
-    ? dbPiercings.map(p => {
-        const artist = dbArtists.find(a => a.id === p.artist_id);
-        return {
-          id: p.id,
-          image: p.image_url,
-          title: p.title || 'ПІРСИНГ',
-          description: p.description || '',
-          date: '',
-          category: p.category || 'Вухо',
-          artist: artist ? {
-            name: artist.name,
-            description: artist.role,
-            image: artist.image_url
-          } : undefined
-        };
-      })
-    : piercingWorks;
 
   return (
     <div className="pt-14 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
@@ -215,7 +192,7 @@ export const PiercingPage = () => {
           </h2>
 
           {/* 2. Галерея (фільтри та слайдер знаходяться всередині CoverflowGallery) */}
-          <CoverflowGallery items={displayWorks} categories={filters} />
+          <CoverflowGallery items={piercingWorks} categories={filters} />
 
         </div>
       </section>

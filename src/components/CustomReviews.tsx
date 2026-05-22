@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export interface Review {
   id: string;
@@ -54,21 +53,11 @@ const allReviews: Review[] = [
 ];
 
 export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
-  const { reviews: dbReviews, loading } = useSupabaseData();
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const displayReviews = dbReviews.length > 0 
-    ? dbReviews.map(r => ({
-        id: r.id,
-        author: r.author_name,
-        date: r.date,
-        rating: r.rating,
-        text: r.text,
-        type: r.type || 'tattoo'
-      }))
+  const filteredReviews = type 
+    ? allReviews.filter(r => r.type === type)
     : allReviews;
-
-  const filteredReviews = type ? displayReviews.filter(r => r.type === type) : displayReviews;
 
   // Функція для скролу каруселі по кнопках
   const scroll = (direction: 'left' | 'right') => {
@@ -127,7 +116,6 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
         ref={carouselRef}
         className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
-        {loading && displayReviews === allReviews && dbReviews.length === 0 ? null : null}
         
         {filteredReviews.map((review) => (
           <div 
