@@ -31,21 +31,34 @@ export const tattooWorks: GalleryItem[] = [
       image: '/Vovna.jpg'
     }
   },
-  {
+   {
     id: '3',
-    image: 'fearandchaos.jpg',
-    title: 'СТРАХ І ХАОС',
-    description: 'Емоційна робота в темному стилі, що поєднує графіку та реалізм.',
+    image: 'shum_flower.jpg',
+    title: 'СТИЛІЗОВАНА КВІТКА',
+    description: 'Концептуальне татуювання квітів з сучасним поглядом.',
+    date: 'Лютий 2024',
+    category: 'Олдскул',
+    artist: {
+      name: 'Віталіна Шум',
+      description: 'Майстер татуювання',
+      image: 'Shum.jpg'
+    }
+  },
+    {
+    id: '4',
+    image: 'Mozhaeva_scull.jpg',
+    title: 'ЧЕРЕП З КВІТАМИ',
+    description: 'Контрастне татуювання, що поєднує символіку життя та смерті.',
     date: 'Березень 2024',
     category: 'Графіка',
     artist: {
-      name: 'Анна Вовна',
+      name: 'Надія Можаєва',
       description: 'Майстер татуювання',
-      image: '/Vovna.jpg'
+      image: '/Mozhaeva.jpg'
     }
   },
   {
-    id: '4',
+    id: '5',
     image: 'lotousback.jpg',
     title: 'ЛОТОС НА СПИНІ',
     description: 'Великомасштабна робота лотоса, що розпускається.',
@@ -58,7 +71,7 @@ export const tattooWorks: GalleryItem[] = [
     }
   },
   {
-    id: '5',
+    id: '6',
     image: 'sipofdeath.jpg',
     title: 'КОВТОК СМЕРТІ',
     description: 'Концептуальне татуювання з глибоким символізмом в стилі олдскул.',
@@ -71,7 +84,7 @@ export const tattooWorks: GalleryItem[] = [
     }
   },
   {
-    id: '6',
+    id: '7',
     image: 'justice.jpg',
     title: 'КАРТА ПРАВОСУТТЯ',
     description: 'Татуювання в стилі гравюра, що зображує символіку правосуддя.',
@@ -83,8 +96,34 @@ export const tattooWorks: GalleryItem[] = [
       image: '/Teliatnyk.jpg'
     }
   },
+   {
+    id: '8',
+    image: 'Mozhaeva_phoenix.jpg',
+    title: 'ВЕЛИЧНИЙ ФЕНІКС',
+    description: 'Проект фенікса, що символізує відродження та силу.',
+    date: 'Лютий 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
   {
-    id: '7',
+    id: '9',
+    image: 'Vovna_snake.jpg',
+    title: 'ЗМІЯ І КВІТИ',
+    description: 'Краса може бути небезпечною ',
+    date: 'Січень 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Анна Вовна',
+      description: 'Майстер татуювання',
+      image: '/Vovna.jpg'
+    }
+  },
+  {
+    id: '10',
     image: 'spiders.jpg',
     title: 'Павуки коханці',
     description: 'Татуювання двох павуків, що поєднуються в символ кохання.',
@@ -97,7 +136,46 @@ export const tattooWorks: GalleryItem[] = [
     }
   },
   {
-    id: '8',
+    id: '11',
+    image: 'shum_flower2.jpg',
+    title: 'КВІТИ ПЕРЕРОДЖЕННЯ',
+    description: 'Татуювання квітів які перекривають шрам, символізуючи новий початок.',
+    date: 'Лютий 2024',
+    category: 'Олдскул',
+    artist: {
+      name: 'Віталіна Шум',
+      description: 'Майстер татуювання',
+      image: 'Shum.jpg'
+    }
+  },
+  {
+    id: '12',
+    image: 'snaketattoo.png',
+    title: 'ЗМІЯ ЗА ЯПОНСЬКИМИ МОТИВАМИ',
+    description: 'Неймовірне перекриття старого татуювання.',
+    date: 'Лютий 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
+  {
+    id: '13',
+    image: 'fearandchaos.jpg',
+    title: 'СТРАХ І ХАОС',
+    description: 'Емоційна робота в темному стилі, що поєднує графіку та реалізм.',
+    date: 'Березень 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Анна Вовна',
+      description: 'Майстер татуювання',
+      image: '/Vovna.jpg'
+    }
+  },
+  {
+    id: '14',
     image: 'sighnature.jpg',
     title: 'СИМВОЛІЧИНИЙ НАПИС',
     description: 'Фраза написана рукою близької людини.',
@@ -109,6 +187,33 @@ export const tattooWorks: GalleryItem[] = [
       image: '/Teliatnyk.jpg'
     }
   },
+  {
+    id: '15',
+    image: 'Shum_couple.jpg',
+    title: 'ТАТУЮВАННЯ ЗАКОХАНИХ',
+    description: 'Парне татуювання, єдності та кохання.',
+    date: 'Лютий 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Віталіна Шум',
+      description: 'Майстер татуювання',
+      image: 'Shum.jpg'
+    }
+  },
+  {
+    id: '16',
+    image: 'Mozhaeva_scolopendra.jpg',
+    title: 'СКОЛОПЕНДРА З ЧЕРЕПІВ',
+    description: 'Проект на спину, з готичною сколопендрою.',
+    date: 'Лютий 2024',
+    category: 'Графіка',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
+
 ];
 
 const filters = ['Всі стилі', 'Графіка', 'Олдскул', 'Мінімалізм', 'Кольорові', 'Реалізм', 'Скандинавія', 'Геометрія', 'Гравюра', 'Абстракція', 'Написи'];

@@ -70,7 +70,7 @@ export const ArtistDetailsPage = () => {
             </div>
             <div className="flex justify-between items-center pb-4 border-b border-[#73934A]/10">
               <span className="font-serif opacity-70">Instagram:</span>
-              <a href="#" className="font-serif text-xl text-[#6F892E] hover:underline">{master.inst}</a>
+              <a href={master.instLink} target="_blank" rel="noopener noreferrer" className="font-serif text-xl text-[#6F892E] hover:underline">{master.inst}</a>
             </div>
           </div>
 
@@ -100,7 +100,7 @@ export const ArtistDetailsPage = () => {
         )}
 
         <div className="mt-12 text-center">
-          <a href="#" className="inline-block px-8 py-3 rounded-full font-serif tracking-widest uppercase transition-colors border border-[#73934A]/50 text-[#EBEBDF] hover:border-[#6F892E] hover:text-[#6F892E]">
+          <a href={master.instLink} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 rounded-full font-serif tracking-widest uppercase transition-colors border border-[#73934A]/50 text-[#EBEBDF] hover:border-[#6F892E] hover:text-[#6F892E]">
             Більше робіт в Instagram
           </a>
         </div>

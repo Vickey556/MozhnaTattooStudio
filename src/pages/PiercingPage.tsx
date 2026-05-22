@@ -150,7 +150,7 @@ export const piercingWorks: GalleryItem[] = [
     }
   },
   {
-    id: '11',
+    id: '12',
     image: '/bridge.jpg',
     title: 'Прокол брідж',
     description: 'Прокол перенісся',
@@ -160,6 +160,71 @@ export const piercingWorks: GalleryItem[] = [
       name: 'Анастасія Старинець',
       description: 'Майстер пірсингу',
       image: '/Starinets.jpg'
+    }
+  },
+  {
+    id: '13',
+    image: '/Mozhaeva_brow.jpg',
+    title: 'Прокол брови',
+    description: 'Прокол брови',
+    date: 'Травень 2024',
+    category: 'Брова',
+    artist: {
+     name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
+  {
+    id: '14',
+    image: '/Mozhaeva_counch.jpg',
+    title: 'Проколи конч та трагус',
+    description: 'Проколи вуха',
+    date: 'Травень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
+  {
+    id: '15',
+    image: '/Mozhaeva_upperlobe.jpg',
+    title: 'Додатковий прокол мочки',
+    description: 'Прокол мочки вуха',
+    date: 'Травень 2024',
+    category: 'Вухо',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
+  {
+    id: '16',
+    image: '/Mozhaeva_tongue.jpg',
+    title: 'Прокол язика',
+    description: 'Проколи язика для подруг',
+    date: 'Квітень 2024',
+    category: 'Язик',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
+    }
+  },
+  {
+    id: '17',
+    image: '/Mozhaeva-nostril.jpg',
+    title: 'Прокол крила носа',
+    description: 'Прокол ностріл',
+    date: 'Квітень 2024',
+    category: 'Ніс',
+    artist: {
+      name: 'Надія Можаєва',
+      description: 'Майстер татуювання',
+      image: '/Mozhaeva.jpg'
     }
   },
 ];
