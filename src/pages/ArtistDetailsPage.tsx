@@ -16,7 +16,7 @@ export const ArtistDetailsPage = () => {
         id: a.id,
         name: a.name,
         specs: a.role || a.description || "Майстер",
-        image: a.image_url || "/Mozhaeva.jpg",
+        image: a.image_url || "",
         experience: "Деталі на сторінці",
         price: "Уточнюйте",
         inst: ""

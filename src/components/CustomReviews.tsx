@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useSupabaseData } from '../hooks/useSupabaseData';
 
 export interface Review {
@@ -54,8 +55,8 @@ const allReviews: Review[] = [
 
 export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
   const { reviews: dbReviews, loading } = useSupabaseData();
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Використовуємо відгуки з БД. Якщо їх немає, використовуємо заглушки (allReviews)
   const displayReviews = dbReviews.length > 0 
     ? dbReviews.map(r => ({
         id: r.id,
@@ -63,11 +64,22 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
         date: r.date,
         rating: r.rating,
         text: r.text,
-        type: r.type || 'tattoo' // Fallback for type if missing in older schema
+        type: r.type || 'tattoo'
       }))
     : allReviews;
 
   const filteredReviews = type ? displayReviews.filter(r => r.type === type) : displayReviews;
+
+  // Функція для скролу каруселі по кнопках
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = window.innerWidth < 768 ? 300 : 424; // Приблизна ширина картки + gap
+      carouselRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const Star = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="#6F892E" stroke="#6F892E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,24 +91,49 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
     <section id="reviews" className="py-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto noise-bg relative">
       <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
         <h2 className="font-serif text-3xl md:text-4xl uppercase">Ваші Відгуки</h2>
-        <a
-          href="https://www.google.com/search?q=%D0%9C%D0%9E%D0%96%D0%9D%D0%90+%D0%A2%D0%90%D0%A2%D0%A3+%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA%D0%B8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-[#6F892E] text-[#122110] px-8 py-4 rounded-full hover:bg-white transition-colors font-serif uppercase tracking-wider font-semibold shadow-[0_0_20px_rgba(111,137,46,0.3)]"
-        >
-          Залишити відгук у Google
-        </a>
+        
+        <div className="flex items-center gap-4">
+          {/* Кнопки управління каруселлю */}
+          <div className="hidden md:flex gap-2">
+            <button 
+              onClick={() => scroll('left')}
+              className="p-3 rounded-full border border-[#6F892E] text-[#6F892E] hover:bg-[#6F892E] hover:text-[#122110] transition-colors"
+              aria-label="Попередні відгуки"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button 
+              onClick={() => scroll('right')}
+              className="p-3 rounded-full border border-[#6F892E] text-[#6F892E] hover:bg-[#6F892E] hover:text-[#122110] transition-colors"
+              aria-label="Наступні відгуки"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <a
+            href="https://www.google.com/search?q=%D0%9C%D0%9E%D0%96%D0%9D%D0%90+%D0%A2%D0%90%D0%A2%D0%A3+%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA%D0%B8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-[#6F892E] text-[#122110] px-8 py-4 rounded-full hover:bg-white transition-colors font-serif uppercase tracking-wider font-semibold shadow-[0_0_20px_rgba(111,137,46,0.3)] shrink-0"
+          >
+            Залишити відгук у Google
+          </a>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {loading && displayReviews === allReviews && dbReviews.length === 0 ? (
-           // While loading, we can show placeholders or nothing. It will show placeholders automatically.
-           null
-        ) : null}
+      {/* Карусель */}
+      <div 
+        ref={carouselRef}
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      >
+        {loading && displayReviews === allReviews && dbReviews.length === 0 ? null : null}
         
         {filteredReviews.map((review) => (
-          <div key={review.id} className="bg-[#122110] p-8 rounded-3xl border border-[#73934A]/30 shadow-lg flex flex-col justify-between">
+          <div 
+            key={review.id} 
+            className="snap-start shrink-0 min-w-[85vw] md:min-w-[350px] lg:min-w-[400px] bg-[#122110] p-8 rounded-3xl border border-[#73934A]/30 shadow-lg flex flex-col justify-between whitespace-normal"
+          >
             <div>
               <div className="flex gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => <Star key={i} />)}
