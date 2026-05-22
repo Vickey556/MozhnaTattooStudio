@@ -240,13 +240,13 @@ export const PiercingPage = () => {
       <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider">ПІРСИНГ</h1>
 
       {/* 3D Piercing Viewer Block */}
-      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32 pt-12">
+      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32 pt-12">
         <PiercingViewer onBook={(data) => openBooking(data ? { ...data, service: 'Пірсинг' } : { service: 'Пірсинг' })} />
       </section>
 
       {/* Portfolio Section */}
       <section
-        className="relative w-full pt-12 pb-24 bg-cover bg-center bg-fixed mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
+        className="relative w-full pt-12 pb-12 md:pb-24 bg-cover bg-center bg-fixed mb-12 md:mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
         style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }} // або piercingbg.png
       >
         <div className="relative z-10 max-w-[100%] mx-auto">
@@ -263,10 +263,10 @@ export const PiercingPage = () => {
       </section>
 
       {/* Jewelry Section */}
-      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32">
-        <h2 className="text-3xl md:text-4xl mt-5 mb-16 text-center uppercase tracking-wider">Прикраси в наявності</h2>
+      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32">
+        <h2 className="text-3xl md:text-4xl mt-5 mb-8 md:mb-16 text-center uppercase tracking-wider">Прикраси в наявності</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex md:grid overflow-x-auto snap-x snap-mandatory md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
           {[
             { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon.jpg' },
             { name: 'Лабрет з цирконом (титан)', price: '300 грн', img: '/labretcircon2.jpg' },
@@ -278,7 +278,7 @@ export const PiercingPage = () => {
             { name: 'Клікер титановий', price: '300 грн', img: '/dropclicer.jpg'},
           
           ].map((item, idx) => (
-            <div key={idx} className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-[#6F892E]/50 transition-colors group cursor-pointer">
+            <div key={idx} className="shrink-0 snap-center w-[85vw] sm:w-[320px] md:w-auto bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-[#6F892E]/50 transition-colors group cursor-pointer">
               <div className="aspect-square overflow-hidden bg-black/50">
                 <img src={item.img.startsWith('http') ? item.img : `${import.meta.env.BASE_URL}${item.img.startsWith('/') ? item.img.slice(1) : item.img}`} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
@@ -297,7 +297,7 @@ export const PiercingPage = () => {
       </section>
 
       {/* FAQ / How to Book */}
-      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32 flex flex-col lg:flex-row gap-12 lg:gap-24">
+      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32 flex flex-col lg:flex-row gap-8 lg:gap-24">
         <div className="lg:w-1/3 flex-shrink-0">
           <h2 className="text-2xl md:text-3xl lg:text-4xl text-left uppercase tracking-widest text-[#EBEBDF] font-serif">ЩО ПОТРІБНО ЗНАТИ?</h2>
         </div>

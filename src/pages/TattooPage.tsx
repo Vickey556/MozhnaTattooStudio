@@ -227,7 +227,7 @@ export const TattooPage = () => {
       {/* Hero Section */}
       <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider">ТАТУЮВАННЯ</h1>
 
-      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-32">
+      <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="md:w-1/2">
             <h2 className="text-3xl md:text-4xl mb-12 uppercase text-[#6F892E] tracking-tighter font-serif">Вартість послуг</h2>
@@ -247,7 +247,7 @@ export const TattooPage = () => {
               ))}
             </div>
           </div>
-          <div className="md:w-1/2 relative flex justify-center">
+          <div className="hidden md:flex md:w-1/2 relative justify-center">
             <img src={`${import.meta.env.BASE_URL}dragontattoo.jpg`} className="w-[80%] opacity-80 mix-blend-lighten" alt="Tattoo process" />
           </div>
         </div>
@@ -256,7 +256,7 @@ export const TattooPage = () => {
 
       {/* --- СПІЛЬНИЙ КОНТЕЙНЕР ДЛЯ ГАЛЕРЕЇ ТА МАЙСТРА З ФОНОМ --- */}
       <section
-        className="relative w-full pt-12 pb-24 bg-cover bg-center bg-fixed mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
+        className="relative w-full pt-12 pb-12 md:pb-24 bg-cover bg-center bg-fixed mb-12 md:mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
         style={{ backgroundImage: `url('${import.meta.env.BASE_URL}gallery-bg.jpg')` }} // або piercingbg.png
       >
         <div className="relative z-10 max-w-[100%] mx-auto">

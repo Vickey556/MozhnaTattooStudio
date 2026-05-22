@@ -29,14 +29,23 @@ export const ArtistDetailsPage = () => {
   const filters = ['Всі роботи', ...Array.from(new Set(artistWorks.map(w => w.category)))];
 
   return (
-    <div className="pt-32 pb-0 px-0 min-h-screen">
+    <div className="pt-24 md:pt-32 pb-0 px-0 min-h-screen">
 
       {/* Intro Section */}
-      <section className="px-4 md:px-12 lg:px-24 max-w-7xl mx-auto mb-24 flex flex-col lg:flex-row gap-16 items-start">
+      <section className="px-4 md:px-12 lg:px-24 max-w-7xl mx-auto mb-12 md:mb-24 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+
+        {/* Mobile Top Info (Hidden on Desktop) */}
+        <div className="w-full flex flex-col lg:hidden">
+          <Link to="/artists" className="text-sm font-serif opacity-60 hover:text-[#6F892E] transition-colors mb-4 flex items-center gap-2">
+            ← Всі майстри
+          </Link>
+          <h1 className="font-serif text-4xl mb-2 text-[#6F892E] uppercase">{master.name}</h1>
+          <p className="font-serif text-lg opacity-80 pb-4 border-b border-[#73934A]/30">Спеціалізація: {master.specs}</p>
+        </div>
 
         {/* Master Image */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <div className="w-full max-w-md aspect-[3/4] relative">
+        <div className="w-full lg:w-1/2 flex justify-center mt-4 lg:mt-0">
+          <div className="w-[85vw] sm:w-full max-w-md aspect-[3/4] relative">
             <div className="absolute top-0 w-full h-full master-plaque -z-0 translate-x-4 translate-y-4"></div>
             <div className="w-full h-full rounded-[40px] overflow-hidden relative z-10">
               <img
@@ -52,14 +61,18 @@ export const ArtistDetailsPage = () => {
         </div>
 
         {/* Master Info */}
-        <div className="w-full lg:w-1/2 flex flex-col">
-          <Link to="/artists" className="text-sm font-serif opacity-60 hover:text-[#6F892E] transition-colors mb-6 flex items-center gap-2">
-            ← Всі майстри
-          </Link>
-          <h1 className="font-serif text-5xl md:text-6xl mb-4 text-[#6F892E] uppercase">{master.name}</h1>
-          <p className="font-serif text-xl opacity-80 mb-8 pb-8 border-b border-[#73934A]/30">Спеціалізація: {master.specs}</p>
+        <div className="w-full lg:w-1/2 flex flex-col mt-6 lg:mt-0">
+          
+          {/* Desktop Top Info (Hidden on Mobile) */}
+          <div className="hidden lg:flex flex-col">
+            <Link to="/artists" className="text-sm font-serif opacity-60 hover:text-[#6F892E] transition-colors mb-6 flex items-center gap-2">
+              ← Всі майстри
+            </Link>
+            <h1 className="font-serif text-5xl md:text-6xl mb-4 text-[#6F892E] uppercase">{master.name}</h1>
+            <p className="font-serif text-xl opacity-80 mb-8 pb-8 border-b border-[#73934A]/30">Спеціалізація: {master.specs}</p>
+          </div>
 
-          <div className="flex flex-col gap-6 mb-12">
+          <div className="flex flex-col gap-4 md:gap-6 mb-8 md:mb-12">
             <div className="flex justify-between items-center pb-4 border-b border-[#73934A]/10">
               <span className="font-serif opacity-70">Досвід роботи:</span>
               <span className="font-serif text-xl text-[#EBEBDF]">{master.experience}</span>
@@ -86,7 +99,7 @@ export const ArtistDetailsPage = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section className="bg-[#0a1208] py-24 border-y border-[#73934A]/20">
+      <section className="bg-[#0a1208] py-12 md:py-24 border-y border-[#73934A]/20">
         <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-24">
           <h2 className="font-serif text-4xl mb-12 text-center uppercase">Портфоліо</h2>
         </div>

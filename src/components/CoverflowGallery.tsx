@@ -23,6 +23,7 @@ interface CoverflowGalleryProps {
 export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('Всі стилі');
+  const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
   const { openBooking } = useBooking();
 
   const filteredItems = activeCategory === 'Всі стилі'
@@ -132,7 +133,13 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
                 zIndex,
                 opacity,
               }}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                if (index === activeIndex) {
+                  setLightboxItem(item);
+                } else {
+                  setActiveIndex(index);
+                }
+              }}
             >
               {item.image ? (
                 <img src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`} alt={item.title} className="w-full h-full object-cover" />
@@ -182,6 +189,25 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
           <button onClick={() => openBooking()} className="px-6 py-2 md:px-8 md:py-3 border border-white/50 text-[#EBEBDF] rounded-full uppercase tracking-widest text-[10px] md:text-sm hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors whitespace-nowrap">
             Записатись
           </button>
+        </div>
+      )}
+
+      {/* Lightbox Overlay */}
+      {lightboxItem && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4" onClick={() => setLightboxItem(null)}>
+          <button 
+            onClick={(e) => { e.stopPropagation(); setLightboxItem(null); }}
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/30 transition-colors z-50"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          
+          <img 
+            src={`${import.meta.env.BASE_URL}${lightboxItem.image.replace(/^\//, '')}`} 
+            alt={lightboxItem.title} 
+            className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
     </div>
