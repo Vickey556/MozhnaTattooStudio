@@ -120,7 +120,7 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
         {filteredReviews.map((review) => (
           <div 
             key={review.id} 
-            className="snap-start shrink-0 min-w-[85vw] md:min-w-[350px] lg:min-w-[400px] bg-[#122110] p-8 rounded-3xl border border-[#73934A]/30 shadow-lg flex flex-col justify-between whitespace-normal"
+            className="snap-start shrink-0 w-[calc(100vw-3rem)] max-w-[320px] md:w-auto md:min-w-[350px] lg:min-w-[400px] bg-[#122110] p-6 md:p-8 rounded-3xl border border-[#73934A]/30 shadow-lg flex flex-col justify-between whitespace-normal"
           >
             <div>
               <div className="flex gap-1 mb-4">

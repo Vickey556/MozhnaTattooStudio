@@ -56,12 +56,14 @@ const HeroSection = () => {
 
 // About Section
 const AboutSection = () => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
   return (
     <section id="about" className="pt-24 pb-[0px] px-4 md:px-12 lg:px-24 w-full flex justify-center noise-bg">
       <div className="flex flex-col lg:flex-row gap-12 max-w-[1600px] w-full items-center lg:items-start justify-center">
         <div className="about-snake-img lg:-mt-10"></div>
 
-        <div className="w-full flex flex-col items-center lg:items-start gap-12 max-w-[1080px]">
+        <div className="w-full flex flex-col items-center lg:items-start gap-8 md:gap-12 max-w-[1080px]">
           <h2 className="about-heading self-start">ПРО НАШУ СТУДІЮ</h2>
 
           <div className="about-text flex flex-col gap-6">
@@ -77,7 +79,8 @@ const AboutSection = () => {
                 спокійно, впевнено та натхненно.
               </p>
             </div>
-            <div>
+            
+            <div className={`${isExpanded ? 'block' : 'hidden md:block'} space-y-6`}>
               <p>
                 Ми дбаємо про кожну деталь — від чистоти робочих поверхонь до музики в залі.
                 Уся наша робота проходить в умовах повної стерильності - ми використовуємо лише одноразові витратні
@@ -88,6 +91,13 @@ const AboutSection = () => {
                 Кожен з нас вкладає душу в свою роботу та завжди допоможе знайти те тату, яке підійде саме вам.
               </p>
             </div>
+            
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="md:hidden self-start font-serif uppercase tracking-widest text-sm text-[#6F892E] hover:text-white transition-colors border-b border-[#6F892E] pb-1"
+            >
+              {isExpanded ? 'Згорнути текст' : 'Читати повністю...'}
+            </button>
           </div>
 
           <div className="about-quote-right">
