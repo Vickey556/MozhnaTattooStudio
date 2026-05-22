@@ -238,7 +238,7 @@ export const PiercingPage = () => {
           ].map((item, idx) => (
             <div key={idx} className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-[#6F892E]/50 transition-colors group cursor-pointer">
               <div className="aspect-square overflow-hidden bg-black/50">
-                <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={item.img.startsWith('http') ? item.img : `${import.meta.env.BASE_URL}${item.img.startsWith('/') ? item.img.slice(1) : item.img}`} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-xl font-serif mb-2 text-[#EBEBDF]">{item.name}</h3>

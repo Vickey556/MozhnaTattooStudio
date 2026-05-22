@@ -138,7 +138,7 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
               <div className="flex gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => <Star key={i} />)}
               </div>
-              <div className="font-serif opacity-90 leading-relaxed mb-6 italic">
+              <div className="font-serif opacity-90 leading-relaxed mb-6 italic whitespace-pre-wrap break-words">
                 {review.text.split('\n').map((paragraph, index) => (
                   <p key={index} className="mb-3 last:mb-0">
                   {index === 0 ? `"${paragraph}` : paragraph}

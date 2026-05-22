@@ -54,7 +54,7 @@ export const ArtistDetailsPage = () => {
             <div className="absolute top-0 w-full h-full master-plaque -z-0 translate-x-4 translate-y-4"></div>
             <div className="w-full h-full rounded-[40px] overflow-hidden relative z-10">
               <img
-                src={`${import.meta.env.BASE_URL}${master.image.replace(/^\//, '')}`}
+                src={master.image && master.image.startsWith('http') ? master.image : `${import.meta.env.BASE_URL}${master.image?.startsWith('/') ? master.image.slice(1) : (master.image || 'placeholder.jpg')}`}
                 alt={master.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {

@@ -85,7 +85,7 @@ export const ArtistsPage = () => {
 
             <div className="w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 group-hover:-translate-y-2 bg-transparent">
               <img
-                src={master.image.startsWith('http') ? master.image : `${import.meta.env.BASE_URL}${master.image.replace(/^\//, '')}`}
+                src={master.image && master.image.startsWith('http') ? master.image : `${import.meta.env.BASE_URL}${master.image?.startsWith('/') ? master.image.slice(1) : (master.image || 'placeholder.jpg')}`}
                 alt={master.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
