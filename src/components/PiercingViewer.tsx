@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useFBX, Environment, Html } from '@react-three/drei';
 import * as THREE from 'three';
+import { Button } from './ui/Button';
 
 // Define the piercing types data
-export const piercingTypesData = [
+const piercingTypesData = [
   // ВУШНІ ПРОКОЛИ (ПРАВЕ ВУХО ДЛЯ ПРИКЛАДУ, X ~ 9..10)
   {
     id: "lobe",
@@ -304,12 +305,12 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
             {activeType.desc}
           </p>
 
-          <button
+          <Button
             onClick={() => onBook({ subService: activeType.name })}
-            className="w-full py-4 bg-[#6F892E] text-[#122110] font-serif uppercase tracking-widest rounded-full hover:bg-white transition-colors text-center font-bold"
+            className="mt-6 w-full py-4"
           >
-            Записатися на прокол
-          </button>
+            Записатися онлайн
+          </Button>
         </div>
       </div>
     </div>

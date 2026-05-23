@@ -1,15 +1,20 @@
 import { useParams, Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
-import { masters } from './ArtistsPage';
+import { useArtists } from '../hooks/useArtists';
+import { usePortfolio } from '../hooks/usePortfolio';
 import { CoverflowGallery } from '../components/CoverflowGallery';
-import { tattooWorks } from './TattooPage';
-import { piercingWorks } from './PiercingPage';
 
 export const ArtistDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const { openBooking } = useBooking();
+  const { getArtistById, loading: artistLoading } = useArtists();
+  const { getWorksByArtist, loading: portfolioLoading } = usePortfolio();
 
-  const master = masters.find(m => m.id === id);
+  const master = getArtistById(id || '');
+
+  if (artistLoading || portfolioLoading) {
+    return <div className="min-h-screen pt-32 pb-24 flex items-center justify-center font-serif text-[#EBEBDF]">Завантаження...</div>;
+  }
 
   if (!master) {
     return (
@@ -20,11 +25,7 @@ export const ArtistDetailsPage = () => {
     );
   }
 
-  const normalizeName = (name: string) => name.toLowerCase().split(' ').sort().join(' ');
-
-  const artistWorks = [...tattooWorks, ...piercingWorks].filter(
-    work => work.artist && normalizeName(work.artist.name) === normalizeName(master.name)
-  );
+  const artistWorks = getWorksByArtist(master.name);
 
   const filters = ['Всі роботи', ...Array.from(new Set(artistWorks.map(w => w.category)))];
 

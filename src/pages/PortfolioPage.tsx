@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CoverflowGallery } from '../components/CoverflowGallery';
-import type { GalleryItem } from '../components/CoverflowGallery';
-import { masters } from './ArtistsPage';
+import { useArtists } from '../hooks/useArtists';
+import { usePortfolio } from '../hooks/usePortfolio';
 import { useBooking } from '../context/BookingContext';
-import { tattooWorks } from './TattooPage';
-import { piercingWorks } from './PiercingPage';
+import { Button } from '../components/ui/Button';
 
 export const PortfolioPage = () => {
   const { openBooking } = useBooking();
+  const { artists: masters, loading: loadingArtists } = useArtists();
+  const { works, loading: loadingWorks } = usePortfolio();
+  
   const [activeMaster, setActiveMaster] = useState<string>('Всі майстри');
-  const [filteredWorks, setFilteredWorks] = useState<GalleryItem[]>([]);
+
+  const filteredWorks = activeMaster === 'Всі майстри' 
+    ? works 
+    : works.filter(work => work.artist && work.artist.name.toUpperCase() === activeMaster.toUpperCase());
 
   const filters = ['Всі стилі', 'Татуювання', 'Пірсинг', 'Графіка', 'Орнаментал', 'Мініатюра'];
 
-  useEffect(() => {
-    const allWorks = [...tattooWorks, ...piercingWorks];
-    if (activeMaster === 'Всі майстри') {
-      setFilteredWorks(allWorks);
-    } else {
-      setFilteredWorks(allWorks.filter(work => work.artist && work.artist.name.toUpperCase() === activeMaster.toUpperCase()));
-    }
-  }, [activeMaster]);
+  if (loadingArtists || loadingWorks) {
+    return <div className="min-h-screen pt-32 pb-24 flex items-center justify-center font-serif text-[#EBEBDF]">Завантаження...</div>;
+  }
 
   return (
     <div className="pt-14 pb-24 px-4 min-h-screen font-serif text-[#F0F4E8] max-w-[100%] mx-auto overflow-hidden">
@@ -58,9 +58,9 @@ export const PortfolioPage = () => {
       </div>
 
       <div className="mt-10 flex justify-center">
-        <button onClick={() => openBooking()} className="px-12 py-5 bg-[#6F892E] text-[#122110] font-bold uppercase tracking-widest rounded-full hover:bg-white transition-colors shadow-[0_0_30px_rgba(111,137,46,0.4)]">
+        <Button onClick={() => openBooking()}>
           Записатися на сеанс
-        </button>
+        </Button>
       </div>
     </div>
   );

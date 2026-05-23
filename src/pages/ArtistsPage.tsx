@@ -1,59 +1,13 @@
 import { Link } from 'react-router-dom';
-
-export const masters = [
-  {
-    id: 'nadiya-mozhaieva',
-    name: "НАДІЯ МОЖАЄВА",
-    specs: "Татуювання, пірсинг, навчання, арт сеанс",
-    image: "/Mozhaeva.jpg",
-    experience: "7 років",
-    price: "від 2000 грн",
-    inst: "@nadiia.mo.tattoo",
-    instLink: "https://www.instagram.com/nadiia.mo.tattoo"
-  },
-  {
-    id: 'viktoria-teliatnyk',
-    name: "ТЕЛЯТНИК ВІКТОРІЯ",
-    specs: "Татуювання",
-    image: "/Teliatnyk.jpg",
-    experience: "2 роки",
-    price: "від 1500 грн",
-    inst: "@toska.tatt",
-    instLink: "https://www.instagram.com/toska.tatt"
-  },
-  {
-    id: 'anna-vovna',
-    name: "ВОВНА АННА",
-    specs: "Татуювання, навчання, арт-сеанс",
-    image: "/Vovna.jpg",
-    experience: "5 років",
-    price: "від 1500 грн",
-    inst: "@psycho.art.tattoo",
-    instLink: "https://www.instagram.com/psycho.art.tattoo"
-  },
-  {
-    id: 'anastasia-starynets',
-    name: "АНАСТАСІЯ СТАРИНЕЦЬ",
-    specs: "Пірсинг, навчання",
-    image: "/Starinets.jpg",
-    experience: "3 роки",
-    price: "від 300 грн",
-    inst: "@piercing_che",
-    instLink: "https://www.instagram.com/piercing_che"
-  },
-  {
-    id: 'vitalina-shum',
-    name: "ВІТАЛІНА ШУМ",
-    specs: "Татуювання",
-    image: "/Shum.jpg",
-    experience: "2 роки",
-    price: "від 1500 грн",
-    inst: "@rmviqs",
-    instLink: "https://www.instagram.com/rmviqs"
-  }
-];
+import { useArtists } from '../hooks/useArtists';
 
 export const ArtistsPage = () => {
+  const { artists: masters, loading } = useArtists();
+
+  if (loading) {
+    return <div className="min-h-screen pt-32 pb-24 flex items-center justify-center font-serif text-[#EBEBDF]">Завантаження...</div>;
+  }
+
   return (
     <div className="pt-14 pb-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto min-h-screen">
       <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider mb-8">Наші Майстри</h1>

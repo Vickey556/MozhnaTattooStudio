@@ -1,4 +1,7 @@
 import { useRef } from 'react';
+import { ReviewStarIcon } from './ui/Icons';
+import { SectionHeading } from './ui/SectionHeading';
+import { Card, CardContent } from './ui/Card';
 
 export interface Review {
   id: string;
@@ -70,16 +73,10 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
     }
   };
 
-  const Star = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="#6F892E" stroke="#6F892E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-    </svg>
-  );
-
   return (
     <section id="reviews" className="py-24 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto noise-bg relative">
       <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-        <h2 className="font-serif text-3xl md:text-4xl uppercase">Ваші Відгуки</h2>
+        <SectionHeading as="h2">Ваші Відгуки</SectionHeading>
         
         <div className="flex items-center gap-4">
           {/* Кнопки управління каруселлю */}
@@ -118,28 +115,31 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
       >
         
         {filteredReviews.map((review) => (
-          <div 
+          <Card 
             key={review.id} 
-            className="snap-start shrink-0 w-[calc(100vw-3rem)] max-w-[320px] md:w-auto md:min-w-[350px] lg:min-w-[400px] bg-[#122110] p-6 md:p-8 rounded-3xl border border-[#73934A]/30 shadow-lg flex flex-col justify-between whitespace-normal"
+            variant="solid" 
+            className="snap-start shrink-0 w-[calc(100vw-3rem)] max-w-[320px] md:w-auto md:min-w-[350px] lg:min-w-[400px] flex flex-col justify-between whitespace-normal"
           >
-            <div>
-              <div className="flex gap-1 mb-4">
-                {[...Array(review.rating)].map((_, i) => <Star key={i} />)}
+            <CardContent className="h-full flex flex-col justify-between">
+              <div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(review.rating)].map((_, i) => <ReviewStarIcon key={i} className="text-[#6F892E] w-5 h-5" />)}
+                </div>
+                <div className="font-serif opacity-90 leading-relaxed mb-6 italic whitespace-pre-wrap break-words">
+                  {review.text.split('\n').map((paragraph, index) => (
+                    <p key={index} className="mb-3 last:mb-0">
+                    {index === 0 ? `"${paragraph}` : paragraph}
+                    {index === review.text.split('\n').length - 1 ? '"' : ''}
+                    </p>
+                 ))}
+                </div>
               </div>
-              <div className="font-serif opacity-90 leading-relaxed mb-6 italic whitespace-pre-wrap break-words">
-                {review.text.split('\n').map((paragraph, index) => (
-                  <p key={index} className="mb-3 last:mb-0">
-                  {index === 0 ? `"${paragraph}` : paragraph}
-                  {index === review.text.split('\n').length - 1 ? '"' : ''}
-                  </p>
-               ))}
+              <div className="flex justify-between items-end border-t border-[#73934A]/20 pt-4 mt-4">
+                <span className="font-serif font-bold text-[#6F892E]">{review.author}</span>
+                <span className="font-serif text-sm opacity-50">{review.date}</span>
               </div>
-            </div>
-            <div className="flex justify-between items-end border-t border-[#73934A]/20 pt-4 mt-4">
-              <span className="font-serif font-bold text-[#6F892E]">{review.author}</span>
-              <span className="font-serif text-sm opacity-50">{review.date}</span>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>

@@ -84,6 +84,7 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useBooking = () => {
   const context = useContext(BookingContext);
   if (context === undefined) {

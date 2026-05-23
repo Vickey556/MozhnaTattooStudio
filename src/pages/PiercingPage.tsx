@@ -2,242 +2,24 @@ import { useBooking } from '../context/BookingContext';
 import { CustomReviews } from '../components/CustomReviews';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
-import type { GalleryItem } from '../components/CoverflowGallery';
 import { PiercingViewer } from '../components/PiercingViewer';
-
-export const piercingWorks: GalleryItem[] = [
-  {
-    id: '1',
-    image: '/helixwhite.jpg',
-    title: 'Прокол хелікс',
-    description: 'Акуратний прокол хряща з титановою прикрасою.',
-    date: 'Квітень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '2',
-    image: '/nostril.jpg',
-    title: 'Прокол крила носа',
-    description: 'Класичний прокол крила носа з камінчиком.',
-    date: 'Березень 2024',
-    category: 'Ніс',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '3',
-    image: '/lobesimple.jpg',
-    title: 'Прокол мочки вуха',
-    description: 'Прокол мочки',
-    date: 'Травень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '4',
-    image: '/lobe1.jpg',
-    title: 'Прокол мочки вуха',
-    description: 'Прокол мочки',
-    date: 'Травень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '5',
-    image: '/vertycallabret.jpg',
-    title: 'Прокол вертикальний лабрет',
-    description: 'Прокол губи',
-    date: 'Травень 2024',
-    category: 'Губа',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '6',
-    image: '/vertycallabret2.jpg',
-    title: 'Прокол вертикальний лабрет',
-    description: 'Прокол губи',
-    date: 'Травень 2024',
-    category: 'Губа',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '7',
-    image: '/tongue.jpg',
-    title: 'Прокол язка',
-    description: 'Прокол язика',
-    date: 'Травень 2024',
-    category: 'Язик',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '8',
-    image: '/rook.jpg',
-    title: 'Прокол руук',
-    description: 'Прокол верхньої внутрішньої складки хряща.',
-    date: 'Травень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '9',
-    image: '/eyebrow.jpg',
-    title: 'Прокол брови',
-    description: 'Прокол брови',
-    date: 'Травень 2024',
-    category: 'Брова',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '10',
-    image: '/upperlobe.jpg',
-    title: 'Додатковий прокол мочки',
-    description: 'Прокол мочки вуха',
-    date: 'Травень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '11',
-    image: '/helix.jpg',
-    title: 'Прокол хелікс',
-    description: 'Акуратний прокол хряща з титановою прикрасою.',
-    date: 'Квітень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '12',
-    image: '/bridge.jpg',
-    title: 'Прокол брідж',
-    description: 'Прокол перенісся',
-    date: 'Квітень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Анастасія Старинець',
-      description: 'Майстер пірсингу',
-      image: '/Starinets.jpg'
-    }
-  },
-  {
-    id: '13',
-    image: '/Mozhaeva_brow.jpg',
-    title: 'Прокол брови',
-    description: 'Прокол брови',
-    date: 'Травень 2024',
-    category: 'Брова',
-    artist: {
-     name: 'Надія Можаєва',
-      description: 'Майстер татуювання',
-      image: '/Mozhaeva.jpg'
-    }
-  },
-  {
-    id: '14',
-    image: '/Mozhaeva_counch.jpg',
-    title: 'Проколи конч та трагус',
-    description: 'Проколи вуха',
-    date: 'Травень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер татуювання',
-      image: '/Mozhaeva.jpg'
-    }
-  },
-  {
-    id: '15',
-    image: '/Mozhaeva_upperlobe.jpg',
-    title: 'Додатковий прокол мочки',
-    description: 'Прокол мочки вуха',
-    date: 'Травень 2024',
-    category: 'Вухо',
-    artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер татуювання',
-      image: '/Mozhaeva.jpg'
-    }
-  },
-  {
-    id: '16',
-    image: '/Mozhaeva_tongue.jpg',
-    title: 'Прокол язика',
-    description: 'Проколи язика для подруг',
-    date: 'Квітень 2024',
-    category: 'Язик',
-    artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер татуювання',
-      image: '/Mozhaeva.jpg'
-    }
-  },
-  {
-    id: '17',
-    image: '/Mozhaeva-nostril.jpg',
-    title: 'Прокол крила носа',
-    description: 'Прокол ностріл',
-    date: 'Квітень 2024',
-    category: 'Ніс',
-    artist: {
-      name: 'Надія Можаєва',
-      description: 'Майстер татуювання',
-      image: '/Mozhaeva.jpg'
-    }
-  },
-];
+import { BookingBlock } from '../components/shared/BookingBlock';
+import { SectionHeading } from '../components/ui/SectionHeading';
+import { Card, CardImage } from '../components/ui/Card';
+import { usePortfolio } from '../hooks/usePortfolio';
 
 const filters = ['Всі проколи', 'Вухо', 'Ніс', 'Губа', 'Мікродермали', 'Брова', 'Язик'];
 
 export const PiercingPage = () => {
   const { openBooking } = useBooking();
+  const { getPiercingWorks } = usePortfolio();
+
+  const piercingWorks = getPiercingWorks();
 
   return (
     <div className="pt-14 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
       {/* Hero Section */}
-      <h1 className="font-serif text-3xl md:text-4xl text-center uppercase tracking-wider">ПІРСИНГ</h1>
+      <SectionHeading as="h1" align="center" className="mb-0 mt-8">ПІРСИНГ</SectionHeading>
 
       {/* 3D Piercing Viewer Block */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32 pt-12">
@@ -247,14 +29,14 @@ export const PiercingPage = () => {
       {/* Portfolio Section */}
       <section
         className="relative w-full pt-12 pb-12 md:pb-24 bg-cover bg-center bg-fixed mb-12 md:mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
-        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }} // або piercingbg.png
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}piercingbg.png')` }}
       >
         <div className="relative z-10 max-w-[100%] mx-auto">
 
           {/* 1. Заголовок (зменшили mb-16 на mb-8, щоб фільтри підтягнулися вище) */}
-          <h2 className="text-3xl md:text-4xl mb-0 text-center uppercase tracking-wider text-[#EBEBDF]">
+          <SectionHeading align="center" className="mb-0 text-[#EBEBDF]">
             ПОРТФОЛІО
-          </h2>
+          </SectionHeading>
 
           {/* 2. Галерея (фільтри та слайдер знаходяться всередині CoverflowGallery) */}
           <CoverflowGallery items={piercingWorks} categories={filters} />
@@ -264,7 +46,9 @@ export const PiercingPage = () => {
 
       {/* Jewelry Section */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32">
-        <h2 className="text-3xl md:text-4xl mt-5 mb-8 md:mb-16 text-center uppercase tracking-wider">Прикраси в наявності</h2>
+        <SectionHeading align="center" className="mt-5 mb-8 md:mb-16">
+          Прикраси в наявності
+        </SectionHeading>
 
         <div className="flex md:grid overflow-x-auto snap-x snap-mandatory md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
           {[
@@ -278,15 +62,13 @@ export const PiercingPage = () => {
             { name: 'Клікер титановий', price: '300 грн', img: '/dropclicer.jpg'},
           
           ].map((item, idx) => (
-            <div key={idx} className="shrink-0 snap-center w-[85vw] sm:w-[320px] md:w-auto bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-[#6F892E]/50 transition-colors group cursor-pointer">
-              <div className="aspect-square overflow-hidden bg-black/50">
-                <img src={item.img.startsWith('http') ? item.img : `${import.meta.env.BASE_URL}${item.img.startsWith('/') ? item.img.slice(1) : item.img}`} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
+            <Card key={idx} variant="glass" className="shrink-0 snap-center w-[85vw] sm:w-[320px] md:w-auto group">
+              <CardImage src={item.img.startsWith('http') ? item.img : `${import.meta.env.BASE_URL}${item.img.startsWith('/') ? item.img.slice(1) : item.img}`} alt={item.name} />
               <div className="p-6 text-center">
                 <h3 className="text-xl font-serif mb-2 text-[#EBEBDF]">{item.name}</h3>
                 <p className="text-[#6F892E] font-bold tracking-widest">{item.price}</p>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
         <div className="text-center mt-12">
@@ -299,7 +81,7 @@ export const PiercingPage = () => {
       {/* FAQ / How to Book */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32 flex flex-col lg:flex-row gap-8 lg:gap-24">
         <div className="lg:w-1/3 flex-shrink-0">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-left uppercase tracking-widest text-[#EBEBDF] font-serif">ЩО ПОТРІБНО ЗНАТИ?</h2>
+          <SectionHeading className="text-2xl md:text-3xl lg:text-4xl text-[#EBEBDF]">ЩО ПОТРІБНО ЗНАТИ?</SectionHeading>
         </div>
 
         <div className="lg:w-2/3 flex flex-col border-t border-[#EBEBDF]/30">
@@ -331,27 +113,10 @@ export const PiercingPage = () => {
       </section>
 
 
-      {/* Reviews */}
       <CustomReviews type="piercing" />
 
       {/* Booking Block */}
-      <section className="pt-10 pb-40 px-4 mb-32 relative overflow-visible flex justify-center">
-        <div className="w-full max-w-[1000px] text-center flex flex-col items-center relative z-10">
-          <h2 className="text-3xl md:text-4xl mb-4 uppercase tracking-widest text-[#EBEBDF] font-serif">ОНЛАЙН ЗАПИС ВІДКРИТО</h2>
-          <p className="text-base md:text-lg opacity-90 mb-12 font-serif text-[#EBEBDF]">Встигни забронювати зручний для себе день та час!</p>
-
-          {/* Arch image */}
-          <div className="relative w-[90%] md:w-[700px] aspect-[4/3] md:aspect-[3/2] mx-auto rounded-t-full overflow-hidden shadow-2xl bg-[#1A2E16]">
-            <img src={`${import.meta.env.BASE_URL}booking.png`} alt="Studio" className="w-full h-full object-cover" />
-          </div>
-
-          {/* Button overlapping the bottom */}
-          <button onClick={() => openBooking({ service: 'Пірсинг' })} className="relative z-10 mt-10 px-12 py-5 bg-[#6F892E] text-[#122110] uppercase tracking-widest text-sm md:text-base rounded-full hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors shadow-xl border border-transparent font-serif font-bold">
-            ЗАПИСАТИСЯ ОНЛАЙН
-          </button>
-        </div>
-      </section>
-
+      <BookingBlock serviceName="Пірсинг" />
     </div>
   );
 };

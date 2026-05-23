@@ -24,6 +24,7 @@ export const BookingModal = () => {
   useEffect(() => {
     if (isBookingOpen) {
       // Pick a random fortune when the modal opens
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFortune(fortunes[Math.floor(Math.random() * fortunes.length)]);
 
       // Auto-close after 7 seconds
