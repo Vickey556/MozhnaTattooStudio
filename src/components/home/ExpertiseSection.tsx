@@ -42,7 +42,7 @@ export const ExpertiseSection = () => {
           {statsData.map((stat, index) => (
             <React.Fragment key={`set1-txt-${index}`}>
               <span>{stat.text}</span>
-              <StarIcon />
+              <StarIcon className="w-6 h-6 text-[#EBEBDF]" />
             </React.Fragment>
           ))}
         </div>
@@ -50,7 +50,7 @@ export const ExpertiseSection = () => {
           {statsData.map((stat, index) => (
             <React.Fragment key={`set2-txt-${index}`}>
               <span>{stat.text}</span>
-              <StarIcon />
+              <StarIcon className="w-6 h-6 text-[#EBEBDF]" />
             </React.Fragment>
           ))}
         </div>

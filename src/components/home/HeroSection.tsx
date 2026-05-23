@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useBooking } from '../../context/BookingContext';
-import { Button } from '../ui/Button';
 
 export const HeroSection = () => {
   const { openBooking } = useBooking();
@@ -31,9 +30,9 @@ export const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 mb-24 items-center justify-center">
-          <Button onClick={() => openBooking()}>
-          Записатися онлайн
-        </Button>
+          <button onClick={() => openBooking()} className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
+            Записатися онлайн
+          </button>
           <Link to="/portfolio" className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
             Переглянути портфоліо
           </Link>

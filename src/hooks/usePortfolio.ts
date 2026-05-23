@@ -25,8 +25,8 @@ export const usePortfolio = () => {
     fetchPortfolio();
   }, []);
 
-  const getTattooWorks = () => works.filter(w => tattooWorks.some(tw => tw.id === w.id));
-  const getPiercingWorks = () => works.filter(w => piercingWorks.some(pw => pw.id === w.id));
+  const getTattooWorks = () => works.filter(w => tattooWorks.includes(w));
+  const getPiercingWorks = () => works.filter(w => piercingWorks.includes(w));
   
   const getWorksByArtist = (artistName: string) => {
     const normalizeName = (name: string) => name.toLowerCase().split(' ').sort().join(' ');

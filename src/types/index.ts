@@ -3,6 +3,7 @@ export interface Artist {
   name: string;
   specs: string;
   image: string;
+  silhouetteImage?: string;
   experience: string;
   price: string;
   inst: string;

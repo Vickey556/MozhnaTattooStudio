@@ -81,7 +81,7 @@ export const MastersSection = () => {
 
               <div className={`w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 ${index === activeIndex ? '-translate-y-2' : ''} bg-transparent`}>
                 <img
-                  src={`${import.meta.env.BASE_URL}${master.image?.startsWith('/') ? master.image.slice(1) : master.image}`}
+                  src={`${import.meta.env.BASE_URL}${master.silhouetteImage || (master.image?.startsWith('/') ? master.image.slice(1) : master.image)}`}
                   alt={master.name}
                   className="w-full h-full object-cover"
                 />
