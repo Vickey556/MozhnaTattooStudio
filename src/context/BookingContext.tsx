@@ -50,12 +50,8 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const handleMessage = (e: MessageEvent) => {
-      // Перевіряємо ДВІ умови:
-      // 1. Віджет надіслав сигнал про закриття (widgetOpened === false)
-      // 2. Користувач до цього сам відкривав форму (wasFormOpened === true)
       if (e.data?.widgetOpened === false && wasFormOpened) {
         setIsBookingOpen(true);
-        // Скидаємо прапорець, щоб Fortune modal відкрився лише один раз
         setWasFormOpened(false);
         setIsCrmOpen(false);
       }
@@ -63,7 +59,7 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [wasFormOpened]); // Додаємо залежність, щоб useEffect бачив актуальний стан
+  }, [wasFormOpened]);
 
   return (
     <BookingContext.Provider value={{ isBookingOpen, bookingData, openBooking, closeBooking }}>

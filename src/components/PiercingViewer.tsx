@@ -233,9 +233,8 @@ function Model({ dotPositions }: { dotPositions: number[][] }) {
 
 function CameraRig({ activeCam }: { activeCam: number[] }) {
   useFrame((state) => {
-    // Smoothly interpolate camera position to the target
     state.camera.position.lerp(new THREE.Vector3(...activeCam), 0.05);
-    state.camera.lookAt(0, 0, 0); // Always look at center
+    state.camera.lookAt(0, 0, 0);
   });
   return null;
 }

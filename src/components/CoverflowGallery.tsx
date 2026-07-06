@@ -45,7 +45,6 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
 
   const currentItem = filteredItems[activeIndex];
 
-  // Rerender on resize to adjust xFactor for mobile/desktop
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -83,11 +82,11 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
         style={{ perspective: '1200px', touchAction: 'pan-y' }}
         onTouchStart={(e) => {
           const touch = e.touches[0];
-          // Store starting X
+         
           e.currentTarget.setAttribute('data-touch-start', touch.clientX.toString());
         }}
         onTouchMove={() => {
-          // prevent default scrolling if we want to handle swipe exclusively, but 'pan-y' allows vertical scroll
+      
         }}
         onTouchEnd={(e) => {
           const touchStartX = e.currentTarget.getAttribute('data-touch-start');
@@ -114,13 +113,12 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
           const offset = index - activeIndex;
           const absOffset = Math.abs(offset);
 
-          if (absOffset > 2) return null; // Render only nearby items
+          if (absOffset > 2) return null; 
 
-          // Adjust translateX and rotation for mobile
           const xFactor = isMobile ? 70 : 45;
-          const translateX = offset * xFactor; // percentage
-          const translateZ = absOffset * (isMobile ? -150 : -250); // px
-          const rotateY = offset * -30; // deg
+          const translateX = offset * xFactor;
+          const translateZ = absOffset * (isMobile ? -150 : -250); 
+          const rotateY = offset * -30;
           const opacity = absOffset > 1 ? 0 : 1 - (absOffset * 0.3);
           const zIndex = 10 - absOffset;
 

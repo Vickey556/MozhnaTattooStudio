@@ -10,7 +10,6 @@ import { ArtistDetailsPage } from "./pages/ArtistDetailsPage";
 import { PortfolioPage } from "./pages/PortfolioPage";
 import { BookingProvider } from "./context/BookingContext";
 
-// ScrollToTop component to handle scrolling when route changes or hash links are clicked
 const ScrollHandler = () => {
   const { pathname, hash } = useLocation();
 
