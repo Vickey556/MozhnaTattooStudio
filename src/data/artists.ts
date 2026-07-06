@@ -27,7 +27,7 @@ export const masters: Artist[] = [
     id: 'anna-vovna',
     name: "ВОВНА АННА",
     specs: "Татуювання, навчання, арт-сеанс",
-    image: "/Vovna.jpg",
+    image: "/Vovna Anna.jpg",
     silhouetteImage: 'Vovna.png',
     experience: "5 років",
     price: "від 1500 грн",
