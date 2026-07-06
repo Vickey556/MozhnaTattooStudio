@@ -28,7 +28,7 @@ export const masters: Artist[] = [
     name: "ВОВНА АННА",
     specs: "Татуювання, навчання, арт-сеанс",
     image: "/Vovna.jpg",
-    silhouetteImage: 'Вовна Анна.png',
+    silhouetteImage: 'Vovna.png',
     experience: "5 років",
     price: "від 1500 грн",
     inst: "@psycho.art.tattoo",
