@@ -39,7 +39,7 @@ export const services: Service[] = [
   {
     id: 4,
     title: 'АРТ-СЕАНС',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHqKxMS5_LMmQmQe4fLWWmArd1zXxhu2dyf2W_xE6DS4PBgRLbGcKWgEQ9b7c7LrbUotvr0w2SKaLKPgsZnkXR2q1Mm5rO3jB2JWa12G8YVhcJ4RAeQvUgam0vUPJ-zEocT6g0oR--HXVIP=s1360-w1360-h1020-rw',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAGA3K7F9cL2Q547hzhMjKMYKZVseduNQFkcSBVTS9BFqAxCSR9-5eJQooBh3QK5VRMpV1BJ8VgNcOqMgwbcaJUwfuZd_BtRP9J4tUuzps7Bn0ypwsRre2c3QIp5yJyplFuGSXB0Mo7aW98j=s1360-w1360-h1020-rw',
     prices: [
       { label: "Арт-сеанс", value: "3000 грн" }
     ],

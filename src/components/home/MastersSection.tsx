@@ -74,12 +74,11 @@ export const MastersSection = () => {
             <Link
               key={index}
               to={`/artists/${master.id}`}
-              className="flex flex-col items-center group cursor-pointer flex-shrink-0 w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center relative outline-none"
-              onMouseEnter={() => setActiveIndex(index)}
+              className="flex flex-col items-center group cursor-pointer flex-shrink-0 w-[calc(100%-24px)] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center relative outline-none transition-transform duration-500 ease-out"
             >
-              <div className={`absolute top-0 w-full max-w-sm aspect-[3/4] master-plaque -z-0 transition-all duration-500 translate-x-4 translate-y-4 scale-95 ${index === activeIndex ? 'opacity-100 scale-100' : 'opacity-0'}`}></div>
+              <div className={`absolute top-0 w-full aspect-[3/4] master-plaque -z-0 transition-all duration-500 translate-x-4 translate-y-4 scale-95 ${index === activeIndex ? 'opacity-100 scale-100' : 'opacity-0'}`}></div>
 
-              <div className={`w-full max-w-sm aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 ${index === activeIndex ? '-translate-y-2' : ''} bg-transparent`}>
+              <div className={`w-full aspect-[3/4] rounded-[40px] overflow-hidden mb-6 relative transition-transform duration-500 z-10 ${index === activeIndex ? '-translate-y-2' : ''} bg-transparent`}>
                 <img
                   src={`${import.meta.env.BASE_URL}${master.silhouetteImage || (master.image?.startsWith('/') ? master.image.slice(1) : master.image)}`}
                   alt={master.name}
