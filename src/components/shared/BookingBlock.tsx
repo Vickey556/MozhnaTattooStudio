@@ -1,14 +1,12 @@
 import React from 'react';
-import { useBooking } from '../../context/BookingContext';
-import { Button } from '../ui/Button';
+
+const CRM_URL = 'https://crm.helpercrm.com/online-form-preview?id=j0wxZCyM';
 
 interface BookingBlockProps {
   serviceName: string;
 }
 
-export const BookingBlock: React.FC<BookingBlockProps> = ({ serviceName }) => {
-  const { openBooking } = useBooking();
-
+export const BookingBlock: React.FC<BookingBlockProps> = () => {
   return (
     <section className="pt-10 pb-40 px-4 mb-32 relative overflow-visible flex justify-center">
       <div className="w-full max-w-[1000px] text-center flex flex-col items-center relative z-10">
@@ -20,9 +18,14 @@ export const BookingBlock: React.FC<BookingBlockProps> = ({ serviceName }) => {
           <img src={`${import.meta.env.BASE_URL}booking.png`} alt="Studio" className="w-full h-full object-cover" />
         </div>
 
-        <Button onClick={() => openBooking({ service: serviceName })} className="mt-10">
+        <a
+          href={CRM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 px-10 py-4 bg-[#6F892E] text-[#122110] font-serif uppercase tracking-widest rounded-full hover:bg-white transition-colors inline-block"
+        >
           ЗАПИСАТИСЯ ОНЛАЙН
-        </Button>
+        </a>
       </div>
     </section>
   );

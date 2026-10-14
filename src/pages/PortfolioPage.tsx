@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 import { useArtists } from '../hooks/useArtists';
 import { usePortfolio } from '../hooks/usePortfolio';
-import { useBooking } from '../context/BookingContext';
-import { Button } from '../components/ui/Button';
+
+const CRM_URL = 'https://crm.helpercrm.com/online-form-preview?id=j0wxZCyM';
 
 export const PortfolioPage = () => {
-  const { openBooking } = useBooking();
   const { artists: masters, loading: loadingArtists } = useArtists();
   const { works, loading: loadingWorks } = usePortfolio();
   
@@ -58,9 +57,14 @@ export const PortfolioPage = () => {
       </div>
 
       <div className="mt-10 flex justify-center">
-        <Button onClick={() => openBooking()}>
+        <a
+          href={CRM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-8 py-4 bg-[#6F892E] text-[#122110] font-serif uppercase tracking-widest rounded-full hover:bg-white transition-colors"
+        >
           Записатися на сеанс
-        </Button>
+        </a>
       </div>
     </div>
   );

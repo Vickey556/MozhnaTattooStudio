@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useBooking } from '../../context/BookingContext';
+
+const CRM_URL = 'https://crm.helpercrm.com/online-form-preview?id=j0wxZCyM';
 
 export const HeroSection = () => {
-  const { openBooking } = useBooking();
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 px-4 text-center overflow-hidden -mt-[100px]">
       {/* Background Video */}
@@ -30,9 +29,14 @@ export const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 mb-24 items-center justify-center">
-          <button onClick={() => openBooking()} className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
+          <a
+            href={CRM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors"
+          >
             Записатися онлайн
-          </button>
+          </a>
           <Link to="/portfolio" className="hero-btn text-white font-serif tracking-widest text-sm uppercase px-8 py-4 rounded-full border border-white hover:bg-white hover:text-black transition-colors">
             Переглянути портфоліо
           </Link>

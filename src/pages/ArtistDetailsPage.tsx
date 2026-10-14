@@ -1,12 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
-import { useBooking } from '../context/BookingContext';
+
+const CRM_URL = 'https://crm.helpercrm.com/online-form-preview?id=j0wxZCyM';
 import { useArtists } from '../hooks/useArtists';
 import { usePortfolio } from '../hooks/usePortfolio';
 import { CoverflowGallery } from '../components/CoverflowGallery';
 
 export const ArtistDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
-  const { openBooking } = useBooking();
   const { getArtistById, loading: artistLoading } = useArtists();
   const { getWorksByArtist, loading: portfolioLoading } = usePortfolio();
 
@@ -89,12 +89,14 @@ export const ArtistDetailsPage = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() => openBooking({ artist: master.name })}
+          <a
+              href={CRM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-[#6F892E] text-[#122110] font-serif uppercase tracking-widest rounded-full hover:bg-white transition-colors text-center w-full sm:w-auto"
             >
               Записатися до майстра
-            </button>
+            </a>
           </div>
         </div>
       </section>

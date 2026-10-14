@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useFBX, Environment, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import { Button } from './ui/Button';
+
+const CRM_URL = 'https://crm.helpercrm.com/online-form-preview?id=j0wxZCyM';
 
 // Define the piercing types data
 const piercingTypesData = [
@@ -240,10 +241,10 @@ function CameraRig({ activeCam }: { activeCam: number[] }) {
 }
 
 interface PiercingViewerProps {
-  onBook: (data?: { subService?: string }) => void;
+  onBook?: (data?: { subService?: string }) => void;
 }
 
-export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
+export const PiercingViewer: React.FC<PiercingViewerProps> = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const activeType = piercingTypesData[selectedIndex];
 
@@ -304,12 +305,14 @@ export const PiercingViewer: React.FC<PiercingViewerProps> = ({ onBook }) => {
             {activeType.desc}
           </p>
 
-          <Button
-            onClick={() => onBook({ subService: activeType.name })}
-            className="mt-6 w-full py-4"
+          <a
+            href={CRM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 w-full py-4 px-8 bg-[#6F892E] text-[#122110] font-serif uppercase tracking-widest rounded-full hover:bg-white transition-colors text-center inline-block"
           >
             Записатися онлайн
-          </Button>
+          </a>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useBooking } from '../context/BookingContext';
+
+const CRM_URL = 'https://crm.helpercrm.com/online-form-preview?id=j0wxZCyM';
 
 export interface GalleryItem {
   id: string;
@@ -24,7 +25,6 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('Всі стилі');
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
-  const { openBooking } = useBooking();
 
   const filteredItems = activeCategory === 'Всі стилі'
     ? items
@@ -184,9 +184,9 @@ export const CoverflowGallery = ({ items, categories }: CoverflowGalleryProps) =
             <h4 className="text-[#EBEBDF] text-base md:text-xl tracking-widest uppercase mb-1">{currentItem.artist.name}</h4>
             <p className="text-[#EBEBDF]/70 text-[10px] md:text-xs tracking-wider uppercase">{currentItem.artist.description}</p>
           </div>
-          <button onClick={() => openBooking()} className="px-6 py-2 md:px-8 md:py-3 border border-white/50 text-[#EBEBDF] rounded-full uppercase tracking-widest text-[10px] md:text-sm hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors whitespace-nowrap">
+          <a href={CRM_URL} target="_blank" rel="noopener noreferrer" className="px-6 py-2 md:px-8 md:py-3 border border-white/50 text-[#EBEBDF] rounded-full uppercase tracking-widest text-[10px] md:text-sm hover:bg-[#EBEBDF] hover:text-[#122110] transition-colors whitespace-nowrap">
             Записатись
-          </button>
+          </a>
         </div>
       )}
 

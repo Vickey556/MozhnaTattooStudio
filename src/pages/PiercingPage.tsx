@@ -1,4 +1,4 @@
-import { useBooking } from '../context/BookingContext';
+import { usePortfolio } from '../hooks/usePortfolio';
 import { CustomReviews } from '../components/CustomReviews';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
@@ -6,12 +6,10 @@ import { PiercingViewer } from '../components/PiercingViewer';
 import { BookingBlock } from '../components/shared/BookingBlock';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Card, CardImage } from '../components/ui/Card';
-import { usePortfolio } from '../hooks/usePortfolio';
 
 const filters = ['Всі проколи', 'Вухо', 'Ніс', 'Губа', 'Мікродермали', 'Брова', 'Язик'];
 
 export const PiercingPage = () => {
-  const { openBooking } = useBooking();
   const { getPiercingWorks } = usePortfolio();
 
   const piercingWorks = getPiercingWorks();
@@ -23,7 +21,7 @@ export const PiercingPage = () => {
 
       {/* 3D Piercing Viewer Block */}
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32 pt-12">
-        <PiercingViewer onBook={(data) => openBooking(data ? { ...data, service: 'Пірсинг' } : { service: 'Пірсинг' })} />
+        <PiercingViewer />
       </section>
 
       {/* Portfolio Section */}
