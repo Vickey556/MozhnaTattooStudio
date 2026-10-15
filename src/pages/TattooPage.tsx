@@ -1,4 +1,3 @@
-
 import { CustomReviews } from '../components/CustomReviews';
 import { FAQItem } from '../components/FAQItem';
 import { CoverflowGallery } from '../components/CoverflowGallery';
@@ -11,31 +10,20 @@ const filters = ['Всі стилі', 'Графіка', 'Олдскул', 'Мі�
 
 export const TattooPage = () => {
   const { getTattooWorks } = usePortfolio();
-  
   const tattooWorks = getTattooWorks();
 
   return (
     <div className="pt-14 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
 
-      {/* Hero Section */}
-      <SectionHeading as="h1" align="center" className="mb-0 mt-2">ТАТУЮВАННЯ</SectionHeading>
-
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32">
-
         {/* Section heading */}
         <SectionHeading align="center" className="mb-4 text-[#6F892E] tracking-tighter">Вартість татуювання</SectionHeading>
         <p className="text-center font-serif text-sm md:text-base text-[#EBEBDF]/60 mb-10 max-w-xl mx-auto leading-relaxed">
           Точна вартість розраховується індивідуально та залежить від багатьох факторів
         </p>
 
-        {/* Two-column layout: cards left, photo right */}
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-
-          {/* LEFT: factors + cards */}
-          <div className="w-full lg:w-1/2">
-
-        {/* Factor icons */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-14">
+        {/* 1. Factor icons (Тепер по центру на всю ширину) */}
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-14 md:mb-20">
           {[
             {
               label: 'Розмір та\nскладність',
@@ -70,59 +58,65 @@ export const TattooPage = () => {
               )
             },
           ].map((f, i) => (
-            <div key={i} className="flex flex-col items-center gap-3 w-[80px] md:w-[100px]">
+            <div key={i} className="flex flex-col items-center gap-3 w-[80px] md:w-[120px]">
               <div className="text-[#6F892E]">{f.icon}</div>
               <p className="font-serif text-xs md:text-sm text-center text-[#EBEBDF]/70 uppercase tracking-widest leading-snug whitespace-pre-line">{f.label}</p>
             </div>
           ))}
         </div>
 
-            {/* Consultation card */}
-            <div className="space-y-4">
-          <Card variant="glass" hoverable={true}>
-            <CardContent>
-              <div className="flex justify-between items-center">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-[#EBEBDF]/50 mb-1">Консультація</p>
-                  <h3 className="text-2xl md:text-3xl uppercase tracking-widest text-[#EBEBDF]">Безкоштовно</h3>
-                  <p className="text-[#EBEBDF]/60 text-sm mt-2 font-light">Обговорення ідеї, розробка концепту та підбір місця</p>
+        {/* Two-column layout: cards left, photo right */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
+
+          {/* 2. LEFT: Cards (Тепер у вигляді сітки для пропорційності з фото) */}
+          <div className="w-full lg:w-1/2 flex flex-col gap-4">
+            
+            {/* Consultation card - на всю ширину колонки */}
+            <Card variant="glass" hoverable={true}>
+              <CardContent>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-[#EBEBDF]/50 mb-1">Консультація</p>
+                    <h3 className="text-2xl md:text-3xl uppercase tracking-widest text-[#EBEBDF]">Безкоштовно</h3>
+                    <p className="text-[#EBEBDF]/60 text-sm mt-2 font-light">Обговорення ідеї, розробка концепту та підбір місця</p>
+                  </div>
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6F892E" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 ml-4 hidden sm:block">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                  </svg>
                 </div>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6F892E" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 ml-4">
-                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-                </svg>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
 
-          {/* Size-based price cards */}
-          {[
-            { label: 'Татуювання', size: 'до 5 см', price: '1500 грн', priceLabel: 'мінімальна вартість', img: 'lightningtattoo.png' },
-            { label: 'Татуювання', size: 'до 10 см', price: '2000 – 3000 грн', priceLabel: '', img: 'flowertattoo.png' },
-            { label: 'Татуювання', size: 'до 20 см', price: '3000 – 5000 грн', priceLabel: '', img: 'dragontattoo.jpg' },
-            { label: 'Масштабні', size: 'проекти', price: '6000 грн за сеанс', priceLabel: '(7-8 годин роботи)', img: 'phoenixtattoo.png' },
-          ].map((card, i) => (
-            <div
-              key={i}
-              className="relative rounded-[20px] overflow-hidden border border-[#73934A]/20 hover:border-[#6F892E]/50 transition-colors group"
-              style={{ minHeight: '120px' }}
-            >
-              {/* Background image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-500"
-                style={{ backgroundImage: `url('${import.meta.env.BASE_URL}${card.img}')` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a1208]/95 via-[#0a1208]/80 to-transparent" />
+            {/* Size-based price cards - Сітка 2x2 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { label: 'Татуювання', size: 'до 5 см', price: '1500 грн', priceLabel: 'мінімальна вартість', img: 'lightningtattoo.png' },
+                { label: 'Татуювання', size: 'до 10 см', price: '2000 – 3000 грн', priceLabel: '', img: 'flowertattoo.png' },
+                { label: 'Татуювання', size: 'до 20 см', price: '3000 – 5000 грн', priceLabel: '', img: 'dragontattoo.jpg' },
+                { label: 'Масштабні', size: 'проекти', price: '6000 грн', priceLabel: 'за сеанс (7-8 годин)', img: 'phoenixtattoo.png' },
+              ].map((card, i) => (
+                <div
+                  key={i}
+                  className="relative rounded-[20px] overflow-hidden border border-[#73934A]/20 hover:border-[#6F892E]/50 transition-colors group flex flex-col justify-end p-5 min-h-[180px] sm:min-h-[220px]"
+                >
+                  {/* Background image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-500"
+                    style={{ backgroundImage: `url('${import.meta.env.BASE_URL}${card.img}')` }}
+                  />
+                  {/* Вертикальний градієнт для читабельності */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1208]/95 via-[#0a1208]/60 to-transparent" />
 
-              {/* Content */}
-              <div className="relative z-10 px-6 py-5 flex flex-col justify-center">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#EBEBDF]/50 mb-0.5">{card.label}</p>
-                <h3 className="text-3xl md:text-4xl uppercase tracking-tight text-[#EBEBDF] leading-none mb-3">{card.size}</h3>
-                <div className="w-12 h-[1px] bg-[#6F892E] mb-3" />
-                <p className="text-[#6F892E] text-xl md:text-2xl font-serif">{card.price}</p>
-                {card.priceLabel && <p className="text-[#EBEBDF]/50 text-xs tracking-widest mt-1">{card.priceLabel}</p>}
-              </div>
-            </div>
-          ))}
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col">
+                    <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#EBEBDF]/50 mb-1">{card.label}</p>
+                    <h3 className="text-2xl md:text-3xl uppercase tracking-tight text-[#EBEBDF] leading-none mb-3">{card.size}</h3>
+                    <div className="w-10 h-[1px] bg-[#6F892E] mb-3" />
+                    <p className="text-[#6F892E] text-lg md:text-xl font-serif leading-tight">{card.price}</p>
+                    {card.priceLabel && <p className="text-[#EBEBDF]/50 text-[10px] md:text-xs tracking-widest mt-1">{card.priceLabel}</p>}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -141,21 +135,16 @@ export const TattooPage = () => {
         </div>
       </section>
 
-
       {/* --- СПІЛЬНИЙ КОНТЕЙНЕР ДЛЯ ГАЛЕРЕЇ ТА МАЙСТРА З ФОНОМ --- */}
       <section
         className="relative w-full pt-12 pb-12 md:pb-24 bg-cover bg-center bg-fixed mb-12 md:mb-32 overflow-hidden before:absolute before:inset-0 before:bg-black/40"
         style={{ backgroundImage: `url('${import.meta.env.BASE_URL}gallery-bg.jpg')` }}
       >
         <div className="relative z-10 max-w-[100%] mx-auto">
-
           <SectionHeading align="center" className="mb-0 text-[#EBEBDF]">
             ПОРТФОЛІО
           </SectionHeading>
-
-          {/* 2. Галерея (фільтри та слайдер знаходяться всередині CoverflowGallery) */}
           <CoverflowGallery items={tattooWorks} categories={filters} />
-
         </div>
       </section>
 
@@ -194,8 +183,6 @@ export const TattooPage = () => {
       </section>
 
       <CustomReviews type="tattoo" />
-
-      {/* Booking Block */}
       <BookingBlock serviceName="Татуювання" />
     </div>
   );
