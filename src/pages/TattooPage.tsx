@@ -128,7 +128,7 @@ export const TattooPage = () => {
 
           {/* ПРАВА ЧАСТИНА: Фотографія */}
           <div className="hidden lg:flex lg:w-1/2 sticky top-28 self-start">
-            <div className="w-full aspect-[3/4] rounded-[32px] overflow-hidden relative">
+            <div className="w-full aspect-[3/3] rounded-[32px] overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1208]/60 via-transparent to-transparent z-10" />
               <img
                 src={`${import.meta.env.BASE_URL}phoenixtattoo.png`}
