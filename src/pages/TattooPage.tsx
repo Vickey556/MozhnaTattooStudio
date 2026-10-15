@@ -18,7 +18,7 @@ export const TattooPage = () => {
     <div className="pt-14 pb-0 px-0 min-h-screen font-serif text-[#F0F4E8]">
 
       {/* Hero Section */}
-      <SectionHeading as="h1" align="center" className="mb-0 mt-8">ТАТУЮВАННЯ</SectionHeading>
+      <SectionHeading as="h1" align="center" className="mb-0 mt-2">ТАТУЮВАННЯ</SectionHeading>
 
       <section className="px-4 md:px-12 lg:px-24 max-w-[1400px] mx-auto mb-12 md:mb-32">
 
@@ -27,6 +27,12 @@ export const TattooPage = () => {
         <p className="text-center font-serif text-sm md:text-base text-[#EBEBDF]/60 mb-10 max-w-xl mx-auto leading-relaxed">
           Точна вартість розраховується індивідуально та залежить від багатьох факторів
         </p>
+
+        {/* Two-column layout: cards left, photo right */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+
+          {/* LEFT: factors + cards */}
+          <div className="w-full lg:w-1/2">
 
         {/* Factor icons */}
         <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-14">
@@ -71,8 +77,8 @@ export const TattooPage = () => {
           ))}
         </div>
 
-        {/* Consultation card */}
-        <div className="max-w-3xl mx-auto space-y-4">
+            {/* Consultation card */}
+            <div className="space-y-4">
           <Card variant="glass" hoverable={true}>
             <CardContent>
               <div className="flex justify-between items-center">
@@ -117,6 +123,21 @@ export const TattooPage = () => {
               </div>
             </div>
           ))}
+            </div>
+          </div>
+
+          {/* RIGHT: tattoo photo */}
+          <div className="hidden lg:flex lg:w-1/2 sticky top-28 self-start">
+            <div className="w-full aspect-[3/4] rounded-[32px] overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1208]/60 via-transparent to-transparent z-10" />
+              <img
+                src={`${import.meta.env.BASE_URL}phoenixtattoo.png`}
+                alt="Татуювання"
+                className="w-full h-full object-cover mix-blend-lighten opacity-90"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
