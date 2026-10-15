@@ -142,6 +142,51 @@ export const CustomReviews = ({ type }: { type?: 'tattoo' | 'piercing' }) => {
           </Card>
         ))}
       </div>
+      {/* Platform Badges */}
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+        {/* Barb.ua badge */}
+        <a
+          href="https://barb.ua/uk/cherkassy/salon/mozhnatattoo"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-opacity hover:opacity-80"
+        >
+          <img
+            src="https://barb.ua/p/284484-light-r-wd.svg"
+            alt="Рейтинг на Barb.ua"
+            width="220"
+            height="52"
+            referrerPolicy="unsafe-url"
+            className="h-[52px] w-auto"
+          />
+        </a>
+
+        {/* Google badge */}
+        <a
+          href="https://www.google.com/maps/place/%D0%9C%D0%9E%D0%96%D0%9D%D0%90+%D0%A2%D0%90%D0%A2%D0%A3/@49.4448986,32.058796,17z/data=!4m8!3m7!1s0x40d14b004e80a5bf:0x95063f2eb8226ca5!8m2!3d49.4448986!4d32.058796!9m1!1b1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3 hover:bg-white/10 transition-colors"
+        >
+          {/* Google G logo */}
+          <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1">
+              {[1,2,3,4,5].map(i => (
+                <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <span className="font-serif text-xs text-[#EBEBDF]/60 tracking-wider">Відгуки на Google</span>
+          </div>
+        </a>
+      </div>
     </section>
   );
 };
